@@ -8,7 +8,7 @@ This training is intended for users of Oracle SQL Developer who query databases 
   Overview of the course goals, reference materials, and expectations.
 2. [Course Setup](Course_Setup.md)  
   Instructions for setting up Oracle SQL Developer and connecting to the sample database.
-3. [SQL Developer Introduction](SQL_Developer_Introdcution.md)
+3. [SQL Developer Introduction](SQL_Developer_Introduction.md)
   Introduction to Oracle SQL Developer, including how to use the SQL Worksheet and export data.
 4. [Single Table Review](Single_Table_Review.md)  
   Practice working with data from a single table using `SELECT`, filtering, and sorting.
