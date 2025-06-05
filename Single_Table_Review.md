@@ -1,7 +1,8 @@
 # Working with Single Tables
 
 ## Module Introduction
-By now, you should be generally familiar with basic SQL. You should not intimidated by the contents of an introductory course, like LinkedIn Learning's *Quickstart Guide to SQL*. In particular, you should be moderately comfortable with writing single-table queries. 
+
+Before proceeding with the rest of the course, it is our hope that you have at least a passing familiarity with basic SQL. In particular, you should be moderately comfortable with writing single-table queries.
 
 > If you need a more detailed introduction to SQL, see @maddala22 for a refresher.
 
@@ -12,6 +13,8 @@ This module will serve as a review of foundational ideas from introductory cours
 - Using built-in functions
 
 You don't need to be an expert in any of these to proceed. Simply having seen them before, and being willing to review, will be sufficient.
+
+**Reference**: *Oracle SQL by Example (4th Edition)*, Chapter 2
 
 ## Explanation
 
@@ -44,10 +47,10 @@ Clauses must appear in a specific order within a SQL statement. For instance, a 
 SQL queries are **case, newline, and white-space insensitive**. The following three queries yield identical results:
 
 ```sql
--- Query 1 --
 select column1, column2 from table_name where condition;
- 
--- Query 2 --
+```
+
+```sql
 SELECT
   COLUMN1,
   COLUMN2
@@ -55,8 +58,9 @@ FROM
   TABLE_NAME
 WHERE
   CONDITION;
- 
--- Query 3 --
+```
+
+```sql
 SELECT column1,
        column2
   FROM table_name
@@ -73,9 +77,11 @@ We recommend the following style:
 > - SQL Developer can do this for you automatically. Press `CTRL+F7` to automatically format your code.
 > - You can change your preferences by adjusting your formatting rules. Go to `Tools > Preferences > Code Editor > Format` and set things exactly how you want them.
 
-### Basic `SELECT` Statements
+**Reference**: *Oracle SQL by Example (4th Edition), Appendix B: SQL Formatting Guide*
 
-The `SELECT` keyword indicates to SQL that you are interested querying data. The basic syntax is:
+### Basic SELECT Statements
+
+The `SELECT` keyword indicates to SQL that you are interested in querying data. The basic syntax is:
 
 ```sql
 SELECT column1, column2, ...
@@ -96,6 +102,8 @@ SELECT course_no,
   FROM course;
 ```
 
+This query retrieves the course number, description, and any prerequisite courses for all courses in the system.
+
 Executing this query will return the data below (only the first 5 rows are shown):
 
 |COURSE_NO|DESCRIPTION                 |PREREQUISITE|
@@ -108,11 +116,18 @@ Executing this query will return the data below (only the first 5 rows are shown
 
 You can also use `SELECT *` to retrieve all columns.
 
+```sql
+SELECT *
+FROM course;
+```
+
+This query returns all columns from the course table.
+
 > This is less efficient than specifying each column, so it should not be used if you are building applications. However, it is fine to use this for ad-hoc querying.
 
 ### Filtering, Sorting, and Aliasing
 
-#### Filtering with `WHERE`
+#### Filtering with WHERE
 
 The `WHERE` clause filters your query results based on specified conditions.
 
@@ -138,8 +153,10 @@ SELECT course_no,
        description,
        prerequisite
   FROM course
- WHERE course_no BETWEEN 100 AND 140
+ WHERE course_no BETWEEN 100 AND 140;
 ```
+
+This query filters courses to show only those with course numbers between 100 and 140, inclusive.
 
 |COURSE_NO|DESCRIPTION                 |PREREQUISITE|
 |---------|----------------------------|------------|
@@ -152,7 +169,6 @@ SELECT course_no,
 |132      |Basics of Unix Admin        |130         |
 |134      |Advanced Unix Admin         |132         |
 |135      |Unix Tips and Techniques    |134         |
-
 
 #### Sorting with ORDER BY
 
@@ -180,6 +196,8 @@ SELECT course_no,
  ORDER BY description ASC;
 ```
 
+This query sorts the filtered courses by their description in alphabetical order.
+
 |COURSE_NO|DESCRIPTION                 |PREREQUISITE|
 |---------|----------------------------|------------|
 |124      |Advanced Java Programming   |122         |
@@ -205,7 +223,6 @@ FROM table_name;
 > The `AS` keyword is technically optional. We recommend you include it for clarity.
 
 ```sql
--- Simple column alias
 SELECT course_no AS "Course Number",
        description AS "Description",
        prerequisite AS "Prerequisites"
@@ -213,6 +230,8 @@ SELECT course_no AS "Course Number",
  WHERE course_no BETWEEN 100 AND 130
  ORDER BY description ASC;
 ```
+
+This query creates more readable column headers using aliases.
 
 |Course Number|Description                 |Prerequisites|
 |-------------|----------------------------|-------------|
@@ -231,8 +250,7 @@ FROM table1 AS a, table2 AS b
 WHERE a.common_field = b.common_field;
 ```
 
-- The query below will fetch the same data as the previous query, but the table has been renamed to `course_list`.
-- Each column now belongs to a named table, which makes your query less ambiguous.
+The query below will fetch the same data as the previous query, but the table has been renamed to `course_list`.
 
 ```sql
 SELECT course_list.course_no AS "Course Number",
@@ -242,6 +260,8 @@ SELECT course_list.course_no AS "Course Number",
  WHERE course_no BETWEEN 100 AND 130
  ORDER BY description ASC;
 ```
+
+This query demonstrates table aliasing for clarity, even though it's not necessary with a single table.
 
 ### Built-In Functions
 
@@ -268,7 +288,6 @@ String functions make it easy to manipulate textual data. Here are some common u
 | `TRIM([chars FROM] str)` | Removes specified characters | `TRIM(' hello ')` | 'hello' |
 | `LPAD(str, length, [pad_str])` | Left-pad string | `LPAD('123', 5, '0')` | '00123' |
 | `RPAD(str, length, [pad_str])` | Right-pad string | `RPAD('ABC', 5, 'XY')` | 'ABCXY' |
-: String Functions {.sm .responsive .striped}
 
 #### Numeric Functions
 
@@ -284,7 +303,6 @@ Numeric functions make it easy to manipulate numerical data. Here are some commo
 | `ABS(n)` | Returns absolute value | `ABS(-15)` | 15 |
 | `POWER(n, m)` | Returns n raised to the power of m | `POWER(3, 2)` | 9 |
 | `SQRT(n)` | Returns square root | `SQRT(25)` | 5 |
-: Numeric Functions {.sm .responsive .striped}
 
 #### Conversion Functions
 
@@ -298,9 +316,9 @@ Conversion functions make it easy to transform data into different types. Here a
 | `NVL(expr1, expr2)` | Returns expr2 if expr1 is NULL | `NVL(NULL, 0)` | 0 |
 | `NVL2(expr1, expr2, expr3)` | Returns expr2 if expr1 is NOT NULL, else expr3 | `NVL2(NULL, 'A', 'B')` | 'B' |
 | `COALESCE(expr1, expr2, ...)` | Returns first non-NULL expression | `COALESCE(NULL, NULL, 'A', 'B')` | 'A' |
-: Conversion Functions {.sm .responsive .striped}
 
 ## Exercises
+
 ### Simple problems
 
 1. Write a SELECT statement that lists the first and last names of all students.
@@ -315,69 +333,7 @@ Conversion functions make it easy to transform data into different types. Here a
 
 2. Write a SELECT statement that returns a student's ID, and their name in the format of "Last, First" for each student. Alias the name column to `Full Name`. Sort the results by their *first* name.
 
-## Discussion
-### Guided Solutions
-#### Simple problems
-
-1. Write a SELECT statement that lists the first and last names of all students.
-
-   ```sql
-   SELECT first_name,
-          last_name
-     FROM student;
-   ```
-
-2. Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.
-
-   ```sql
-   SELECT city,
-          state,
-          zip
-     FROM zipcode
-    ORDER BY state;
-   ```
-
-3. Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.
-
-   ```sql
-   SELECT city,
-          zip
-     FROM zipcode
-    WHERE state = 'NY'
-       OR state = 'CT'
-    ORDER BY zip;
-   ```
-
-#### Complex problems
-
-1. Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.
-
-   ```sql
-   SELECT first_name,
-          last_name
-     FROM instructor
-    WHERE last_name LIKE '%i%'
-       OR last_name LIKE '%I%'
-      AND zip = '10025';
-   ```
-
-2. Write a SELECT statement that returns a student's ID, and their name in the format of "Last, First" for each student. Alias the name column to `Full Name`. Sort the results by their *first* name.
-
-   ```sql
-   -- Solution 1 --
-   SELECT student_id,
-          concat(concat(last_name, ', '), first_name) AS "Full Name"
-     FROM student
-    ORDER BY first_name;
-   
-   -- Solution 2 --
-   SELECT student_id,
-          last_name || ', ' || first_name AS "Full Name"
-     FROM student
-    ORDER BY first_name;
-   ```
-
-### Q&A Session
+## Q&A
 
 Some food for thought:
 
@@ -390,5 +346,69 @@ Some food for thought:
 For more details, see the resources below.
 
 ### Further Reading
-  - Quickstart Guide to SQL [@maddala22]
-  - Oracle SQL by Example [@rischert09, Ch. 2-4]
+- Quickstart Guide to SQL [@maddala22]
+- Oracle SQL by Example [@rischert09, Ch. 2-4]
+
+## Answers
+
+### Simple problems
+
+1. Write a SELECT statement that lists the first and last names of all students.
+
+```sql
+SELECT first_name,
+       last_name
+  FROM student;
+```
+
+2. Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.
+
+```sql
+SELECT city,
+       state,
+       zip
+  FROM zipcode
+ ORDER BY state;
+```
+
+3. Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.
+
+```sql
+SELECT city,
+       zip
+  FROM zipcode
+ WHERE state = 'NY'
+    OR state = 'CT'
+ ORDER BY zip;
+```
+
+### Complex problems
+
+1. Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.
+
+```sql
+SELECT first_name,
+       last_name
+  FROM instructor
+ WHERE last_name LIKE '%i%'
+    OR last_name LIKE '%I%'
+   AND zip = '10025';
+```
+
+2. Write a SELECT statement that returns a student's ID, and their name in the format of "Last, First" for each student. Alias the name column to `Full Name`. Sort the results by their *first* name.
+
+```sql
+SELECT student_id,
+       CONCAT(CONCAT(last_name, ', '), first_name) AS "Full Name"
+  FROM student
+ ORDER BY first_name;
+```
+
+Alternative solution using concatenation operator:
+
+```sql
+SELECT student_id,
+       last_name || ', ' || first_name AS "Full Name"
+  FROM student
+ ORDER BY first_name;
+```

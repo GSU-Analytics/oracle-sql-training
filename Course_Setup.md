@@ -1,18 +1,13 @@
 # Course Setup
 
-## Table of Contents
-
-* [Install SQL Developer](#install-sql-developer)
-* [Connect to the Oracle Database](#connect-to-the-oracle-database)
-* [View the STUDENT Schema Tables](#view-the-student-schema-tables)
-* [STUDENT Schema Outline](#student-schema-outline)
-
 ## Install SQL Developer
 
 To begin, you must install Oracle SQL Developer:
 
 1. Download the latest version from the official Oracle site:
    [SQL Developer Downloads](https://www.oracle.com/tools/downloads/sqldev-downloads.html)
+
+   - If you are at GSU, you should download SQL Developer from the Software Center.
 
 2. Follow installation instructions for your operating system.
 
@@ -32,8 +27,8 @@ Use the following steps to connect to the course Oracle database instance:
 
    | Field        | Value                                       |
    | ------------ | ------------------------------------------- |
-   | Name         | `STDNT-ST02` (or any descriptive name)      |
-   | Username     | `student03`                                 |
+   | Name         | `STDNT-ST0X` (or any descriptive name)      |
+   | Username     | `student0X`                                 |
    | Password     | *your password* (check "Save Password")     |
    | Role         | `default`                                   |
    | Hostname     | `ec2-54-91-230-172.compute-1.amazonaws.com` |
