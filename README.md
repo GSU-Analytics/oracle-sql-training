@@ -26,7 +26,7 @@ This training is intended for users of Oracle SQL Developer who query databases 
   Using subqueries to filter, aggregate, and manipulate data within queries.
 11. [Query Readability and Optimization](Readability_and_Optimization.md)
   Best practices for writing readable and efficient SQL queries, including formatting and optimization tips.
-12. [Refactoring Queries with CTEs](Refactoring_with_CTEs.md)
+12. [Refactoring Queries with CTEs](Refactoring_With_CTEs.md)
   How to simplify complex queries using common table expressions for better readability and maintainability.
 13. [Analytical Functions](Analytical_Functions.md)
   Advanced SQL features like window functions, paired with common table expressions for analytical reporting.
