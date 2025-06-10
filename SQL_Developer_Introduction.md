@@ -60,6 +60,16 @@ Each worksheet tab is tied to a specific database connection. You can:
 
 ![execute_sql](./img/execute_statement.jpg)
 
+#### Vertical and Horizontal Splits
+
+You can split your SQL Worksheet or query result tabs either **horizontally** (top/bottom) or **vertically** (side-by-side). This is especially helpful when:
+
+* Editing different parts of a large script
+* Comparing two separate queries
+* Viewing query results in one pane while editing SQL in another
+
+![split_display](./img/split_display.jpg)
+
 #### Results Grid
 
 The grid displays query results, which can be:
@@ -98,18 +108,6 @@ Be cautious when exporting large datasets, as they can lead to performance issue
 
 * **Filtering**: Use WHERE or FETCH FIRST N ROWS ONLY statements or the Columns/Where export tabs to reduce volume.
 
-#### Splitting the Display Vertically and Horizontally
 
-When working with long or complex queries—or examining multiple result sets at once—it’s useful to split the SQL Developer interface to compare different parts of your script or results side by side.
-
-#### Vertical and Horizontal Splits
-
-You can split your SQL Worksheet or query result tabs either **horizontally** (top/bottom) or **vertically** (side-by-side). This is especially helpful when:
-
-* Editing different parts of a large script
-* Comparing two separate queries
-* Viewing query results in one pane while editing SQL in another
-
-![split_display](./img/split_display.jpg)
 
 
