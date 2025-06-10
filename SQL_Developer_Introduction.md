@@ -21,6 +21,8 @@ SQL Developer (the client) allows you to send queries and commands to the Oracle
 
 ### Key Application Concepts
 
+Here, we will quickly discuss the main components which comprise SQL Developer.
+
 #### Navigation Panes
 
 * **Connections Navigator**: Manage database connections.
@@ -72,7 +74,7 @@ The grid displays query results, which can be:
 
 SQL Developer supports data exports from both the **Data tab** and the **Results grid**.
 
-### Steps to Export
+### Steps For Data Export
 
 1. Right-click on any data grid and choose **Export**.
 2. Alternatively, use **Actions > Export** from the menu.

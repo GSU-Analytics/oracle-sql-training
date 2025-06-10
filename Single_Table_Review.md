@@ -18,9 +18,7 @@ You don't need to be an expert in any of these to proceed. Simply having seen th
 
 ## Explanation
 
-### Writing SQL
-
-#### SQL Clauses
+### An Introduction to SQL Clauses
 
 A SQL clause is a specific component of a SQL statement that performs a particular function within the query. Clauses are the building blocks that make up complete SQL statements and help define what data you want to retrieve, modify, or manipulate.
 
@@ -41,43 +39,6 @@ There are three clauses:
 3. `WHERE` clause - Filters records based on conditions
 
 Clauses must appear in a specific order within a SQL statement. For instance, a `WHERE` clause must come after a `FROM` clause, but before a `GROUP BY` clause in a `SELECT` statement.
-
-#### Optional: Code Style
-
-SQL queries are **case, newline, and white-space insensitive**. The following three queries yield identical results:
-
-```sql
-select column1, column2 from table_name where condition;
-```
-
-```sql
-SELECT
-  COLUMN1,
-  COLUMN2
-FROM
-  TABLE_NAME
-WHERE
-  CONDITION;
-```
-
-```sql
-SELECT column1,
-       column2
-  FROM table_name
- WHERE condition;
-```
-
-We recommend the following style:
- 
-- Use good capitalization (Query 3)
-  - Capitalize keywords
-  - Leave variables, like columns and tables, lowercase
-- Use newlines to separate clauses (Query 2 or 3)
-
-> - SQL Developer can do this for you automatically. Press `CTRL+F7` to automatically format your code.
-> - You can change your preferences by adjusting your formatting rules. Go to `Tools > Preferences > Code Editor > Format` and set things exactly how you want them.
-
-**Reference**: *Oracle SQL by Example (4th Edition), Appendix B: SQL Formatting Guide*
 
 ### Basic SELECT Statements
 
@@ -316,6 +277,19 @@ Conversion functions make it easy to transform data into different types. Here a
 | `NVL(expr1, expr2)` | Returns expr2 if expr1 is NULL | `NVL(NULL, 0)` | 0 |
 | `NVL2(expr1, expr2, expr3)` | Returns expr2 if expr1 is NOT NULL, else expr3 | `NVL2(NULL, 'A', 'B')` | 'B' |
 | `COALESCE(expr1, expr2, ...)` | Returns first non-NULL expression | `COALESCE(NULL, NULL, 'A', 'B')` | 'A' |
+
+### Missing Values
+
+In Oracle SQL, an empty value in the table is called a `NULL` value. It means that there is no information for that record.
+
+Some programming languages treat certain values like `NULL` values. For example, a value of 0 is treated like it's false in languages like Python and JavaScript. The table below shows how 0's and empty strings differ from `NULL` values.
+
+| **Aspect**       | **Null Values**                          | **0 (Zero)**                          | **Empty Strings**                     |
+|------------------|------------------------------------------|---------------------------------------|---------------------------------------|
+| **Meaning**      | Absence of a value or unknown data       | Numeric value of zero                 | Treated as null                       |
+| **Behavior**     | Not equal to anything, including other nulls | Treated as a number, used in arithmetic operations | Stored as null                        |
+| **Usage**        | Used when the actual value is not known or not applicable | Used to represent a numeric value that is explicitly zero | Used when no data is provided         |
+
 
 ## Exercises
 

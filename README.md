@@ -1,6 +1,6 @@
 # Oracle SQL Training: Intermediate to Advanced Reporting
 
-This training is intended for users of Oracle SQL Developer who query databases for analytical reporting. The lessons are taken from focus [Oracle SQL by Example 4th Edition](https://www.oreilly.com/library/view/oracle-sql-by/9780137047345/) and focus on on writing efficient, professional-grade SQL for multi-table reporting and advanced data manipulation. 
+This training is intended for users of Oracle SQL Developer who query databases for analytical reporting. The lessons are taken from [Oracle SQL by Example 4th Edition](https://www.oreilly.com/library/view/oracle-sql-by/9780137047345/) and focus on writing efficient, professional-grade SQL for multi-table reporting and advanced data manipulation. 
 
 ## Table of Contents
 
@@ -24,17 +24,18 @@ This training is intended for users of Oracle SQL Developer who query databases 
   Techniques for complex joins, including self-joins and cross joins.
 10. [Subqueries](Subqueries.md)
   Using subqueries to filter, aggregate, and manipulate data within queries.
-11. [Analytical Functions and CTEs](Analytical_Functions_and_CTEs.md)
-  Advanced SQL features like window functions and common table expressions for analytical reporting.
-12. [Refactoring Queries with CTEs](Refactoring_With_CTEs.md)
-  How to simplify complex queries using common table expressions for better readability and maintainability.
-13. [Query Readability and Optimization](Readability_and_Optimization.md)
+11. [Query Readability and Optimization](Readability_and_Optimization.md)
   Best practices for writing readable and efficient SQL queries, including formatting and optimization tips.
+12. [Refactoring Queries with CTEs](Refactoring_with_CTEs.md)
+  How to simplify complex queries using common table expressions for better readability and maintainability.
+13. [Analytical Functions](Analytical_Functions.md)
+  Advanced SQL features like window functions, paired with common table expressions for analytical reporting.
+
+## Additional Content for Consideration
 14. [Date and Time Logic](Date_and_Time_Logic.md)
   Using date and time functions to manipulate and analyze temporal data in Oracle SQL.
 15. [Custom Functions](Custom_Functions.md)
   Creating and using custom functions to encapsulate complex logic and improve query modularity.
 
-
-
-
+## Free Resources
+As mentioned earlier, the majority of this content is derived from [Oracle SQL by Example 4th Edition](https://www.oreilly.com/library/view/oracle-sql-by/9780137047345/). This content is **free and available online for individuals with GSU credentials.** Simply sign in to O'Reilly's website via SSO and consult the book for additional instructional content.

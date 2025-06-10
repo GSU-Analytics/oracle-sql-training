@@ -53,6 +53,14 @@ This design eliminates redundancy and improves data consistency—if Atlanta is 
 
 Reference: Lab 1.2
 
+### Visualizing Table Joins
+
+All joins consist of linking sets of rows to each other. The *type* of join determines which rows we are interested in keeping in our output.
+
+We are going to discuss each of these in greater detail. However, feel free to return to this visual reference to aid your understanding of the different ways in which you can join tables together.
+
+![table-joins](./img/join_tables.png)
+
 ### Inner Joins and Equijoins
 
 An **inner join** returns only the rows with matching values in both joined tables.

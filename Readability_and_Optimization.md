@@ -6,14 +6,43 @@ This module covers how to write readable, maintainable, and performant SQL code.
 
 ## Explanation
 
-### Query Format Guidelines
+### Code Style
 
-Use consistent, readable formatting:
+SQL queries are **case, newline, and white-space insensitive**. The following three queries yield identical results:
 
-* Uppercase for SQL keywords (`SELECT`, `FROM`, `WHERE`)
-* Indentation for logical blocks
-* Aliases to clarify table sources
-* Place each clause on a new line
+```sql
+select column1, column2 from table_name where condition;
+```
+
+```sql
+SELECT
+  COLUMN1,
+  COLUMN2
+FROM
+  TABLE_NAME
+WHERE
+  CONDITION;
+```
+
+```sql
+SELECT column1,
+       column2
+  FROM table_name
+ WHERE condition;
+```
+
+We recommend the following style:
+ 
+- Use good capitalization (Query 3)
+  - Capitalize keywords
+  - Leave variables, like columns and tables, lowercase
+- Use newlines to separate clauses (Query 2 or 3)
+- Indent logical blocks
+- Aliases to clarify table sources
+- Place each clause on a new line
+
+> - SQL Developer can do this for you automatically. Press `CTRL+F7` to automatically format your code.
+> - You can change your preferences by adjusting your formatting rules. Go to `Tools > Preferences > Code Editor > Format` and set things exactly how you want them.
 
 **Example:**
 
@@ -31,7 +60,7 @@ This query demonstrates proper formatting with clear aliases, indentation, and l
 >
 > Sometimes, it is. However, code readability matters when you have to verify whether your logic is correct (a common requirement when writing more complicated queries). You will save yourself time by making your query easier to read, because you will be able to read it more easily and make changes based on what you think should be modified.
 
-**Reference**: Appendix B
+**Reference**: *Oracle SQL by Example (4th Edition), Appendix B: SQL Formatting Guide*
 
 ### Documenting Queries
 

@@ -6,6 +6,46 @@ This module explores how to use Common Table Expressions (CTEs) in Oracle SQL to
 
 ## Explanation
 
+### Common Table Expressions (CTEs)
+
+CTEs allow you to define temporary result sets for use within a larger query, often improving readability.
+
+```sql
+WITH high_scores AS (
+  SELECT student_id, section_id, numeric_grade
+  FROM grade
+  WHERE numeric_grade >= 90
+)
+SELECT hs.student_id, s.last_name, hs.numeric_grade
+FROM high_scores hs
+JOIN student s ON hs.student_id = s.student_id;
+```
+
+This query first identifies high-scoring grades, then joins with student information for a readable result.
+
+You can also chain multiple CTEs:
+
+```sql
+WITH base AS (
+  SELECT * FROM enrollment
+),
+grouped AS (
+  SELECT section_id, COUNT(*) AS total_enrollments
+  FROM base
+  GROUP BY section_id
+)
+SELECT * FROM grouped WHERE total_enrollments > 5;
+```
+
+This query demonstrates chaining CTEs to break down complex logic into manageable steps.
+
+> N.B. We highly encourage using CTEs whenever you need to write queries with more than a couple of steps.
+> - Treat each CTE as a self-contained transformation of your data.
+> - This makes debugging much easier; you will have created several checkpoints for yourself, which makes it easier for you to check your logic.
+> - See the chapter on refactoring queries with CTEs for more advice on this topic.
+
+**Reference**: Lab 17.1
+
 ### Using CTEs to Improve Readability
 
 CTEs separate complex logic into named blocks that read like building steps. This is helpful when working with long queries, nested subqueries, or aggregations.

@@ -38,10 +38,10 @@ Whether pulling data for institutional research, operational reporting, or ad ho
 
 ### What You Will Learn
 
-We will focus our discussion on learning how to **query data** using SQL. You will learn to use **Data Manipulation Language (DML)** commands to do this. The main command you will learn to work with is the `SELECT` statement, as this is the command you use in SQL to retrieve data from one or more tables. Here's an example:
+We will focus on learning how to query data for analytical reporting using SQL. You'll use Data Manipulation Language (DML) commands to do this — specifically the SELECT statement, which retrieves data from one or more tables. Here's an example:
 
 ```sql
-SELECT first_name, last_name FROM employees;
+SELECT first_name, last_name FROM student;
 ```
 
 Oracle SQL supports a rich set of features such as analytic functions, advanced date handling, and performance tuning tools that make it a powerful choice for querying large, complex datasets. By the end of this course, you should be well-versed in writing these kinds of commands.
@@ -73,6 +73,7 @@ All of this can be accomplished with SQL. However, we can generally treat these 
 | **DDL** (Data Definition Language) | Define and modify the structure of database objects | `CREATE`, `ALTER`, `DROP` | `CREATE TABLE employees (employee_id INT PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50), hire_date DATE);` |
 | **DCL** (Data Control Language) | Control access to data within the database | `GRANT`, `REVOKE` | `GRANT SELECT, INSERT ON employees TO user_name;` |
 
+These topics fall outside the scope of this course, which is predominantly focused on querying data and generating reports. However, the primary textbook for this course, [Oracle SQL by Example, 4th Edition](https://learning.oreilly.com/library/view/oracle-sql-by/9780137047345/), contains additional information for those of you who wish to explore these topics.
 
 ## Module Structure
 

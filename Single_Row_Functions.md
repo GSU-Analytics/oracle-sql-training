@@ -21,16 +21,6 @@ SELECT student_id,
 FROM student;
 ```
 
-|STUDENT_ID|UPPER_NAME|NAME_LENGTH|
-|----------|----------|-----------|
-|360       |CALVIN    |6          |
-|361       |RAWAN     |9          |
-|362       |YU        |7          |
-|363       |BRIDGET   |5          |
-|364       |HOWARD    |6          |
-|365       |KATHLEEN  |10         |
-|...       |...  |...         |
-
 This query demonstrates converting names to uppercase and calculating the length of last names.
 
 Common functions: `UPPER`, `LOWER`, `INITCAP`, `SUBSTR`, `INSTR`, `TRIM`, `LPAD`, `RPAD`, `LENGTH`
@@ -49,14 +39,6 @@ SELECT course_no,
 FROM course;
 ```
 
-|COURSE_NO|ROUNDED_COST|
-|---------|------------|
-|10       |1200        |
-|20       |1200        |
-|25       |1200        |
-|80       |1600        |
-|...       |...        |
-
 This query rounds course costs to the nearest hundred dollars.
 
 Common functions: `ROUND`, `TRUNC`, `MOD`, `FLOOR`, `CEIL`, `ABS`, `SIGN`, `POWER`, `SQRT`, `EXP`, `LOG`
@@ -74,17 +56,44 @@ SELECT TO_CHAR(registration_date, 'YYYY-MM-DD') AS reg_date_str
 FROM student;
 ```
 
-|REG_DATE_STR|
-|------------|
-|2007-02-21  |
-|2007-02-21  |
-|2007-02-21  |
-|2007-02-21  |
-|...|
-
 This query converts registration dates to a standardized string format.
 
 Common functions: `TO_CHAR`, `TO_DATE`, `CAST`, `TO_NUMBER`
+
+### Oracle's Automatic Data Conversion
+
+Oracle automatically converts between data types when comparing different types in WHERE clauses. 
+
+**Example:**
+
+The `ZIP` column in the `ZIPCODE` table is stored as `VARCHAR2(5)`, but you can search using numeric values:
+
+```sql
+-- This works even though ZIP is stored as text
+SELECT zip, city
+FROM zipcode
+WHERE zip = 10025;
+```
+
+Oracle automatically converts the numeric literal `10025` to `'10025'` to match the VARCHAR2 column.
+
+**Performance Note:** Avoid applying conversion functions to columns in WHERE clauses as this can disable index usage:
+
+```sql
+-- Avoid: can disable indexes
+SELECT zip, city
+FROM zipcode
+WHERE TO_NUMBER(zip) = 10025
+```
+
+```sql
+-- Prefer: maintains performance
+SELECT zip, city
+FROM zipcode
+WHERE zip = TO_CHAR(10025)
+```
+
+**Readability Note:** While automatic conversion is convenient, explicit conversion functions like `TO_CHAR()` and `TO_NUMBER()` can make queries clearer and more predictable.
 
 ### Null Handling
 
@@ -97,17 +106,6 @@ SELECT NVL(phone,'No phone') AS contact_number
   FROM student
  ORDER BY student_id;
 ```
-
-|CONTACT_NUMBER|
-|--------------|
-|... |
-|201-555-5555  |
-|718-555-5555  |
-|617-555-5555  |
-|718-555-5555  |
-|718-555-5555  |
-|No phone      |
-|... |
 
 This query replaces NULL phone numbers with a default message.
 
@@ -128,19 +126,6 @@ SELECT student_id,
        END AS region
 FROM student;
 ```
-
-|STUDENT_ID|ZIP  |REGION   |
-|----------|-----|---------|
-|396       |01247|Downtown |
-|...       |...|... |
-|223       |10025|Downtown |
-|145       |10048|Other    |
-|...       |...|... |
-|266       |11215|Other    |
-|321       |11216|Northside|
-|...       |...|... |
-|238       |48104|Northside|
-
 
 This query assigns region names based on ZIP codes using CASE logic.
 
@@ -167,13 +152,6 @@ SELECT student_id,
 FROM student;
 ```
 
-|STUDENT_ID|FULL_NAME             |
-|----------|----------------------|
-|360       |Calvin Kiraly         |
-|361       |Rawan Rosenberg       |
-|362       |Yu Sentell            |
-|...       |... |
-
 This query combines first and last names with a space separator.
 
 **REPLACE**:
@@ -183,13 +161,6 @@ SELECT student_id,
        REPLACE(phone, '-', '') AS phone_cleaned
 FROM student;
 ```
-
-|STUDENT_ID|PHONE_CLEANED|
-|----------|-------------|
-|360       |2035555555   |
-|361       |7185555555   |
-|362       |7185555555   |
-|...       |...   |
 
 This query removes dashes from phone numbers.
 
@@ -201,11 +172,6 @@ SELECT student_id,
 FROM student;
 ```
 
-|STUDENT_ID|PHONE_DIGITS_ONLY|
-|----------|-----------------|
-|360       |2035555555       |
-|361       |7185555555       |
-|...       |...       |
 
 This query extracts only numeric digits from phone numbers using regular expressions.
 

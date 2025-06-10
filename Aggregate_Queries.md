@@ -8,7 +8,7 @@ In this module, students will develop skills in summarizing data using aggregate
 
 ### Aggregate Functions
 
-Aggregate functions perform calculations on sets of rows and return a single result per group.
+Aggregate functions perform calculations on sets of rows and return a single result per group. It does not matter if a group consists of a single row or many rows.
 
 * `COUNT`, `COUNT(DISTINCT)`
 * `SUM`
@@ -78,48 +78,98 @@ SELECT DISTINCT section_id
 We can also use the `DISTINCT` keyword within some aggregate functions. For example, we can count all of the distinct values like this:
 
 ```sql
-SELECT count(DISTINCT section_id)
-  FROM enrollment;
+SELECT
+  count(DISTINCT section_id) AS num_distinct_sections,
+  count(section_id) AS num_section_records
+FROM enrollment;
 ```
 
 **Reference**: Lab 6.1
 
 ### PIVOT and UNPIVOT
 
-Use `PIVOT` to convert rows to columns and `UNPIVOT` to do the reverse. These operations are useful for reshaping data for analysis.
+`PIVOT` converts rows to columns and `UNPIVOT` converts columns back to rows. These operations are useful for creating cross-tabular reports and reshaping data for analysis.
 
-**PIVOT Example:**
+**Basic PIVOT Example:**
+
+First, let's see the data we want to pivot:
+
+```sql
+SELECT TO_CHAR(start_date_time, 'DY') AS day,
+       COUNT(*) AS num_of_sections
+FROM section
+GROUP BY TO_CHAR(start_date_time, 'DY')
+ORDER BY 2;
+```
+
+|DAY|NUM_OF_SECTIONS|
+|---|---|
+|FRI|4|
+|THU|5|
+|WED|7|
+|SUN|13|
+|MON|15|
+|SAT|17|
+|TUE|17|
+
+Now let's pivot this data to show days as columns:
 
 ```sql
 SELECT *
 FROM (
-  SELECT course_no, cost
-  FROM course
+  SELECT TO_CHAR(start_date_time, 'DY') day,
+         COUNT(*) num_of_sections
+  FROM section
+  GROUP BY TO_CHAR(start_date_time, 'DY')
 )
 PIVOT (
-  COUNT(cost)
-  FOR course_no IN (10 AS "Course_10", 20 AS "Course_20")
+  SUM(num_of_sections)
+  FOR day IN ('MON','TUE', 'WED','THU', 'FRI','SAT','SUN')
 );
 ```
 
-This query converts course numbers into columns and counts courses for each specified course number.
+|'MON'|'TUE'|'WED'|'THU'|'FRI'|'SAT'|'SUN'|
+|-----|-----|-----|-----|-----|-----|-----|
+|15|17|7|5|4|17|13|
+
+**PIVOT with Multiple Grouping Columns:**
+
+```sql
+SELECT *
+FROM (
+  SELECT TO_CHAR(start_date_time, 'DY') day,
+         location,
+         COUNT(*) num_of_classes
+  FROM section
+  GROUP BY TO_CHAR(start_date_time, 'DY'), location
+)
+PIVOT (
+  SUM(num_of_classes) 
+  FOR day IN ('MON' AS MON, 'TUE' AS TUE, 'WED' AS WED, 'THU' AS THU,
+              'FRI' AS FRI, 'SAT' AS SAT, 'SUN' AS SUN)
+);
+```
 
 **UNPIVOT Example:**
 
+Using a simple example with student grade types:
+
 ```sql
 SELECT *
 FROM (
-  SELECT student_id, 'GA' AS GA, 'AL' AS AL
-  FROM dual
+  SELECT student_id, 
+         MAX(CASE WHEN grade_type_code = 'HM' THEN numeric_grade END) AS homework,
+         MAX(CASE WHEN grade_type_code = 'QZ' THEN numeric_grade END) AS quiz
+  FROM grade
+  WHERE student_id = 123
+  GROUP BY student_id
 )
 UNPIVOT (
-  state FOR location IN (GA AS 'GA', AL AS 'AL')
+  grade FOR grade_type IN (homework AS 'HM', quiz AS 'QZ')
 );
 ```
 
-This query converts columns back into rows for state data.
-
-**Reference**: Lab 6.2
+**Reference**: Lab 17.1
 
 ## Exercises
 

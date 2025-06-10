@@ -8,6 +8,7 @@ To begin, you must install Oracle SQL Developer:
    [SQL Developer Downloads](https://www.oracle.com/tools/downloads/sqldev-downloads.html)
 
    - If you are at GSU, you should download SQL Developer from the Software Center.
+   - For those who are not familiar with it, the Software Center is a GSU-specific application management tool for installing software on GSU-managed machines. See IIT for clarifications if you need further details.
 
 2. Follow installation instructions for your operating system.
 
@@ -24,11 +25,12 @@ Use the following steps to connect to the course Oracle database instance:
 3. Click **New Connection** or the **+** icon
 
 4. Enter the following connection information:
+   - Instead of `studentXX` or `STDNT-STXX`, you should use the numbered student account provided to you, such as `student07`. Consult with the course intructors if you need additional clarifications.
 
    | Field        | Value                                       |
    | ------------ | ------------------------------------------- |
-   | Name         | `STDNT-ST0X` (or any descriptive name)      |
-   | Username     | `student0X`                                 |
+   | Name         | `STDNT-STXX` (or any descriptive name)      |
+   | Username     | `studentXX`                                 |
    | Password     | *your password* (check "Save Password")     |
    | Role         | `default`                                   |
    | Hostname     | `ec2-54-91-230-172.compute-1.amazonaws.com` |
@@ -55,6 +57,8 @@ WHERE owner = 'STUDENT'
 ```
 
 This will return all tables and column-level documentation available in the STUDENT schema.
+
+> Tables beginning with the word `BIN` reference recently deleted items. We have written the query above to exclude them from your results.
 
 For more details, consult Labs 1.3 and 2.1 in *Oracle SQL by Example (4th Edition)*.
 
