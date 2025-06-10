@@ -79,6 +79,6 @@ The STUDENT schema includes the following core tables:
 
 This schema is used throughout the course to support querying, aggregating, and manipulating real-world academic data.
 
-Refer to **Appendix D** of *Oracle SQL by Example (4th Edition)* for a detailed schema diagram.
+Refer to **Appendix D** of *Oracle SQL by Example (4th Edition)* for a detailed schema diagram or download a PDF version of the schema diagram here: [STUDENT Database Schema PDF](assests/STUDENT_SCHEMA.pdf).
 
 ![STUDENT Database Schema](img/student_database_schema.png)
