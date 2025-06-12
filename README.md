@@ -4,37 +4,37 @@ This training is intended for users of Oracle SQL Developer who query databases 
 
 ## Table of Contents
 
-1. [Course Introduction](Course_Introduction.md)  
+1. [Course Introduction](Modules/Course_Introduction.md)  
   Overview of the course goals, reference materials, and expectations.
-2. [Course Setup](Course_Setup.md)  
+2. [Course Setup](Modules/Course_Setup.md)  
   Instructions for setting up Oracle SQL Developer and connecting to the sample database.
-3. [SQL Developer Introduction](SQL_Developer_Introduction.md)
+3. [SQL Developer Introduction](Modules/SQL_Developer_Introduction.md)
   Introduction to Oracle SQL Developer, including how to use the SQL Worksheet and export data.
-4. [Single Table Review](Single_Table_Review.md)  
+4. [Single Table Review](Modules/Single_Table_Review.md)  
   Practice working with data from a single table using `SELECT`, filtering, and sorting.
-5. [Oracle Errors](Oracle_Errors.md)  
+5. [Oracle Errors](Modules/Oracle_Errors.md)  
   Common Oracle SQL errors, how to troubleshoot them, and best practices for debugging.
-6. [Single Row Functions](Single_Row_Functions.md)  
+6. [Single Row Functions](Modules/Single_Row_Functions.md)  
   Demonstrates how to use built-in functions to manipulate individual rows of data.
-7. [Aggregate Queries](Aggregate_Queries.md)
+7. [Aggregate Queries](Modules/Aggregate_Queries.md)
   Summarizing data using aggregate functions, grouping results, PIVOT and UNPIVOT operations.
-8. [Basic Joins](Basic_Joins.md)  
+8. [Basic Joins](Modules/Basic_Joins.md)  
   Introduction to joining multiple tables using inner and outer joins, with examples.
-9. [Advanced Joins](Advanced_Joins.md)  
+9. [Advanced Joins](Modules/Advanced_Joins.md)  
   Techniques for complex joins, including self-joins and cross joins.
-10. [Subqueries](Subqueries.md)
+10. [Subqueries](Modules/Subqueries.md)
   Using subqueries to filter, aggregate, and manipulate data within queries.
-11. [Query Readability and Optimization](Readability_and_Optimization.md)
+11. [Query Readability and Optimization](Modules/Readability_and_Optimization.md)
   Best practices for writing readable and efficient SQL queries, including formatting and optimization tips.
-12. [Refactoring Queries with CTEs](Refactoring_With_CTEs.md)
+12. [Refactoring Queries with CTEs](Modules/Refactoring_With_CTEs.md)
   How to simplify complex queries using common table expressions for better readability and maintainability.
-13. [Analytical Functions](Analytical_Functions.md)
+13. [Analytical Functions](Modules/Analytical_Functions.md)
   Advanced SQL features like window functions, paired with common table expressions for analytical reporting.
 
 ## Additional Content for Consideration
-14. [Date and Time Logic](Date_and_Time_Logic.md)
+14. [Date and Time Logic](Modules/Date_and_Time_Logic.md)
   Using date and time functions to manipulate and analyze temporal data in Oracle SQL.
-15. [Custom Functions](Custom_Functions.md)
+15. [Custom Functions](Modules/Custom_Functions.md)
   Creating and using custom functions to encapsulate complex logic and improve query modularity.
 
 ## Free Resources

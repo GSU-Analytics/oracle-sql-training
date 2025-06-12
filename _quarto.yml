@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "SQL Intermediate Training"
+  author:
+  - "Isaac Kerson"
+  - "Christopher Carbonaro"
+  date: "5/19/2025"
+  chapters:
+    - index.md
+    - "Modules/Course_Introduction.md"
+    - part: "Warmup"
+      chapters:
+      - "Modules/Course_Setup.md"
+      - "Modules/Single_Table_Review.md"
+    - part: "Working with Oracle"
+      chapters:
+      - "Modules/SQL_Developer_Introduction.md"
+      - "Modules/Oracle_Errors.md"
+    - part: "Data Transformations"
+      chapters:
+      - "Modules/Single_Row_Functions.md"
+      - "Modules/Aggregate_Queries.md"
+      - "Modules/Basic_Joins.md"
+      - "Modules/Advanced_Joins.md"
+      - "Modules/Subqueries.md"
+    - part: "Complex Querying"
+      chapters:
+      - "Modules/Readability_and_Optimization.md"
+      - "Modules/Refactoring_With_CTEs.md"
+      - "Modules/Analytical_Functions.md"
+    - part: "Specialized Functionality"
+      chapters:
+      - "Modules/Date_and_Time_Logic.md"
+      - "Modules/Custom_Functions.md"
+    - Modules/summary.md
+    - Modules/references.md
+  cover-image: Modules/site_assets/cover.png
+
+bibliography: Modules/site_assets/references.bib
+
+format:
+  html:
+    theme:
+      light: default
+      dark: darkly
+    number-depth: 3
+    toc-expand: 2
+
+
+
+
