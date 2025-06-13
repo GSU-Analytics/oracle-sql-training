@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Subqueries – SQL Intermediate Training</title>
+<title>The LISTAGG Function – SQL Intermediate Training</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,29 +58,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../Modules/Readability_and_Optimization.html" rel="next">
-<link href="../Modules/Advanced_Joins.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7a339148c3b2635d23d0fec43941109e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Modules/student_resources/Additional_Practice.html" rel="next">
+<link href="../../Modules/Custom_Functions.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7a339148c3b2635d23d0fec43941109e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -283,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Single_Row_Functions.html">Data Transformations</a></li><li class="breadcrumb-item"><a href="../Modules/Subqueries.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Subqueries</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">Additional Content</a></li><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">The LISTAGG Function</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -298,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">SQL Intermediate Training</a> 
+      <a href="../../">SQL Intermediate Training</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -313,13 +313,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Course_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Course_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Course Introduction</span></span></a>
   </div>
 </li>
@@ -334,13 +334,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Course_Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Course_Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Course Setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Single_Table_Review.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Single_Table_Review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with Single Tables</span></span></a>
   </div>
 </li>
@@ -357,13 +357,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/SQL_Developer_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/SQL_Developer_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SQL Developer Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Oracle_Errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Oracle_Errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Troubleshooting Oracle Errors</span></span></a>
   </div>
 </li>
@@ -380,31 +380,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Single_Row_Functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Single_Row_Functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Single-Row Built-In Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Aggregate_Queries.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Aggregate_Queries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aggregate Queries and GROUP BY Logic</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Basic_Joins.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Basic_Joins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Basic Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Advanced_Joins.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Advanced_Joins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Subqueries.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Modules/Subqueries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Subqueries</span></span></a>
   </div>
 </li>
@@ -421,19 +421,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Readability_and_Optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Readability_and_Optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Query Readability and Optimization Techniques</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Refactoring_With_CTEs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Refactoring_With_CTEs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Refactoring Queries with Common Table Expressions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Analytical_Functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Analytical_Functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Analytical Functions and Common Table Expressions</span></span></a>
   </div>
 </li>
@@ -450,13 +450,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Date_and_Time_Logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Date_and_Time_Logic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/Custom_Functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/Custom_Functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
   </div>
 </li>
@@ -473,13 +473,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/student_resources/LISTAGG.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/student_resources/LISTAGG.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">The LISTAGG Function</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/student_resources/Additional_Practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/student_resources/Additional_Practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extra Practice Exercises</span></a>
   </div>
 </li>
@@ -487,13 +487,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/summary.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/references.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Modules/references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -507,18 +507,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#module-introduction" id="toc-module-introduction" class="nav-link active" data-scroll-target="#module-introduction"><span class="header-section-number">10.1</span> Module Introduction</a></li>
-  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation"><span class="header-section-number">10.2</span> Explanation</a>
+  <li><a href="#module-introduction" id="toc-module-introduction" class="nav-link active" data-scroll-target="#module-introduction">Module Introduction</a></li>
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a>
   <ul class="collapse">
-  <li><a href="#scalar-and-nested-subqueries" id="toc-scalar-and-nested-subqueries" class="nav-link" data-scroll-target="#scalar-and-nested-subqueries"><span class="header-section-number">10.2.1</span> Scalar and Nested Subqueries</a></li>
-  <li><a href="#correlated-subqueries-exists-any-all" id="toc-correlated-subqueries-exists-any-all" class="nav-link" data-scroll-target="#correlated-subqueries-exists-any-all"><span class="header-section-number">10.2.2</span> Correlated Subqueries, EXISTS, ANY, ALL</a></li>
-  <li><a href="#subqueries-in-select-and-case" id="toc-subqueries-in-select-and-case" class="nav-link" data-scroll-target="#subqueries-in-select-and-case"><span class="header-section-number">10.2.3</span> Subqueries in SELECT and CASE</a></li>
-  <li><a href="#a-word-of-caution" id="toc-a-word-of-caution" class="nav-link" data-scroll-target="#a-word-of-caution"><span class="header-section-number">10.2.4</span> A Word of Caution</a></li>
+  <li><a href="#what-is-listagg" id="toc-what-is-listagg" class="nav-link" data-scroll-target="#what-is-listagg">What is LISTAGG?</a></li>
+  <li><a href="#listagg-with-different-delimiters" id="toc-listagg-with-different-delimiters" class="nav-link" data-scroll-target="#listagg-with-different-delimiters">LISTAGG with Different Delimiters</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">10.3</span> Exercises</a></li>
-  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa"><span class="header-section-number">10.4</span> Q&amp;A</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">10.5</span> Additional Resources</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers"><span class="header-section-number">10.6</span> Answers</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">Answers</a></li>
   </ul>
 </nav>
     </div>
@@ -526,9 +524,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Single_Row_Functions.html">Data Transformations</a></li><li class="breadcrumb-item"><a href="../Modules/Subqueries.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Subqueries</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">Additional Content</a></li><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">The LISTAGG Function</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Subqueries</span></h1>
+<h1 class="title">The LISTAGG Function</h1>
 </div>
 
 
@@ -545,179 +543,130 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="module-introduction" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="module-introduction"><span class="header-section-number">10.1</span> Module Introduction</h2>
-<p>This module introduces Oracle SQL subqueries, a foundational topic in advanced SQL reporting. Students will learn how to embed subqueries within main queries to achieve powerful, expressive logic in their SQL. We will begin with scalar and nested subqueries, then explore correlated subqueries using <code>EXISTS</code>, <code>ANY</code>, and <code>ALL</code>, and conclude with how subqueries can be embedded in <code>SELECT</code> lists and <code>CASE</code> expressions.</p>
-<p><strong>Reference</strong>: Chapter 8, Labs 8.1–8.4</p>
+<section id="module-introduction" class="level2">
+<h2 class="anchored" data-anchor-id="module-introduction">Module Introduction</h2>
+<p>This mini-module introduces the LISTAGG function, an aggregate function that concatenates values from multiple rows into a single comma-separated string. This function is particularly useful for creating readable summaries when you need to combine related text values from grouped data. Students will practice using LISTAGG with the STUDENT schema tables to create meaningful concatenated results.</p>
 </section>
-<section id="explanation" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="explanation"><span class="header-section-number">10.2</span> Explanation</h2>
-<section id="scalar-and-nested-subqueries" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="scalar-and-nested-subqueries"><span class="header-section-number">10.2.1</span> Scalar and Nested Subqueries</h3>
-<p>A <strong>scalar subquery</strong> returns a single value and can be used wherever a single value is expected.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name, last_name,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       (<span class="kw">SELECT</span> <span class="fu">MAX</span>(<span class="kw">cost</span>) <span class="kw">FROM</span> course) <span class="kw">AS</span> max_course_cost</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">ROWNUM</span> <span class="op">&lt;=</span> <span class="dv">3</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This query adds the maximum course cost as a column to each student record, limiting to 3 rows for display.</p>
-<p>A <strong>nested subquery</strong> is placed inside another subquery or the main query. It can return a set of values used by the outer query.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name, last_name</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> student_id <span class="kw">IN</span> (</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> student_id</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> enrollment</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> section_id <span class="kw">IN</span> (</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SELECT</span> section_id</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> section</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">WHERE</span> location <span class="op">=</span> <span class="st">'Main Campus'</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This query finds students enrolled in sections at the Main Campus using nested subqueries.</p>
-<p><strong>Reference</strong>: Lab 8.1</p>
+<section id="explanation" class="level2">
+<h2 class="anchored" data-anchor-id="explanation">Explanation</h2>
+<section id="what-is-listagg" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-listagg">What is LISTAGG?</h3>
+<p>LISTAGG is an aggregate function that concatenates values from multiple rows into a single string, with a specified delimiter separating each value. Unlike other aggregate functions that return numeric summaries, LISTAGG returns a text result containing all the grouped values.</p>
+<p><strong>Basic Syntax:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>LISTAGG(<span class="kw">column</span>, <span class="st">'delimiter'</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">column</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Example 1: Basic LISTAGG usage</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> instructor_id,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(section_id, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> section_id) <span class="kw">AS</span> sections_taught</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> section</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> instructor_id;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This query groups sections by instructor and creates a comma-separated list of all section IDs each instructor teaches.</p>
+<p><strong>Example 2: LISTAGG with meaningful data</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> c.description <span class="kw">AS</span> course_name,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(s.section_id, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> s.section_id) <span class="kw">AS</span> available_sections</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course c</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section s <span class="kw">ON</span> c.course_no <span class="op">=</span> s.course_no</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> c.description;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This query shows course names with a list of all available section IDs for each course.</p>
 </section>
-<section id="correlated-subqueries-exists-any-all" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="correlated-subqueries-exists-any-all"><span class="header-section-number">10.2.2</span> Correlated Subqueries, EXISTS, ANY, ALL</h3>
-<p>A <strong>correlated subquery</strong> references a column from the outer query and is re-evaluated for each row.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name, last_name</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">EXISTS</span> (</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="dv">1</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> enrollment e</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> e.student_id <span class="op">=</span> s.student_id</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> e.final_grade <span class="op">&gt;</span> <span class="dv">90</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This query finds students who have at least one enrollment with a final grade greater than 90.</p>
-<p>Use <code>ANY</code> or <code>ALL</code> to compare values against a list of results from a subquery.</p>
-<p>Example with <code>ANY</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> course_no, <span class="kw">cost</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">cost</span> <span class="op">&gt;</span> <span class="kw">ANY</span> (</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="kw">cost</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> course</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> course_no <span class="op">&lt;</span> <span class="dv">100</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This query retrieves courses with a cost greater than the cost of any course with a course number less than 100.</p>
-<p>Example with <code>ALL</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> course_no, <span class="kw">cost</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">cost</span> <span class="op">&gt;</span> <span class="kw">ALL</span> (</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="kw">cost</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> course</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> description <span class="kw">LIKE</span> <span class="st">'%Intro%'</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This query retrieves courses with a cost greater than the cost of all introductory courses.</p>
-<p><strong>Reference</strong>: Lab 8.2, 8.3</p>
+<section id="listagg-with-different-delimiters" class="level3">
+<h3 class="anchored" data-anchor-id="listagg-with-different-delimiters">LISTAGG with Different Delimiters</h3>
+<p>You can use any delimiter, not just commas. This allows for flexible formatting of the concatenated results.</p>
+<p><strong>Example 3: Using different delimiters</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> location,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(section_id, <span class="st">' | '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> section_id) <span class="kw">AS</span> sections</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> section</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> location;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This query uses the pipe symbol (|) as a delimiter to separate section IDs by location.</p>
+<p><strong>Example 4: LISTAGG with student enrollment information</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.first_name <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> s.last_name <span class="kw">AS</span> student_name,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(c.description, <span class="st">'; '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> c.description) <span class="kw">AS</span> enrolled_courses</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> enrollment e <span class="kw">ON</span> s.student_id <span class="op">=</span> e.student_id</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section sec <span class="kw">ON</span> e.section_id <span class="op">=</span> sec.section_id  </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> course c <span class="kw">ON</span> sec.course_no <span class="op">=</span> c.course_no</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> s.student_id, s.first_name, s.last_name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This query shows each student with a semicolon-separated list of all courses they’re enrolled in.</p>
 </section>
-<section id="subqueries-in-select-and-case" class="level3" data-number="10.2.3">
-<h3 data-number="10.2.3" class="anchored" data-anchor-id="subqueries-in-select-and-case"><span class="header-section-number">10.2.3</span> Subqueries in SELECT and CASE</h3>
-<p>Scalar subqueries can be placed inside a <code>SELECT</code> clause to compute derived columns.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       (<span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> enrollment e <span class="kw">WHERE</span> e.student_id <span class="op">=</span> s.student_id) <span class="kw">AS</span> total_courses</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This query counts the number of courses each student is enrolled in.</p>
-<p>Subqueries in <code>CASE</code> can be used for conditional logic.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="cf">CASE</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         <span class="cf">WHEN</span> (<span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> enrollment e <span class="kw">WHERE</span> e.student_id <span class="op">=</span> s.student_id) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">THEN</span> <span class="st">'Active'</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="cf">ELSE</span> <span class="st">'Low Enrollment'</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       <span class="cf">END</span> <span class="kw">AS</span> enrollment_status</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This query assigns an “Active” status to students enrolled in more than 2 courses, otherwise “Low Enrollment”.</p>
 </section>
-<section id="a-word-of-caution" class="level3" data-number="10.2.4">
-<h3 data-number="10.2.4" class="anchored" data-anchor-id="a-word-of-caution"><span class="header-section-number">10.2.4</span> A Word of Caution</h3>
-<p>Subqueries can be very powerful, but try to not overuse them.</p>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li><p>Write a query using LISTAGG to show each location with a comma-separated list of all instructor IDs who teach in that location.</p></li>
+<li><p>Create a query that displays each course number with a pipe-separated (|) list of all students enrolled in any section of that course. Include both first and last names and use ON OVERFLOW TRUNCATE to handle potential length issues.</p></li>
+<li><p>Use LISTAGG to show each instructor ID with a semicolon-separated list of all course descriptions they teach.</p></li>
+<li><p>Write a query that groups students by their last name initial (first letter) and shows a comma-separated list of their full names.</p></li>
+<li><p>Create a query using LISTAGG to show each grade type with a list of all students who received that grade type, formatted as “Last, First”. Important: Use ON OVERFLOW TRUNCATE clause to handle cases where there are many students with the same grade type.</p></li>
+<li><p>Use LISTAGG to display each zip code with a comma-separated list of all cities in that zip code area from the zipcode table.</p></li>
+</ol>
+</section>
+<section id="qa" class="level2">
+<h2 class="anchored" data-anchor-id="qa">Q&amp;A</h2>
+<p>Some conversation starters for the Q&amp;A session:</p>
 <ul>
-<li>It can be tempting to try to accomplish everything with subqueries, but doing so can come at heavy performance and readability costs.</li>
-<li>One or two subqueries are fine. However, having three or more <em>nested</em> subqueries is usually a sign that something might be wrong. Take a step back and see if you can write your query some other way.</li>
-<li>We will talk about alternative ways to accomplish the same tasks without overusing subqueries in a later module.</li>
-</ul>
-<p><strong>Reference</strong>: Lab 8.4</p>
-</section>
-</section>
-<section id="exercises" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.3</span> Exercises</h2>
-<p><strong>1.</strong> Find all students from the <code>student</code> table whose <code>zip</code> code is the same as that of instructor ID 101 in the <code>instructor</code> table.</p>
-<p><strong>2.</strong> List all courses from the <code>course</code> table that have a <code>cost</code> greater than the average course cost.</p>
-<p><strong>3.</strong> Display each student’s <code>first_name</code> and <code>last_name</code> from the <code>student</code> table and the number of courses they are enrolled in using the <code>enrollment</code> table.</p>
-<p><strong>4.</strong> List <code>course_no</code> and <code>cost</code> from the <code>course</code> table for all courses that are more expensive than <em>every</em> course that has a non-null <code>prerequisite</code> value.</p>
-<p><strong>5.</strong> Show students from the <code>student</code> table who have received a grade in the <code>grade</code> table in a section (from the <code>section</code> table) taught by an instructor (from the <code>instructor</code> table) who lives in the same <code>zip</code> code.</p>
-<p><strong>6.</strong> Display each <code>student_id</code> from the <code>student</code> table and show “Active” if enrolled in 2 or more sections (from the <code>enrollment</code> table), else “Inactive”, using a subquery inside a <code>CASE</code> expression.</p>
-</section>
-<section id="qa" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="qa"><span class="header-section-number">10.4</span> Q&amp;A</h2>
-<p>Some food for thought:</p>
-<ul>
-<li>How does a correlated subquery differ in performance from a standard subquery?</li>
-<li>When would you choose <code>EXISTS</code> over <code>IN</code>?</li>
-<li>What are the benefits and drawbacks of using subqueries vs.&nbsp;joins?</li>
-<li>What are the performance implications of using subqueries in the SELECT clause?</li>
-<li>How do you decide between using ANY vs ALL in subquery comparisons?</li>
-<li>When might a subquery be more readable than a complex join?</li>
+<li>When would LISTAGG be more appropriate than using traditional concatenation with the <code>||</code> operator?</li>
+<li>How does LISTAGG handle NULL values in the data being concatenated?</li>
+<li>What are the performance considerations when using LISTAGG with large datasets?</li>
+<li>How does the WITHIN GROUP (ORDER BY) clause affect the final result of LISTAGG?</li>
+<li>What happens if the concatenated result exceeds Oracle’s string length limits?</li>
+<li>Can you use LISTAGG with DISTINCT to remove duplicate values before concatenation?</li>
+<li>How would you handle cases where the delimiter character appears within the data being concatenated?</li>
+<li>What are some real-world business scenarios where LISTAGG would be particularly useful?</li>
 </ul>
 </section>
-<section id="additional-resources" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">10.5</span> Additional Resources</h2>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
 <ul>
-<li>Oracle SQL by Example, Chapter 8, Labs 8.1–8.4</li>
-<li>Oracle SQL Language Reference: Subqueries</li>
-<li>Oracle LiveSQL Subquery Examples</li>
+<li>Oracle SQL by Example, Chapter 6: Lab 6.1-6.2 (Aggregate Functions and GROUP BY)</li>
+<li>Oracle SQL by Example, Chapter 17: Lab 17.1 (Advanced SQL Concepts and Analytical Functions)</li>
+<li>Oracle SQL by Example, Table 6.1 (Commonly Used Aggregate Functions)</li>
+<li>Oracle SQL by Example, Chapter 4: Lab 4.1 (Character Functions and Concatenation)</li>
+<li>Oracle Documentation: SQL Language Reference - Aggregate Functions</li>
 </ul>
 </section>
-<section id="answers" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="answers"><span class="header-section-number">10.6</span> Answers</h2>
+<section id="answers" class="level2">
+<h2 class="anchored" data-anchor-id="answers">Answers</h2>
 <p><strong>1.</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> zip <span class="op">=</span> (</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> zip</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> instructor</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> instructor_id <span class="op">=</span> <span class="dv">101</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> location,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(instructor_id, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> instructor_id) <span class="kw">AS</span> instructors</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> section</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> location;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2.</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">cost</span> <span class="op">&gt;</span> (</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="fu">AVG</span>(<span class="kw">cost</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> course</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> c.course_no,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(s.first_name <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> s.last_name, <span class="st">' | '</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>               <span class="kw">ON</span> <span class="kw">OVERFLOW</span> <span class="kw">TRUNCATE</span> <span class="st">'...'</span> <span class="kw">WITH</span> <span class="fu">COUNT</span>) </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> s.last_name, s.first_name) <span class="kw">AS</span> enrolled_students</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course c</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section sec <span class="kw">ON</span> c.course_no <span class="op">=</span> sec.course_no</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> enrollment e <span class="kw">ON</span> sec.section_id <span class="op">=</span> e.section_id</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> student s <span class="kw">ON</span> e.student_id <span class="op">=</span> s.student_id</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> c.course_no;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>3.</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.first_name, s.last_name,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       (<span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> enrollment e</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">WHERE</span> e.student_id <span class="op">=</span> s.student_id) <span class="kw">AS</span> course_count</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> i.instructor_id,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(c.description, <span class="st">'; '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> c.description) <span class="kw">AS</span> courses_taught</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> instructor i</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section s <span class="kw">ON</span> i.instructor_id <span class="op">=</span> s.instructor_id</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> course c <span class="kw">ON</span> s.course_no <span class="op">=</span> c.course_no</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> i.instructor_id;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>4.</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> course_no, <span class="kw">cost</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">cost</span> <span class="op">&gt;</span> <span class="kw">ALL</span> (</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="kw">cost</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> course</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> prerequisite <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUBSTR</span>(last_name, <span class="dv">1</span>, <span class="dv">1</span>) <span class="kw">AS</span> last_name_initial,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(first_name <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> last_name, <span class="st">', '</span>) </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> last_name, first_name) <span class="kw">AS</span> students</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="fu">SUBSTR</span>(last_name, <span class="dv">1</span>, <span class="dv">1</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>5.</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> s.first_name, s.last_name</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> grade g <span class="kw">ON</span> s.student_id <span class="op">=</span> g.student_id</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section sec <span class="kw">ON</span> g.section_id <span class="op">=</span> sec.section_id</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">EXISTS</span> (</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="dv">1</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> instructor i</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> i.instructor_id <span class="op">=</span> sec.instructor_id</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> i.zip <span class="op">=</span> s.zip</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> g.grade_type_code,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(s.last_name <span class="op">||</span> <span class="st">', '</span> <span class="op">||</span> s.first_name, <span class="st">', '</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>               <span class="kw">ON</span> <span class="kw">OVERFLOW</span> <span class="kw">TRUNCATE</span> <span class="st">'...'</span> <span class="kw">WITH</span> <span class="fu">COUNT</span>) </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> s.last_name, s.first_name) <span class="kw">AS</span> students_with_grade</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> grade g</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> enrollment e <span class="kw">ON</span> g.section_id <span class="op">=</span> e.section_id <span class="kw">AND</span> g.student_id <span class="op">=</span> e.student_id</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> student s <span class="kw">ON</span> e.student_id <span class="op">=</span> s.student_id</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> g.grade_type_code;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>6.</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.student_id,</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="cf">CASE</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>         <span class="cf">WHEN</span> (<span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> enrollment e <span class="kw">WHERE</span> e.student_id <span class="op">=</span> s.student_id) <span class="op">&gt;=</span> <span class="dv">2</span> <span class="cf">THEN</span> <span class="st">'Active'</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>         <span class="cf">ELSE</span> <span class="st">'Inactive'</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>       <span class="cf">END</span> <span class="kw">AS</span> status</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> zip,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(city, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> city) <span class="kw">AS</span> cities</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> zipcode</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> zip;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -1137,13 +1086,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Modules/Advanced_Joins.html" class="pagination-link" aria-label="Advanced Joins">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Joins</span></span>
+      <a href="../../Modules/Custom_Functions.html" class="pagination-link" aria-label="Custom Functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Custom Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Modules/Readability_and_Optimization.html" class="pagination-link" aria-label="Query Readability and Optimization Techniques">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Query Readability and Optimization Techniques</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Modules/student_resources/Additional_Practice.html" class="pagination-link" aria-label="Extra Practice Exercises">
+        <span class="nav-page-text">Extra Practice Exercises</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

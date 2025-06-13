@@ -35,6 +35,10 @@ book:
       chapters:
       - "Modules/Date_and_Time_Logic.md"
       - "Modules/Custom_Functions.md"
+    - part: "Additional Content"
+      chapters:
+      - "Modules/student_resources/LISTAGG.md"
+      - "Modules/student_resources/Additional_Practice.md"
     - Modules/summary.md
     - Modules/references.md
   cover-image: Modules/site_assets/cover.png
