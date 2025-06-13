@@ -36,6 +36,10 @@ This training is intended for users of Oracle SQL Developer who query databases 
   Using date and time functions to manipulate and analyze temporal data in Oracle SQL.
 15. [Custom Functions](Custom_Functions.md)
   Creating and using custom functions to encapsulate complex logic and improve query modularity.
-
+16. [LISTAGG](LISTAGG.md)
+  Using the LISTAGG function to aggregate string values into a single row, with examples.
+16. [Additional Practice](Additional_Practice.md)
+  Additional exercises and practice problems to reinforce the concepts learned in the course.
+  
 ## Free Resources
 As mentioned earlier, the majority of this content is derived from [Oracle SQL by Example 4th Edition](https://www.oreilly.com/library/view/oracle-sql-by/9780137047345/). This content is **free and available online for individuals with GSU credentials.** Simply sign in to O'Reilly's website via SSO and consult the book for additional instructional content.
