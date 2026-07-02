@@ -5,7 +5,7 @@
 This module introduces the concept of joining tables in Oracle SQL as a result of normalized database design. Students will learn to use equijoins, inner joins, and outer joins (LEFT, RIGHT, FULL) to combine data from multiple related tables in the STUDENT schema.
 
 :::{.callout-tip}
-It's time to start talking about databases as a *collection of many things*. If you're not comfortable with the idea of organizing data into many tables, now would be a good time to review [our chapter on schemas and organization](Database_Schemaes_and_Normalization.md), along with the [student database schema](Student_Database_Schema.md).
+It's time to start talking about databases as a *collection of many things*. If you're not comfortable with the idea of organizing data into many tables, now would be a good time to review [our chapter on schemas and organization](Database_Schemas_and_Normalization.md), along with the [student database schema](Student_Database_Schema.md).
 :::
 
 ## Explanation
