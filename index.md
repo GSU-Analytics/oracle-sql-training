@@ -2,7 +2,7 @@
 
 Welcome to your pocketbook reference on intermediate SQL.
 
-This project was created for summer 2025 training at GSU, but may be used by anyone who wishes to develop their SQL. Before beginning, we hope that you are moderately comfortable working with single-table operations. Working through these modules should give you the confidence and understanding you need to write, or find the resources necessary to write, any complex query.
+This project was originally created for summer 2025 training at GSU, but may be used by anyone who wishes to develop their SQL. Before beginning, we hope that you are moderately comfortable working with single-table operations. Working through these modules should give you the confidence and understanding you need to write, or find the resources necessary to write, any complex query.
 
 ## Source Materials
 
