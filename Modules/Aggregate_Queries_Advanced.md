@@ -1,4 +1,4 @@
-# Advanced Aggregation: ROLLUP, CUBE, GROUPING, and PIVOT
+# Advanced Aggregations
 
 ## Module Introduction
 
