@@ -68,7 +68,7 @@ Demonstrates how to use built-in functions to manipulate individual rows of data
 ### Exercises
 
 **1. Character Functions**
-Using the STUDENT table, create a query that displays student names in proper case (first letter capitalized, rest lowercase), email addresses (create from first name + last name + '@student.edu'), and the length of their street address. Only show students with street addresses longer than 20 characters.
+Using the STUDENT table, create a query that displays student names in proper case (first letter capitalized, rest lowercase), email addresses (create from first name + last name + '\@student.edu'), and the length of their street address. Only show students with street addresses longer than 20 characters.
 
 **2. Number Functions**
 Using the COURSE table (columns: COURSE_NO, DESCRIPTION, COST, PREREQUISITE), create a query that displays course information with costs rounded to the nearest hundred dollars, calculates a 15% discount amount rounded to 2 decimal places, and shows the absolute difference between the cost and $1000. Only show courses where the cost is not NULL.

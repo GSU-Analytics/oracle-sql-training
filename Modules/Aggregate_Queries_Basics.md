@@ -1,8 +1,8 @@
-# Aggregate Queries and GROUP BY Logic
+# Basic Aggregations
 
 ## Module Introduction
 
-In this module, students will develop skills in summarizing data using aggregate functions, grouping results using `GROUP BY`, filtering grouped data with `HAVING`, and restructuring results using `PIVOT` and `UNPIVOT`. These operations are foundational for reporting and dashboarding tasks.
+In this module, students will develop skills in summarizing data using aggregate functions, grouping results using `GROUP BY`, filtering grouped data with `HAVING`, and getting unique values with the `DISTINCT` keyword. These operations are foundational for reporting and dashboarding tasks.
 
 ## Explanation
 
@@ -86,88 +86,6 @@ FROM enrollment;
 
 **Reference**: Lab 6.1
 
-### PIVOT and UNPIVOT
-
-`PIVOT` converts rows to columns and `UNPIVOT` converts columns back to rows. These operations are useful for creating cross-tabular reports and reshaping data for analysis.
-
-**Basic PIVOT Example:**
-
-First, let's see the data we want to pivot:
-
-```sql
-SELECT TO_CHAR(start_date_time, 'DY') AS day,
-       COUNT(*) AS num_of_sections
-FROM section
-GROUP BY TO_CHAR(start_date_time, 'DY')
-ORDER BY 2;
-```
-
-|DAY|NUM_OF_SECTIONS|
-|---|---|
-|FRI|4|
-|THU|5|
-|WED|7|
-|SUN|13|
-|MON|15|
-|SAT|17|
-|TUE|17|
-
-Now let's pivot this data to show days as columns:
-
-```sql
-SELECT *
-FROM (
-  SELECT TO_CHAR(start_date_time, 'DY') day,
-         COUNT(*) num_of_sections
-  FROM section
-  GROUP BY TO_CHAR(start_date_time, 'DY')
-)
-PIVOT (
-  SUM(num_of_sections)
-  FOR day IN ('MON','TUE', 'WED','THU', 'FRI','SAT','SUN')
-);
-```
-
-|'MON'|'TUE'|'WED'|'THU'|'FRI'|'SAT'|'SUN'|
-|-----|-----|-----|-----|-----|-----|-----|
-|15|17|7|5|4|17|13|
-
-**PIVOT with Multiple Grouping Columns:**
-
-```sql
-SELECT *
-FROM (
-  SELECT TO_CHAR(start_date_time, 'DY') day,
-         location,
-         COUNT(*) num_of_classes
-  FROM section
-  GROUP BY TO_CHAR(start_date_time, 'DY'), location
-)
-PIVOT (
-  SUM(num_of_classes) 
-  FOR day IN ('MON' AS MON, 'TUE' AS TUE, 'WED' AS WED, 'THU' AS THU,
-              'FRI' AS FRI, 'SAT' AS SAT, 'SUN' AS SUN)
-);
-```
-
-**UNPIVOT Example:**
-
-Using a simple example with student grade types:
-
-```sql
-SELECT *
-FROM (
-  SELECT student_id, 
-         MAX(CASE WHEN grade_type_code = 'HM' THEN numeric_grade END) AS homework,
-         MAX(CASE WHEN grade_type_code = 'QZ' THEN numeric_grade END) AS quiz
-  FROM grade
-  WHERE student_id = 123
-  GROUP BY student_id
-)
-UNPIVOT (
-  grade FOR grade_type IN (homework AS 'HM', quiz AS 'QZ')
-);
-```
 
 **Reference**: Lab 17.1
 
@@ -187,9 +105,6 @@ From the `GRADE` table, find student IDs that have more than one recorded grade.
 
 **5. Average Grade by Section and Grade Type**
 Use `GRADE` to find the average numeric grade for each section and grade type combination.
-
-**6. Pivot Student Count by State**
-Pivot the student count by `STATE` (from `ZIPCODE`) into separate columns for GA and AL. Use the query below as a starting point:
 
 ```sql
 SELECT *
@@ -259,18 +174,4 @@ HAVING COUNT(*) > 1;
 SELECT section_id, grade_type_code, AVG(numeric_grade) AS avg_grade
 FROM grade
 GROUP BY section_id, grade_type_code;
-```
-
-**6.**
-
-```sql
-SELECT *
-FROM (
-  SELECT z.state, s.student_id
-  FROM student s
-  JOIN zipcode z ON s.zip = z.zip
-)
-PIVOT (
-  COUNT(student_id) FOR state IN ('GA' AS GA, 'AL' AS AL)
-);
 ```

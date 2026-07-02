@@ -25,7 +25,8 @@ book:
     - part: "Data Transformations"
       chapters:
       - "Modules/Single_Row_Functions.md"
-      - "Modules/Aggregate_Queries.md"
+      - "Modules/Aggregate_Queries_Basics.md"
+      - "Modules/Aggregate_Queries_Advanced.md"
       - "Modules/Basic_Joins.md"
       - "Modules/Advanced_Joins.md"
       - "Modules/Subqueries.md"
