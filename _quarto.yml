@@ -10,11 +10,14 @@ book:
   date: "5/19/2025"
   chapters:
     - index.md
-    - "Modules/Course_Introduction.md"
-    - part: "Warmup"
+    - part: "Introduction"
       chapters:
+      - "Modules/Course_Introduction.md"
       - "Modules/Course_Setup.md"
+    - part: "Fundamentals"
+      chapters:
       - "Modules/Single_Table_Review.md"
+      - "Modules/Database_Schemas_and_Normalization.md"
     - part: "Working with Oracle"
       chapters:
       - "Modules/SQL_Developer_Introduction.md"
@@ -39,6 +42,7 @@ book:
       chapters:
       - "Modules/student_resources/LISTAGG.md"
       - "Modules/student_resources/Additional_Practice.md"
+    - "Modules/Student_Database_Schema.md"
     - Modules/summary.md
     - Modules/references.md
   cover-image: Modules/site_assets/cover.png
@@ -52,6 +56,7 @@ format:
       dark: darkly
     number-depth: 3
     toc-expand: 2
+    number-sections: true
 
 
 

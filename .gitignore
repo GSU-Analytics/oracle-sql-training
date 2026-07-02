@@ -1,3 +1,7 @@
 /.quarto/
 **.DS_Store
 Oracle SQL Training DB Connections and Password Info/
+
+**/*.quarto_ipynb
+docs/
+Development Materials/
