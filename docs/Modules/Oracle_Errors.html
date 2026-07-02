@@ -548,10 +548,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#using-oracle-documentation-and-tools" id="toc-using-oracle-documentation-and-tools" class="nav-link" data-scroll-target="#using-oracle-documentation-and-tools"><span class="header-section-number">6.2.4</span> Using Oracle Documentation and Tools</a></li>
   <li><a href="#debugging-strategies" id="toc-debugging-strategies" class="nav-link" data-scroll-target="#debugging-strategies"><span class="header-section-number">6.2.5</span> Debugging Strategies</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.3</span> Exercises</a></li>
-  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa"><span class="header-section-number">6.4</span> Q&amp;A</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">6.5</span> Additional Resources</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers"><span class="header-section-number">6.6</span> Answers</a></li>
+  <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo"><span class="header-section-number">6.3</span> Demo</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.4</span> Exercises</a></li>
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa"><span class="header-section-number">6.5</span> Q&amp;A</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">6.6</span> Additional Resources</a></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers"><span class="header-section-number">6.7</span> Answers</a></li>
   </ul>
 </nav>
     </div>
@@ -593,9 +594,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The Oracle error code (e.g., <code>ORA-00904</code>)</li>
 <li>A brief message describing the issue</li>
 </ul>
-<p>Oracle parses SQL statements from the <strong>bottom up</strong>, meaning the actual issue may occur earlier than indicated. It’s important to:</p>
+<p>When Oracle finds a problem, the line and column it reports show where it <strong>detected</strong> the error — the point where your statement stopped making sense to it. The real mistake is often slightly earlier. For example, a missing comma can make Oracle flag the <em>next</em> keyword instead of the comma itself. So it helps to:</p>
 <ul>
 <li>Focus on fixing the first error reported</li>
+<li>If the reported spot looks correct, check just before it</li>
 <li>Re-run the query after each fix to reveal additional issues</li>
 </ul>
 <p><em>Reference: Lab 3.2</em></p>
@@ -660,7 +662,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Syntax Errors</strong>: The SQL statement is not a valid command. Example: <code>ORA-00933</code> (SQL command not properly ended)
 <ul>
-<li>Notice in the example below that SQL Developer has underlined with <code>FROM</code> keyword in red. This often means that something is wrong with the way we are specifying our query.</li>
+<li>Notice in the example below that SQL Developer has underlined the <code>FROM</code> keyword in red. This often means that something is wrong with the way we are specifying our query.</li>
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
@@ -734,6 +736,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="still-stuck">Still Stuck?</h4>
 <ul>
 <li>Copy/paste the exact error message into a search engine</li>
+<li>Paste the query and its error message or unexpected results into an AI assistant and ask it to explain the problem</li>
 <li>Ask yourself: “What am I trying to accomplish?” and break it into smaller steps</li>
 <li>Use SQL Developer’s autocomplete to help with syntax</li>
 <li>Don’t be afraid to start over with a simpler approach</li>
@@ -741,27 +744,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.3</span> Exercises</h2>
+<section id="demo" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="demo"><span class="header-section-number">6.3</span> Demo</h2>
+<p>Not every problem announces itself with an <code>ORA-</code> error. Some queries run successfully but return the <strong>wrong</strong> results — and those are the easiest to miss, because there is no red error text to search for and no line number to inspect.</p>
+<p>The query below is meant to list every course that is <strong>not</strong> listed as a prerequisite for another course:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> course_no, description</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> course_no <span class="kw">NOT</span> <span class="kw">IN</span> (<span class="kw">SELECT</span> prerequisite <span class="kw">FROM</span> course);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It runs without any error, but it returns <strong>zero rows</strong> — even though 14 courses qualify. This is a good case for an AI assistant: paste the query into the <a href="https://m365.cloud.microsoft/chat/?titleId=T_2fd8ec5a-df98-43db-b544-98be0bd4da5a&amp;source=embedded-builder">Oracle SQL Optimizer</a> and ask why it returns no rows. See the <strong>Demo answer</strong> at the end of this module for the fix and an explanation.</p>
+</section>
+<section id="exercises" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.4</span> Exercises</h2>
 <p>Use the STUDENT schema for the following exercises. Each of these queries is intentionally incorrect and will generate a specific Oracle error. Read the error message and revise the query to correct it.</p>
 <ol type="1">
 <li>Identify and fix the error in this query:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> firstnme, last_name</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> firstnme, last_name</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
 <li>Identify and fix the error in this query:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id last_name</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id first_name last_name</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li>Identify and fix the error in this query:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> studnt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> studnt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="qa" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="qa"><span class="header-section-number">6.4</span> Q&amp;A</h2>
+<section id="qa" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="qa"><span class="header-section-number">6.5</span> Q&amp;A</h2>
 <p>Food for thought:</p>
 <ul>
 <li>Which of the previous exercises were syntax errors?</li>
@@ -775,31 +787,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>How to interpret error line numbers and positioning</li>
 </ul>
 </section>
-<section id="additional-resources" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">6.5</span> Additional Resources</h2>
+<section id="additional-resources" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">6.6</span> Additional Resources</h2>
 <ul>
 <li><em>Oracle SQL by Example</em>, Lab 3.2 and Appendix G</li>
 <li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/errmg/index.html">Oracle Error Messages Manual</a></li>
 <li>SQL Developer error highlighting and documentation lookup features</li>
+<li><a href="https://m365.cloud.microsoft/chat/?titleId=T_2fd8ec5a-df98-43db-b544-98be0bd4da5a&amp;source=embedded-builder">Oracle SQL Optimizer</a></li>
 </ul>
 </section>
-<section id="answers" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="answers"><span class="header-section-number">6.6</span> Answers</h2>
+<section id="answers" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="answers"><span class="header-section-number">6.7</span> Answers</h2>
 <ol type="1">
 <li><strong>Corrected query for misspelled column name</strong>:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name, last_name</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name, last_name</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
 <li><strong>Corrected query for missing comma</strong>:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id, last_name</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id, first_name, last_name</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li><strong>Corrected query for nonexistent table name</strong>:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Demo answer</strong>:</p>
+<p>The original query returns no rows because the <code>PREREQUISITE</code> column contains <code>NULL</code> values. When the subquery in a <code>NOT IN</code> clause returns even one <code>NULL</code>, Oracle cannot confirm that a course number is “not in” the list, so every row evaluates to unknown and nothing is returned. Exclude the <code>NULL</code>s (or rewrite with <code>NOT EXISTS</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> course_no, description</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> course_no <span class="kw">NOT</span> <span class="kw">IN</span> (<span class="kw">SELECT</span> prerequisite <span class="kw">FROM</span> course <span class="kw">WHERE</span> prerequisite <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

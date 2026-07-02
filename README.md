@@ -2,6 +2,14 @@
 
 This training is intended for users of Oracle SQL Developer who query databases for analytical reporting. The lessons are taken from [Oracle SQL by Example 4th Edition](https://www.oreilly.com/library/view/oracle-sql-by/9780137047345/) and focus on writing efficient, professional-grade SQL for multi-table reporting and advanced data manipulation. 
 
+> [!NOTE]
+> Site maintainers: This resource now predominantly exists as a Quarto book.
+>
+> You can publish the book to GitHub Pages at https://gsu-analytics.github.io/oracle-sql-training/ by running the following command from the main branch:
+> ```zsh
+> quarto publish gh-pages
+> ```
+
 ## Table of Contents
 
 1. [Course Introduction](Modules/Course_Introduction.md)  
