@@ -4,54 +4,11 @@
 
 This module introduces the concept of joining tables in Oracle SQL as a result of normalized database design. Students will learn to use equijoins, inner joins, and outer joins (LEFT, RIGHT, FULL) to combine data from multiple related tables in the STUDENT schema.
 
+:::{.callout-tip}
+It's time to start talking about databases as a *collection of many things*. If you're not comfortable with the idea of organizing data into many tables, now would be a good time to review [our chapter on schemas and organization](Database_Schemaes_and_Normalization.md), along with the [student database schema](Student_Database_Schema.md).
+:::
+
 ## Explanation
-
-### Normalization Introduction
-
-Normalized databases are designed to reduce redundancy and improve data integrity by organizing data into related tables. This makes queries more efficient and ensures that updates are consistent across the system.
-
-Reference: Lab 1.2
-
-#### Why Normalize?
-
-A **monolithic table** stores all related information in a single structure. While simple to understand, this approach introduces duplication and maintenance challenges. Normalization separates data into logically distinct entities and links them through keys.
-
-#### Example
-
-**Monolithic Table:**
-
-| Student\_ID | Name       | ZIP   | City          | State |
-| ----------- | ---------- | ----- | ------------- | ----- |
-| 100         | Alice Wong | 30303 | Atlanta       | GA    |
-| 101         | Brian Lee  | 30303 | Atlanta       | GA    |
-| 102         | Carla Ruiz | 90210 | Beverly Hills | CA    |
-
-* Here, ZIP code data (`City`, `State`) is repeated for every student.
-* Updating the city name for ZIP 30303 requires multiple changes.
-
-**Normalized Tables:**
-
-**STUDENT Table:**
-
-| Student\_ID | Name       | ZIP   |
-| ----------- | ---------- | ----- |
-| 100         | Alice Wong | 30303 |
-| 101         | Brian Lee  | 30303 |
-| 102         | Carla Ruiz | 90210 |
-
-**ZIPCODE Table:**
-
-| ZIP   | City          | State |
-| ----- | ------------- | ----- |
-| 30303 | Atlanta       | GA    |
-| 90210 | Beverly Hills | CA    |
-
-* ZIP code information is stored once in the `ZIPCODE` table.
-* Student records reference ZIP via a foreign key.
-
-This design eliminates redundancy and improves data consistency—if Atlanta is renamed, the change only happens in one row. However, it requires joins to retrieve complete information about students and their locations.
-
-Reference: Lab 1.2
 
 ### Visualizing Table Joins
 

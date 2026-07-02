@@ -29,9 +29,9 @@ book:
       - "Modules/Aggregate_Queries_Advanced.md"
       - "Modules/Basic_Joins.md"
       - "Modules/Advanced_Joins.md"
-      - "Modules/Subqueries.md"
     - part: "Complex Querying"
       chapters:
+      - "Modules/Subqueries.md"
       - "Modules/Readability_and_Optimization.md"
       - "Modules/Refactoring_With_CTEs.md"
       - "Modules/Analytical_Functions.md"
@@ -56,7 +56,7 @@ format:
       light: default
       dark: darkly
     number-depth: 3
-    toc-expand: 2
+    toc-expand: 3
     number-sections: true
 
 

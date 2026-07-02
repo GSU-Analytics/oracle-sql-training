@@ -4,6 +4,12 @@
 
 This module introduces custom PL/SQL functions in Oracle SQL. You'll learn how to write, understand, and use reusable logic encapsulated in user-defined functions. These functions simplify SQL statements and are especially useful in reporting tasks that involve business rules.
 
+:::{.callout-important}
+Creating custom functions requires certain schema permissions which you may not have. Most of this book has assumed that you only have the ability to *read* from a database; creating custom functions requires you to *write* to it.
+
+If you cannot create functions, you will need to contact your system administrator and discuss what your options are for gaining permission to create them.
+:::
+
 ## Explanation
 
 ### Custom Function Conceptual Overview

@@ -1,8 +1,8 @@
-# Analytical Functions and Common Table Expressions
+# Analytical Functions
 
 ## Module Introduction
 
-This module explores advanced SQL features for analytical reporting: **window functions** and **common table expressions (CTEs)**. Using the STUDENT schema, you will learn to rank, compare, and partition rows in ways that go beyond the capabilities of traditional aggregate functions.
+This module explores advanced SQL features for analytical reporting: **window functions**. Using the STUDENT schema, you will learn to rank, compare, and partition rows in ways that go beyond the capabilities of traditional aggregate functions.
 
 ## Explanation
 

@@ -10,38 +10,52 @@ You could get there by writing several separate queries and `UNION ALL`-ing them
 
 ## Explanation
 
-### Queries with Totals
+### Queries with Subtotals
 
 #### ROLLUP: Subtotals Up a Hierarchy
 
 `ROLLUP` produces subtotal rows as it "rolls up" through the columns you list, in order, finishing with a grand total row. Think of it as: totals per innermost group, then totals per next group up, then one overall total.
 
 ```sql
-SELECT c.description, s.section_id, COUNT(e.student_id) AS num_enrolled
-FROM course c
-JOIN section s ON c.course_no = s.course_no
-JOIN enrollment e ON s.section_id = e.section_id
-GROUP BY ROLLUP(c.description, s.section_id)
-ORDER BY c.description, s.section_id;
+SELECT section_id, grade_type_code, AVG(numeric_grade) AS avg_grade
+FROM grade
+GROUP BY ROLLUP(section_id, grade_type_code)
+ORDER BY section_id, grade_type_code;
 ```
 
-This returns one row per `(description, section_id)` combination, plus a subtotal row per `description` (with `section_id` as `NULL`), plus a single grand-total row (with both columns `NULL`). The column order inside `ROLLUP()` matters — it defines the hierarchy being subtotaled, from left to right.
+This returns one row per `(section_id, grade_type_code)` combination, plus a subtotal row per `section_id` (with `grade_type_code` as `NULL`), plus a single grand-total row (with both columns `NULL`). The column order inside `ROLLUP()` matters — it defines the hierarchy being subtotaled, from left to right.
 
 #### CUBE: Every Combination of Subtotals
 
 `ROLLUP` only rolls up one direction, following the order you gave it. `CUBE` goes further: it produces subtotals for *every possible combination* of the grouping columns, not just a strict hierarchy.
 
 ```sql
-SELECT s.grade_type_code, e.section_id, AVG(s.numeric_grade) AS avg_grade
-FROM grade s
-JOIN enrollment e ON s.student_id = e.student_id AND s.section_id = e.section_id
-GROUP BY CUBE(s.grade_type_code, e.section_id)
-ORDER BY s.grade_type_code, e.section_id;
+SELECT section_id, grade_type_code, AVG(numeric_grade) AS avg_grade
+FROM grade
+GROUP BY CUBE(section_id, grade_type_code)
+ORDER BY section_id, grade_type_code;
 ```
 
-With two columns, `CUBE` gives you: detail rows, subtotals by `grade_type_code` alone, subtotals by `section_id` alone, *and* the grand total — four levels of summary instead of `ROLLUP`'s three. As you add more columns, `CUBE` grows quickly (2ⁿ combinations for n columns), so it's best reserved for a handful of grouping columns at a time.
+With two columns, `CUBE` gives you: detail rows, subtotals by `section_id` alone, subtotals by `grade_type_code` alone, *and* the grand total — four levels of summary instead of `ROLLUP`'s three. As you add more columns, `CUBE` grows quickly (2ⁿ combinations for n columns), so it's best reserved for a handful of grouping columns at a time.
 
 #### Telling Subtotal Rows Apart with GROUPING
+
+Both `ROLLUP` and `CUBE` mark subtotal rows by putting `NULL` in the columns that were "rolled up." That's a problem the moment one of your columns can *legitimately* contain `NULL` on its own — how do you tell a real `NULL` apart from a subtotal row?
+
+The `GROUPING()` function solves this. For a given column, it returns `1` on subtotal/grand-total rows (where that column was aggregated away) and `0` on normal detail rows.
+
+```sql
+SELECT section_id,
+       grade_type_code,
+       AVG(numeric_grade) AS avg_grade,
+       GROUPING(section_id) AS is_section_subtotal,
+       GROUPING(grade_type_code) AS is_type_subtotal
+FROM grade
+GROUP BY ROLLUP(section_id, grade_type_code);
+```
+
+This is especially handy paired with `DECODE` or `CASE` to relabel subtotal rows with something more readable than `NULL`, e.g. `DECODE(GROUPING(grade_type_code), 1, 'All Types', grade_type_code)`.
+
 
 Both `ROLLUP` and `CUBE` mark subtotal rows by putting `NULL` in the columns that were "rolled up." That's a problem the moment one of your columns can *legitimately* contain `NULL` on its own — how do you tell a real `NULL` apart from a subtotal row?
 

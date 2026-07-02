@@ -16,6 +16,10 @@ To begin, you must install Oracle SQL Developer:
 
 ## Connect to the Oracle Database
 
+:::{.callout-tip}
+Once connected, you can start familiarizing yourself with the database's structure! Take a look at [the Student Database Schema](Student_Database_Schema.md) for an overview of the key data elements and where to find them.
+:::
+
 Use the following steps to connect to the course Oracle database instance:
 
 1. Open **SQL Developer**
@@ -42,7 +46,3 @@ Use the following steps to connect to the course Oracle database instance:
 6. Click **Save** to store the connection
 
 ![Sample Database Connection](img/connection_info.png)
-
-:::{.callout-tip}
-Once connected, you can start familiarizing yourself with the database's structure! Take a look at [the Student Database Schema](Student_Database_Schema.md) for an overview of the key data elements and where to find them.
-:::
