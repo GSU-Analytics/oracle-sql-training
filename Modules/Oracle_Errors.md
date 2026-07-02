@@ -16,9 +16,10 @@ Oracle SQL error messages typically include:
 * The Oracle error code (e.g., `ORA-00904`)
 * A brief message describing the issue
 
-Oracle parses SQL statements from the **bottom up**, meaning the actual issue may occur earlier than indicated. It's important to:
+When Oracle finds a problem, the line and column it reports show where it **detected** the error — the point where your statement stopped making sense to it. The real mistake is often slightly earlier. For example, a missing comma can make Oracle flag the *next* keyword instead of the comma itself. So it helps to:
 
 * Focus on fixing the first error reported
+* If the reported spot looks correct, check just before it
 * Re-run the query after each fix to reveal additional issues
 
 *Reference: Lab 3.2*
@@ -40,7 +41,7 @@ Oracle parses SQL statements from the **bottom up**, meaning the actual issue ma
 ### Syntax vs. Execution Errors
 
 * **Syntax Errors**: The SQL statement is not a valid command. Example: `ORA-00933` (SQL command not properly ended)
-  * Notice in the example below that SQL Developer has underlined with `FROM` keyword in red. This often means that something is wrong with the way we are specifying our query.
+  * Notice in the example below that SQL Developer has underlined the `FROM` keyword in red. This often means that something is wrong with the way we are specifying our query.
 
 ![syntax-error](./img/syntax_error.png)
 
@@ -91,9 +92,24 @@ Appendix G explains common error prefixes:
 
 #### Still Stuck?
 - Copy/paste the exact error message into a search engine
+- Paste the query and its error message or unexpected results into an AI assistant and ask it to explain the problem
 - Ask yourself: "What am I trying to accomplish?" and break it into smaller steps
 - Use SQL Developer's autocomplete to help with syntax
 - Don't be afraid to start over with a simpler approach
+
+## Demo
+
+Not every problem announces itself with an `ORA-` error. Some queries run successfully but return the **wrong** results — and those are the easiest to miss, because there is no red error text to search for and no line number to inspect.
+
+The query below is meant to list every course that is **not** listed as a prerequisite for another course:
+
+```sql
+SELECT course_no, description
+FROM course
+WHERE course_no NOT IN (SELECT prerequisite FROM course);
+```
+
+It runs without any error, but it returns **zero rows** — even though 14 courses qualify. This is a good case for an AI assistant: paste the query into the [Oracle SQL Optimizer](https://m365.cloud.microsoft/chat/?titleId=T_2fd8ec5a-df98-43db-b544-98be0bd4da5a&source=embedded-builder) and ask why it returns no rows. See the **Demo answer** at the end of this module for the fix and an explanation.
 
 ## Exercises
 
@@ -109,7 +125,7 @@ FROM student;
 2. Identify and fix the error in this query:
 
 ```sql
-SELECT student_id last_name
+SELECT student_id first_name last_name
 FROM student;
 ```
 
@@ -139,6 +155,7 @@ Open discussion of:
 * *Oracle SQL by Example*, Lab 3.2 and Appendix G
 * [Oracle Error Messages Manual](https://docs.oracle.com/en/database/oracle/oracle-database/19/errmg/index.html)
 * SQL Developer error highlighting and documentation lookup features
+* [Oracle SQL Optimizer](https://m365.cloud.microsoft/chat/?titleId=T_2fd8ec5a-df98-43db-b544-98be0bd4da5a&source=embedded-builder)
 
 ## Answers
 
@@ -152,7 +169,7 @@ FROM student;
 2. **Corrected query for missing comma**:
 
 ```sql
-SELECT student_id, last_name
+SELECT student_id, first_name, last_name
 FROM student;
 ```
 
@@ -161,4 +178,14 @@ FROM student;
 ```sql
 SELECT *
 FROM student;
+```
+
+**Demo answer**:
+
+The original query returns no rows because the `PREREQUISITE` column contains `NULL` values. When the subquery in a `NOT IN` clause returns even one `NULL`, Oracle cannot confirm that a course number is "not in" the list, so every row evaluates to unknown and nothing is returned. Exclude the `NULL`s (or rewrite with `NOT EXISTS`):
+
+```sql
+SELECT course_no, description
+FROM course
+WHERE course_no NOT IN (SELECT prerequisite FROM course WHERE prerequisite IS NOT NULL);
 ```
