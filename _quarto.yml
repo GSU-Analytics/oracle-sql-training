@@ -35,6 +35,7 @@ book:
       - "Modules/Readability_and_Optimization.md"
       - "Modules/Refactoring_With_CTEs.md"
       - "Modules/Analytical_Functions.md"
+      - "Modules/Pivots.md"
     - part: "Specialized Functionality"
       chapters:
       - "Modules/Date_and_Time_Logic.md"
