@@ -6,6 +6,10 @@ In this module, students will explore single-row functions in Oracle SQL, focusi
 
 **Reference**: *Oracle SQL by Example (4th Edition)*, Chapter 4, pp. 133–187
 
+:::{.callout-tip}
+This chapter provides an overview of the key concepts. See [the reference chapter on built-in functions](Function_Reference.md) for a convenient index of important functions.
+:::
+
 ## Explanation
 
 ### Character Functions
@@ -60,7 +64,8 @@ This query converts registration dates to a standardized string format.
 
 Common functions: `TO_CHAR`, `TO_DATE`, `CAST`, `TO_NUMBER`
 
-### Oracle's Automatic Data Conversion
+:::{.callout-note collapse=false}
+#### Oracle's Automatic Data Conversion
 
 Oracle automatically converts between data types when comparing different types in WHERE clauses. 
 
@@ -94,6 +99,7 @@ WHERE zip = TO_CHAR(10025)
 ```
 
 **Readability Note:** While automatic conversion is convenient, explicit conversion functions like `TO_CHAR()` and `TO_NUMBER()` can make queries clearer and more predictable.
+:::
 
 ### Null Handling
 
@@ -115,7 +121,17 @@ Common functions: `NVL`, `NVL2`, `COALESCE`, `NULLIF`, `LNNVL`
 
 SQL offers conditional functions like `CASE` and `DECODE` for inline logic.
 
-Example:
+For simple mappings, use `DECODE`:
+
+```sql
+SELECT DECODE(zip,
+              '30303', 'Downtown',
+              '30342', 'Northside',
+              'Other') AS region
+FROM student;
+```
+
+If you have a more complex transformation, use `CASE WHEN`:
 
 ```sql
 SELECT student_id,
@@ -126,17 +142,6 @@ SELECT student_id,
        END AS region
 FROM student;
 ```
-
-This query assigns region names based on ZIP codes using CASE logic.
-
-Alternative using `DECODE`:
-
-```sql
-SELECT DECODE(zip, '30303', 'Downtown', '30342', 'Northside', 'Other') AS region
-FROM student;
-```
-
-This query achieves the same result using Oracle's DECODE function.
 
 Refer to Table 4.4, **Which Functions and CASE Expressions Should You Use?** in Lab 4.3 for a full list and description of conditional functions.
 

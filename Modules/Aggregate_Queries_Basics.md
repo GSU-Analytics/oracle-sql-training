@@ -106,16 +106,6 @@ From the `GRADE` table, find student IDs that have more than one recorded grade.
 **5. Average Grade by Section and Grade Type**
 Use `GRADE` to find the average numeric grade for each section and grade type combination.
 
-```sql
-SELECT *
-FROM (
-  SELECT z.state, s.student_id
-  FROM student s
-  JOIN zipcode z ON s.zip = z.zip
-)
---- Complete the PIVOT operation here
-```
-
 ## Q&A
 
 In practice, aggregate queries are essential for summarizing data across dimensions. The `GROUP BY` clause often follows business logic such as grouping by location, time period, or product category. The `HAVING` clause acts like a `WHERE` filter but applies to grouped data.
@@ -132,7 +122,6 @@ Discussion topics:
 
 * Oracle SQL by Example, Chapter 6, Labs 6.1 and 6.2
 * Oracle 19c SQL Language Reference: Aggregate and Group Functions
-* Sample queries using `ROLLUP`, `CUBE`, and `GROUPING SETS`
 
 ## Answers
 

@@ -43,9 +43,12 @@ book:
       chapters:
       - "Modules/student_resources/LISTAGG.md"
       - "Modules/student_resources/Additional_Practice.md"
-    - "Modules/Student_Database_Schema.md"
-    - Modules/summary.md
-    - Modules/references.md
+    - part: "References"
+      chapters:
+      - "Modules/Student_Database_Schema.md"
+      - "Modules/Function_Reference.md"
+    - Modules/Summary.md
+    - Modules/Attributions.md
   cover-image: Modules/site_assets/cover.png
 
 bibliography: Modules/site_assets/references.bib

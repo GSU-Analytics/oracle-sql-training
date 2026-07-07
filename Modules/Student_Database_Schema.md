@@ -1,4 +1,4 @@
-# Reference: The Student Database Schema {.unnumbered}
+# The Student Database Schema {.unnumbered}
 
 :::{.callout-tip}
 You'll need to connect to the database before this section is useful to you! Follow the instructions in @sec-setup to get connected.
