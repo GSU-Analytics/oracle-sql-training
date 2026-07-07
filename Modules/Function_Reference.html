@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Summary – SQL Intermediate Training</title>
+<title>Single-Row Functions – SQL Intermediate Training</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Modules/references.html" rel="next">
+<link href="../Modules/Summary.html" rel="next">
 <link href="../Modules/Student_Database_Schema.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -251,7 +251,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/summary.html">Summary</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Student_Database_Schema.html">References</a></li><li class="breadcrumb-item"><a href="../Modules/Function_Reference.html">Single-Row Functions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -428,6 +428,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Analytical Functions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Modules/Pivots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reshaping With Pivots</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -442,13 +448,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Date_and_Time_Logic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Custom_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
   </div>
 </li>
       </ul>
@@ -476,22 +482,39 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">References</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Student_Database_Schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reference: The Student Database Schema</span></a>
+ <span class="menu-text">The Student Database Schema</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Modules/Function_Reference.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Single-Row Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/summary.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Modules/Summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="../Modules/Attributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attributions</span></a>
   </div>
 </li>
     </ul>
@@ -499,16 +522,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#single-row-functions" id="toc-single-row-functions" class="nav-link active" data-scroll-target="#single-row-functions">Single-Row Functions</a>
+  <ul class="collapse">
+  <li><a href="#string-functions" id="toc-string-functions" class="nav-link" data-scroll-target="#string-functions">String Functions</a></li>
+  <li><a href="#numeric-functions" id="toc-numeric-functions" class="nav-link" data-scroll-target="#numeric-functions">Numeric Functions</a></li>
+  <li><a href="#conversion-functions" id="toc-conversion-functions" class="nav-link" data-scroll-target="#conversion-functions">Conversion Functions</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Student_Database_Schema.html">References</a></li><li class="breadcrumb-item"><a href="../Modules/Function_Reference.html">Single-Row Functions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Summary</h1>
+<h1 class="title">Single-Row Functions</h1>
 </div>
 
 
@@ -525,11 +559,249 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>We hope that the time you have spent with this material will empower you to excel at your work as an analyst.</p>
-<p>Writing SQL is a skill which takes time to master. We encourage you to periodically revisit the exercises in this resource to make sure you have retained what you learned. With practice, your proficiency will unquestionably improve.</p>
-<p>We thank you for your desire to grow as a professional, and hope to have been good guides through some of the more complicated ways in which you can utilize SQL. So, for now, so long, and thanks for all the queries.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t worry about memorizing these functions. Use this as a reference when you need it.</p>
+</div>
+</div>
+<p>Oracle SQL provides numerous built-in functions to manipulate data, perform calculations, and format results.</p>
+<p>Below are some of the most commonly used functions, categorized by type.</p>
+<section id="single-row-functions" class="level2">
+<h2 class="anchored" data-anchor-id="single-row-functions">Single-Row Functions</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These functions do <strong>not</strong> aggregate data. They operate element-wise on your inputs.</p>
+</div>
+</div>
+<section id="string-functions" class="level3">
+<h3 class="anchored" data-anchor-id="string-functions">String Functions</h3>
+<p>String functions make it easy to manipulate textual data. Here are some common useful string functions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>LOWER(str)</code></td>
+<td>Converts string to lowercase</td>
+<td><code>LOWER('HELLO')</code></td>
+<td>‘hello’</td>
+</tr>
+<tr class="even">
+<td><code>UPPER(str)</code></td>
+<td>Converts string to uppercase</td>
+<td><code>UPPER('hello')</code></td>
+<td>‘HELLO’</td>
+</tr>
+<tr class="odd">
+<td><code>INITCAP(str)</code></td>
+<td>Capitalizes first letter of each word</td>
+<td><code>INITCAP('hello world')</code></td>
+<td>‘Hello World’</td>
+</tr>
+<tr class="even">
+<td><code>SUBSTR(str, start, [length])</code></td>
+<td>Extracts substring</td>
+<td><code>SUBSTR('HELLO', 2, 3)</code></td>
+<td>‘ELL’</td>
+</tr>
+<tr class="odd">
+<td><code>LENGTH(str)</code></td>
+<td>Returns length of string</td>
+<td><code>LENGTH('HELLO')</code></td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><code>CONCAT(str1, str2)</code></td>
+<td>Concatenates two strings (You can also use the <code>||</code> operator)</td>
+<td><code>CONCAT('Hello', ' World')</code></td>
+<td>‘Hello World’</td>
+</tr>
+<tr class="odd">
+<td><code>REPLACE(str, search, replace)</code></td>
+<td>Replaces all occurrences</td>
+<td><code>REPLACE('JACK AND JUE','J','BL')</code></td>
+<td>‘BLACK AND BLUE’</td>
+</tr>
+<tr class="even">
+<td><code>TRIM([chars FROM] str)</code></td>
+<td>Removes specified characters</td>
+<td><code>TRIM(' hello ')</code></td>
+<td>‘hello’</td>
+</tr>
+<tr class="odd">
+<td><code>LPAD(str, length, [pad_str])</code></td>
+<td>Left-pad string</td>
+<td><code>LPAD('123', 5, '0')</code></td>
+<td>‘00123’</td>
+</tr>
+<tr class="even">
+<td><code>RPAD(str, length, [pad_str])</code></td>
+<td>Right-pad string</td>
+<td><code>RPAD('ABC', 5, 'XY')</code></td>
+<td>‘ABCXY’</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="numeric-functions" class="level3">
+<h3 class="anchored" data-anchor-id="numeric-functions">Numeric Functions</h3>
+<p>Numeric functions make it easy to manipulate numerical data. Here are some common useful numerical functions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ROUND(n, [decimal])</code></td>
+<td>Rounds number to specified decimal places</td>
+<td><code>ROUND(125.315, 2)</code></td>
+<td>125.32</td>
+</tr>
+<tr class="even">
+<td><code>TRUNC(n, [decimal])</code></td>
+<td>Truncates number to specified decimal places</td>
+<td><code>TRUNC(125.315, 2)</code></td>
+<td>125.31</td>
+</tr>
+<tr class="odd">
+<td><code>CEIL(n)</code></td>
+<td>Returns smallest integer greater than or equal to n</td>
+<td><code>CEIL(125.3)</code></td>
+<td>126</td>
+</tr>
+<tr class="even">
+<td><code>FLOOR(n)</code></td>
+<td>Returns largest integer less than or equal to n</td>
+<td><code>FLOOR(125.3)</code></td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td><code>MOD(m, n)</code></td>
+<td>Returns remainder when m is divided by n</td>
+<td><code>MOD(11, 4)</code></td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><code>ABS(n)</code></td>
+<td>Returns absolute value</td>
+<td><code>ABS(-15)</code></td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td><code>POWER(n, m)</code></td>
+<td>Returns n raised to the power of m</td>
+<td><code>POWER(3, 2)</code></td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><code>SQRT(n)</code></td>
+<td>Returns square root</td>
+<td><code>SQRT(25)</code></td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="conversion-functions" class="level3">
+<h3 class="anchored" data-anchor-id="conversion-functions">Conversion Functions</h3>
+<p>Conversion functions make it easy to transform data into different types. Here are some common useful conversion functions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>TO_CHAR(value, [format])</code></td>
+<td>Converts number or date to string</td>
+<td><code>TO_CHAR(1234.56, '$9,999.99')</code></td>
+<td>‘$1,234.56’</td>
+</tr>
+<tr class="even">
+<td><code>TO_NUMBER(str, [format])</code></td>
+<td>Converts string to number</td>
+<td><code>TO_NUMBER('$1,234.56', '$9,999.99')</code></td>
+<td>1234.56</td>
+</tr>
+<tr class="odd">
+<td><code>CAST(expr AS type)</code></td>
+<td>Converts expression to specified datatype</td>
+<td><code>CAST('123' AS NUMBER)</code></td>
+<td>123</td>
+</tr>
+<tr class="even">
+<td><code>NVL(expr1, expr2)</code></td>
+<td>Returns expr2 if expr1 is NULL</td>
+<td><code>NVL(NULL, 0)</code></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td><code>NVL2(expr1, expr2, expr3)</code></td>
+<td>Returns expr2 if expr1 is NOT NULL, else expr3</td>
+<td><code>NVL2(NULL, 'A', 'B')</code></td>
+<td>‘B’</td>
+</tr>
+<tr class="even">
+<td><code>COALESCE(expr1, expr2, ...)</code></td>
+<td>Returns first non-NULL expression</td>
+<td><code>COALESCE(NULL, NULL, 'A', 'B')</code></td>
+<td>‘A’</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -947,13 +1219,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Modules/Student_Database_Schema.html" class="pagination-link" aria-label="Reference: The Student Database Schema">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reference: The Student Database Schema</span>
+      <a href="../Modules/Student_Database_Schema.html" class="pagination-link" aria-label="The Student Database Schema">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The Student Database Schema</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Modules/references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Modules/Summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text">Summary</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
