@@ -2,13 +2,13 @@
 
 ## Module Introduction
 
-In this module, we will discuss some powerful ways to calculate aggregates across groups. You will do this by using `ROLLUP`, `CUBE`, and the `GROUPING` function. We'll also talk about using `PIVOT` to reshape your output.
+In this module, we will discuss some powerful ways to calculate aggregates across groups. You will do this by using `ROLLUP`, `CUBE`, and the `GROUPING` function.
 
 **Reference**: Oracle SQL by Example, Chapter 6 · Oracle SQL Language Reference, *Aggregate and Group Functions*
 
 ## Explanation
 
-### Queries with Subtotals
+### Motivation: Queries with Subtotals
 
 `GROUP BY` gets you a single level of summary — one row per group. But reporting often calls for *subtotals and grand totals alongside the detail*, the way a spreadsheet pivot table shows a total at the bottom of each group and a grand total at the very end.
 
@@ -19,7 +19,7 @@ You could get there by writing several separate queries and `UNION ALL`-ing them
 - The `GROUPING` function
 
 
-#### ROLLUP: Subtotals Up a Hierarchy
+### ROLLUP: Subtotals Up a Hierarchy
 
 `ROLLUP` produces subtotal rows as it "rolls up" through the columns you list, in order, finishing with a grand total row.
 
@@ -47,7 +47,7 @@ This returns:
 The column order inside `ROLLUP()` matters! It defines the hierarchy being subtotaled, from left to right.
 
 :::{.callout-tip collapse=false}
-##### Only "Rolling Up" Some Totals
+#### Only "Rolling Up" Some Totals
 
 You can also do partial `ROLLUP`'s. In the example below, we only roll up the instructor ID and the section ID. There won't be a grand total for capacity across all courses.
 
@@ -72,7 +72,7 @@ ORDER BY
 ```
 :::
 
-#### CUBE: Every Combination of Subtotals
+### CUBE: Every Combination of Subtotals
 
 `CUBE` goes further: it produces subtotals for *every possible combination* of the grouping columns, not just a strict hierarchy.
 
@@ -100,7 +100,7 @@ You get four levels of summary instead of `ROLLUP`'s three.
 
 > As you add more columns, `CUBE` grows quickly ($2^n$ combinations for $n$ columns), so it's best reserved for a handful of grouping columns at a time.
 
-#### Telling Subtotal Rows Apart with GROUPING
+### Telling Subtotal Rows Apart with GROUPING
 
 Both `ROLLUP` and `CUBE` mark subtotal rows by putting `NULL` in the columns that were "rolled up." But what if your data might actually contain `NULL` values?
 
@@ -129,89 +129,6 @@ SELECT
   DECODE(GROUPING(grade_type_code), 1, 'All Types', grade_type_code)
   ...
 ``` 
-
-### PIVOT and UNPIVOT
-
-`PIVOT` converts rows to columns and `UNPIVOT` converts columns back to rows. These operations are useful for creating cross-tabular reports and reshaping data for analysis.
-
-**Basic PIVOT Example:**
-
-First, let's see the data we want to pivot:
-
-```sql
-SELECT TO_CHAR(start_date_time, 'DY') AS day,
-       COUNT(*) AS num_of_sections
-FROM section
-GROUP BY TO_CHAR(start_date_time, 'DY')
-ORDER BY 2;
-```
-
-|DAY|NUM_OF_SECTIONS|
-|---|---|
-|FRI|4|
-|THU|5|
-|WED|7|
-|SUN|13|
-|MON|15|
-|SAT|17|
-|TUE|17|
-
-Now let's pivot this data to show days as columns:
-
-```sql
-SELECT *
-FROM (
-  SELECT TO_CHAR(start_date_time, 'DY') day,
-         COUNT(*) num_of_sections
-  FROM section
-  GROUP BY TO_CHAR(start_date_time, 'DY')
-)
-PIVOT (
-  SUM(num_of_sections)
-  FOR day IN ('MON','TUE', 'WED','THU', 'FRI','SAT','SUN')
-);
-```
-
-|'MON'|'TUE'|'WED'|'THU'|'FRI'|'SAT'|'SUN'|
-|-----|-----|-----|-----|-----|-----|-----|
-|15|17|7|5|4|17|13|
-
-**PIVOT with Multiple Grouping Columns:**
-
-```sql
-SELECT *
-FROM (
-  SELECT TO_CHAR(start_date_time, 'DY') day,
-         location,
-         COUNT(*) num_of_classes
-  FROM section
-  GROUP BY TO_CHAR(start_date_time, 'DY'), location
-)
-PIVOT (
-  SUM(num_of_classes) 
-  FOR day IN ('MON' AS MON, 'TUE' AS TUE, 'WED' AS WED, 'THU' AS THU,
-              'FRI' AS FRI, 'SAT' AS SAT, 'SUN' AS SUN)
-);
-```
-
-**UNPIVOT Example:**
-
-Using a simple example with student grade types:
-
-```sql
-SELECT *
-FROM (
-  SELECT student_id, 
-         MAX(CASE WHEN grade_type_code = 'HM' THEN numeric_grade END) AS homework,
-         MAX(CASE WHEN grade_type_code = 'QZ' THEN numeric_grade END) AS quiz
-  FROM grade
-  WHERE student_id = 123
-  GROUP BY student_id
-)
-UNPIVOT (
-  grade FOR grade_type IN (homework AS 'HM', quiz AS 'QZ')
-);
-```
 
 
 
