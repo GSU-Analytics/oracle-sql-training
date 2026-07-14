@@ -241,17 +241,17 @@ Some programming languages treat certain values like `NULL` values. For example,
 
 ### Simple problems
 
-1. Write a SELECT statement that lists the first and last names of all students.
+1. Write a `SELECT` statement that lists the first and last names of all students.
 
-2. Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.
+2. Write a `SELECT` statement that lists all cities, states, and zip codes. Order them alphabetically by state.
 
-3. Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.
+3. Write a `SELECT` statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.
 
 ### Complex problems
 
-1. Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.
+1. Write a `SELECT` statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.
 
-2. Write a SELECT statement that returns a student's ID, and their name in the format of "Last, First" for each student. Alias the name column to `Full Name`. Sort the results by their *first* name.
+2. Write a `SELECT` statement that returns a student's ID, and their name in the format of "Last, First" for each student. Alias the name column to `Full Name`. Sort the results by their *first* name.
 
 ## Q&A
 
@@ -273,7 +273,7 @@ For more details, see the resources below.
 
 ### Simple problems
 
-1. Write a SELECT statement that lists the first and last names of all students.
+1. Write a `SELECT` statement that lists the first and last names of all students.
 
 ```sql
 SELECT first_name,
@@ -281,7 +281,7 @@ SELECT first_name,
   FROM student;
 ```
 
-2. Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.
+2. Write a `SELECT` statement that lists all cities, states, and zip codes. Order them alphabetically by state.
 
 ```sql
 SELECT city,
@@ -291,7 +291,7 @@ SELECT city,
  ORDER BY state;
 ```
 
-3. Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.
+3. Write a `SELECT` statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.
 
 ```sql
 SELECT city,
@@ -304,7 +304,7 @@ SELECT city,
 
 ### Complex problems
 
-1. Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.
+1. Write a `SELECT` statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.
 
 ```sql
 SELECT first_name,
@@ -315,7 +315,7 @@ SELECT first_name,
    AND zip = '10025';
 ```
 
-2. Write a SELECT statement that returns a student's ID, and their name in the format of "Last, First" for each student. Alias the name column to `Full Name`. Sort the results by their *first* name.
+2. Write a `SELECT` statement that returns a student's ID, and their name in the format of "Last, First" for each student. Alias the name column to `Full Name`. Sort the results by their *first* name.
 
 ```sql
 SELECT student_id,

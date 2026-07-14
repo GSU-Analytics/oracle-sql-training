@@ -34,7 +34,7 @@
     "href": "Modules/Course_Introduction.html",
     "title": "1  Course Introduction",
     "section": "",
-    "text": "1.1 Introduction",
+    "text": "1.1 Introduction\nThis course is designed for analysts and professionals who use Oracle SQL Developer for querying databases in support of data analysis and reporting.\nStudents will build skills in writing efficient, professional-grade SQL with a focus on multi-table queries, set operations, analytical functions, and common reporting tasks.",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
@@ -45,7 +45,7 @@
     "href": "Modules/Course_Introduction.html#introduction",
     "title": "1  Course Introduction",
     "section": "",
-    "text": "1.1.1 Overview\nThis course is designed for analysts and professionals who are already familiar with basic SQL syntax and who use Oracle SQL Developer for querying databases in support of data analysis and reporting. Students will build skills in writing efficient, professional-grade SQL with a focus on multi-table queries, set operations, analytical functions, and common reporting tasks.\n\n\n1.1.2 Prerequisites\nTo participate in this course, students should:\n\nHave completed the LinkedIn Learning Quick Start Guide to SQL\nBe familiar with running basic SELECT, WHERE, ORDER BY, and JOIN queries\n\n\nSQL Developer and database setup instructions are covered in the next module. We will not troubleshoot installation issues here.\n\n\n\n1.1.3 Module Objectives\nBy the end of this module, students will be able to:\n\nUnderstand the structure and expectations of the course\nIdentify the major types of SQL operations that will be covered\nConfirm they meet the technical setup requirements and prerequisites\nLocate the primary textbook and reference materials for the course",
+    "text": "NotePrerequisites\n\n\n\nTo participate in this course, students should:\n\nHave completed the LinkedIn Learning Quick Start Guide to SQL.\nBe familiar with running basic SELECT, WHERE, and ORDER BY queries.\n\nWe expect you to have had some prior exposure to SQL, but we do not expect you to be an expert. Passing familiarity with SQL as a tool is sufficient.",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
@@ -63,22 +63,11 @@
     ]
   },
   {
-    "objectID": "Modules/Course_Introduction.html#module-structure",
-    "href": "Modules/Course_Introduction.html#module-structure",
-    "title": "1  Course Introduction",
-    "section": "1.3 Module Structure",
-    "text": "1.3 Module Structure\nThis course follows a modular structure. Each module includes:\n\nLesson Overview: Short introduction to the topic\nGuided Examples: Hands-on walkthroughs using the STUDENT schema\nPractice Exercises: Independent SQL challenges\nReview Quiz: Multiple choice or short answer checks for understanding\n\nEach lesson builds upon previous concepts. The course progresses from intermediate to advanced topics, ending with data transformation and performance optimization patterns.",
-    "crumbs": [
-      "Introduction",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
-    ]
-  },
-  {
     "objectID": "Modules/Course_Introduction.html#materials-and-advice",
     "href": "Modules/Course_Introduction.html#materials-and-advice",
     "title": "1  Course Introduction",
-    "section": "1.4 Materials and Advice",
-    "text": "1.4 Materials and Advice\n\n1.4.1 Course Textbook and Materials\nPrimary Textbook: Oracle SQL by Example, 4th Edition by Alice Rischert\nStudents can access the textbook for free through O’Reilly using GSU credentials. It will serve as the primary reference throughout the course.\n\nMost labs and practice exercises are drawn from the book\nAdditional scripts and documentation are included in the course repository\n\n\n\n1.4.2 How to Get the Most Out of This Course\n\nPractice! SQL is a skill best learned hands-on\nUse the textbook as both a reference and a source for deeper exploration\nAsk questions and share queries with classmates for feedback\nReview answers and explanations for exercises",
+    "section": "1.3 Materials and Advice",
+    "text": "1.3 Materials and Advice\n\n1.3.1 Course Textbook and Materials\nPrimary Textbook: Oracle SQL by Example, 4th Edition by Alice Rischert\nStudents can access the textbook for free through O’Reilly using GSU credentials. It will serve as the primary reference throughout the course.\n\nMost labs and practice exercises are drawn from the book\nAdditional scripts and documentation are included in the course repository\n\n\n\n1.3.2 How to Get the Most Out of This Course\n\nPractice! SQL is a skill best learned hands-on\nUse the textbook as both a reference and a source for deeper exploration\nAsk questions and share queries with classmates for feedback\nReview answers and explanations for exercises",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
@@ -144,7 +133,7 @@
     "href": "Modules/Single_Table_Review.html#explanation",
     "title": "3  Working with Single Tables",
     "section": "3.2 Explanation",
-    "text": "3.2 Explanation\n\n3.2.1 An Introduction to SQL Clauses\nA SQL clause is a specific component of a SQL statement that performs a particular function within the query. Clauses are the building blocks that make up complete SQL statements and help define what data you want to retrieve, modify, or manipulate.\n\nBy learning to compose SQL clauses, you will learn to construct both basic and complex queries.\n\nEach clause has a specific purpose and follows a defined syntax. For example, in this basic SELECT statement:\nSELECT column1, column2\nFROM table_name\nWHERE condition;\nThere are three clauses:\n\nSELECT clause - Specifies which columns to retrieve\nFROM clause - Identifies the table(s) to query\nWHERE clause - Filters records based on conditions\n\nClauses must appear in a specific order within a SQL statement. For instance, a WHERE clause must come after a FROM clause, but before a GROUP BY clause in a SELECT statement.\n\n\n3.2.2 Basic SELECT Statements\nThe SELECT keyword indicates to SQL that you are interested in querying data. The basic syntax is:\nSELECT column1, column2, ...\nFROM table_name;\nLet’s break this down:\n\nSELECT specifies which columns you want to retrieve\nFROM identifies which table the data comes from\n\nFor example, to get the course number, description, and prerequisite information from the course table, you would write:\nSELECT course_no,\n       description,\n       prerequisite\n  FROM course;\nThis query retrieves the course number, description, and any prerequisite courses for all courses in the system.\nExecuting this query will return the data below (only the first 5 rows are shown):\n\n\n\nCOURSE_NO\nDESCRIPTION\nPREREQUISITE\n\n\n\n\n10\nTechnology Concepts\n\n\n\n20\nIntro to Information Systems\n\n\n\n25\nIntro to Programming\n140\n\n\n80\nProgramming Techniques\n204\n\n\n100\nHands-On Windows\n20\n\n\n\nYou can also use SELECT * to retrieve all columns.\nSELECT *\nFROM course;\nThis query returns all columns from the course table.\n\nThis is less efficient than specifying each column, so it should not be used if you are building applications. However, it is fine to use this for ad-hoc querying.\n\n\n\n3.2.3 Filtering, Sorting, and Aliasing\n\nFiltering with WHERE\nThe WHERE clause filters your query results based on specified conditions.\nSELECT column1, column2\nFROM table_name\nWHERE condition;\nCommon WHERE Operators include:\n\nComparison operators: =, &gt;, &lt;, &gt;=, &lt;=, &lt;&gt; (not equal to)\nLogical operators: AND, OR, NOT\nRange: BETWEEN value1 AND value2\nList membership: IN (value1, value2, ...)\nPattern matching: LIKE 'pattern' (with % as wildcard)\nNULL values: IS NULL or IS NOT NULL\n\nHere’s an example:\nSELECT course_no,\n       description,\n       prerequisite\n  FROM course\n WHERE course_no BETWEEN 100 AND 140;\nThis query filters courses to show only those with course numbers between 100 and 140, inclusive.\n\n\n\nCOURSE_NO\nDESCRIPTION\nPREREQUISITE\n\n\n\n\n100\nHands-On Windows\n20\n\n\n120\nIntro to Java Programming\n80\n\n\n122\nIntermediate Java Programming\n120\n\n\n124\nAdvanced Java Programming\n122\n\n\n125\nJava Developer I\n122\n\n\n130\nIntro to Unix\n310\n\n\n132\nBasics of Unix Admin\n130\n\n\n134\nAdvanced Unix Admin\n132\n\n\n135\nUnix Tips and Techniques\n134\n\n\n\n\n\nSorting with ORDER BY\nThe ORDER BY clause sorts your results based on specified columns.\nSELECT column1, column2\nFROM table_name\nORDER BY column1 [ASC|DESC], column2 [ASC|DESC], ...;\nYou can use the following keywords to determine the sorting order:\n\nASC - Ascending order (default if not specified)\nDESC - Descending order\n\nLet’s order the courses alphabetically.\nSELECT course_no,\n       description,\n       prerequisite\n  FROM course\n WHERE course_no BETWEEN 100 AND 140\n ORDER BY description ASC;\nThis query sorts the filtered courses by their description in alphabetical order.\n\n\n\nCOURSE_NO\nDESCRIPTION\nPREREQUISITE\n\n\n\n\n124\nAdvanced Java Programming\n122\n\n\n134\nAdvanced Unix Admin\n132\n\n\n132\nBasics of Unix Admin\n130\n\n\n100\nHands-On Windows\n20\n\n\n122\nIntermediate Java Programming\n120\n\n\n120\nIntro to Java Programming\n80\n\n\n130\nIntro to Unix\n310\n\n\n125\nJava Developer I\n122\n\n\n140\nSystems Analysis\n20\n\n\n135\nUnix Tips and Techniques\n134\n\n\n\n\n\nAliases\nAliases allow you to rename columns in your result set for clarity or convenience.\nSELECT column_name [AS] alias_name\nFROM table_name;\n\nThe AS keyword is technically optional. We recommend you include it for clarity.\n\nSELECT course_no AS \"Course Number\",\n       description AS \"Description\",\n       prerequisite AS \"Prerequisites\"\n  FROM course\n WHERE course_no BETWEEN 100 AND 130\n ORDER BY description ASC;\nThis query creates more readable column headers using aliases.\n\n\n\nCourse Number\nDescription\nPrerequisites\n\n\n\n\n124\nAdvanced Java Programming\n122\n\n\n100\nHands-On Windows\n20\n\n\n122\nIntermediate Java Programming\n120\n\n\n120\nIntro to Java Programming\n80\n\n\n130\nIntro to Unix\n310\n\n\n125\nJava Developer I\n122\n\n\n\nTable aliases provide shorthand references to tables. These can be useful for your own understanding, but they can also be necessary when you are working with multiple tables. We’ll discuss working with multiple tables in later modules.\nSELECT a.column_name, b.column_name\nFROM table1 AS a, table2 AS b\nWHERE a.common_field = b.common_field;\nThe query below will fetch the same data as the previous query, but the table has been renamed to course_list.\nSELECT course_list.course_no AS \"Course Number\",\n       course_list.description AS \"Description\",\n       course_list.prerequisite AS \"Prerequisites\"\n  FROM course course_list\n WHERE course_no BETWEEN 100 AND 130\n ORDER BY description ASC;\nThis query demonstrates table aliasing for clarity, even though it’s not necessary with a single table.\n\n\n\n3.2.4 Built-In Functions\nOracle SQL provides numerous built-in functions to manipulate data, perform calculations, and format results.\n\n\nThese functions do not aggregate data. They operate element-wise on your inputs. We will discuss aggregating functions later.\nDon’t worry about memorizing these functions. Use this as a reference when you need it.\n\n\nBelow are some of the most commonly used functions, categorized by type.\n\nString Functions\nString functions make it easy to manipulate textual data. Here are some common useful string functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nLOWER(str)\nConverts string to lowercase\nLOWER('HELLO')\n‘hello’\n\n\nUPPER(str)\nConverts string to uppercase\nUPPER('hello')\n‘HELLO’\n\n\nINITCAP(str)\nCapitalizes first letter of each word\nINITCAP('hello world')\n‘Hello World’\n\n\nSUBSTR(str, start, [length])\nExtracts substring\nSUBSTR('HELLO', 2, 3)\n‘ELL’\n\n\nLENGTH(str)\nReturns length of string\nLENGTH('HELLO')\n5\n\n\nCONCAT(str1, str2)\nConcatenates two strings (You can also use the || operator)\nCONCAT('Hello', ' World')\n‘Hello World’\n\n\nREPLACE(str, search, replace)\nReplaces all occurrences\nREPLACE('JACK AND JUE','J','BL')\n‘BLACK AND BLUE’\n\n\nTRIM([chars FROM] str)\nRemoves specified characters\nTRIM(' hello ')\n‘hello’\n\n\nLPAD(str, length, [pad_str])\nLeft-pad string\nLPAD('123', 5, '0')\n‘00123’\n\n\nRPAD(str, length, [pad_str])\nRight-pad string\nRPAD('ABC', 5, 'XY')\n‘ABCXY’\n\n\n\n\n\nNumeric Functions\nNumeric functions make it easy to manipulate numerical data. Here are some common useful numerical functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nROUND(n, [decimal])\nRounds number to specified decimal places\nROUND(125.315, 2)\n125.32\n\n\nTRUNC(n, [decimal])\nTruncates number to specified decimal places\nTRUNC(125.315, 2)\n125.31\n\n\nCEIL(n)\nReturns smallest integer greater than or equal to n\nCEIL(125.3)\n126\n\n\nFLOOR(n)\nReturns largest integer less than or equal to n\nFLOOR(125.3)\n125\n\n\nMOD(m, n)\nReturns remainder when m is divided by n\nMOD(11, 4)\n3\n\n\nABS(n)\nReturns absolute value\nABS(-15)\n15\n\n\nPOWER(n, m)\nReturns n raised to the power of m\nPOWER(3, 2)\n9\n\n\nSQRT(n)\nReturns square root\nSQRT(25)\n5\n\n\n\n\n\nConversion Functions\nConversion functions make it easy to transform data into different types. Here are some common useful conversion functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nTO_CHAR(value, [format])\nConverts number or date to string\nTO_CHAR(1234.56, '$9,999.99')\n‘$1,234.56’\n\n\nTO_NUMBER(str, [format])\nConverts string to number\nTO_NUMBER('$1,234.56', '$9,999.99')\n1234.56\n\n\nCAST(expr AS type)\nConverts expression to specified datatype\nCAST('123' AS NUMBER)\n123\n\n\nNVL(expr1, expr2)\nReturns expr2 if expr1 is NULL\nNVL(NULL, 0)\n0\n\n\nNVL2(expr1, expr2, expr3)\nReturns expr2 if expr1 is NOT NULL, else expr3\nNVL2(NULL, 'A', 'B')\n‘B’\n\n\nCOALESCE(expr1, expr2, ...)\nReturns first non-NULL expression\nCOALESCE(NULL, NULL, 'A', 'B')\n‘A’\n\n\n\n\n\n\n3.2.5 Missing Values\nIn Oracle SQL, an empty value in the table is called a NULL value. It means that there is no information for that record.\nSome programming languages treat certain values like NULL values. For example, a value of 0 is treated like it’s false in languages like Python and JavaScript. The table below shows how 0’s and empty strings differ from NULL values.\n\n\n\n\n\n\n\n\n\nAspect\nNull Values\n0 (Zero)\nEmpty Strings\n\n\n\n\nMeaning\nAbsence of a value or unknown data\nNumeric value of zero\nTreated as null\n\n\nBehavior\nNot equal to anything, including other nulls\nTreated as a number, used in arithmetic operations\nStored as null\n\n\nUsage\nUsed when the actual value is not known or not applicable\nUsed to represent a numeric value that is explicitly zero\nUsed when no data is provided",
+    "text": "3.2 Explanation\n\n3.2.1 An Introduction to SQL Clauses\nA SQL clause is a specific component of a SQL statement that performs a particular function within the query. Clauses are the building blocks that make up complete SQL statements and help define what data you want to retrieve, modify, or manipulate.\n\nBy learning to compose SQL clauses, you will learn to construct both basic and complex queries.\n\nEach clause has a specific purpose and follows a defined syntax. For example, in this basic SELECT statement:\nSELECT column1, column2\nFROM table_name\nWHERE condition;\nThere are three clauses:\n\nSELECT clause - Specifies which columns to retrieve\nFROM clause - Identifies the table(s) to query\nWHERE clause - Filters records based on conditions\n\nClauses must appear in a specific order within a SQL statement. For instance, a WHERE clause must come after a FROM clause, but before a GROUP BY clause in a SELECT statement.\n\n\n3.2.2 Basic SELECT Statements\nThe SELECT keyword indicates to SQL that you are interested in querying data. The basic syntax is:\nSELECT column1, column2, ...\nFROM table_name;\nLet’s break this down:\n\nSELECT specifies which columns you want to retrieve\nFROM identifies which table the data comes from\n\nFor example, to get the course number, description, and prerequisite information from the course table, you would write:\nSELECT course_no,\n       description,\n       prerequisite\n  FROM course;\nThis query retrieves the course number, description, and any prerequisite courses for all courses in the system.\nExecuting this query will return the data below (only the first 5 rows are shown):\n\n\n\nCOURSE_NO\nDESCRIPTION\nPREREQUISITE\n\n\n\n\n10\nTechnology Concepts\n\n\n\n20\nIntro to Information Systems\n\n\n\n25\nIntro to Programming\n140\n\n\n80\nProgramming Techniques\n204\n\n\n100\nHands-On Windows\n20\n\n\n\nYou can also use SELECT * to retrieve all columns.\nSELECT *\nFROM course;\nThis query returns all columns from the course table.\n\nThis is less efficient than specifying each column, so it should not be used if you are building applications. However, it is fine to use this for ad-hoc querying.\n\n\n\n3.2.3 Filtering, Sorting, and Aliasing\n\nFiltering with WHERE\nThe WHERE clause filters your query results based on specified conditions.\nSELECT column1, column2\nFROM table_name\nWHERE condition;\nCommon WHERE Operators include:\n\nComparison operators: =, &gt;, &lt;, &gt;=, &lt;=, &lt;&gt; (not equal to)\nLogical operators: AND, OR, NOT\nRange: BETWEEN value1 AND value2\nList membership: IN (value1, value2, ...)\nPattern matching: LIKE 'pattern' (with % as wildcard)\nNULL values: IS NULL or IS NOT NULL\n\nHere’s an example:\nSELECT course_no,\n       description,\n       prerequisite\n  FROM course\n WHERE course_no BETWEEN 100 AND 140;\nThis query filters courses to show only those with course numbers between 100 and 140, inclusive.\n\n\n\nCOURSE_NO\nDESCRIPTION\nPREREQUISITE\n\n\n\n\n100\nHands-On Windows\n20\n\n\n120\nIntro to Java Programming\n80\n\n\n122\nIntermediate Java Programming\n120\n\n\n124\nAdvanced Java Programming\n122\n\n\n125\nJava Developer I\n122\n\n\n130\nIntro to Unix\n310\n\n\n132\nBasics of Unix Admin\n130\n\n\n134\nAdvanced Unix Admin\n132\n\n\n135\nUnix Tips and Techniques\n134\n\n\n\n\n\nSorting with ORDER BY\nThe ORDER BY clause sorts your results based on specified columns.\nSELECT column1, column2\nFROM table_name\nORDER BY column1 [ASC|DESC], column2 [ASC|DESC], ...;\nYou can use the following keywords to determine the sorting order:\n\nASC - Ascending order (default if not specified)\nDESC - Descending order\n\nLet’s order the courses alphabetically.\nSELECT course_no,\n       description,\n       prerequisite\n  FROM course\n WHERE course_no BETWEEN 100 AND 140\n ORDER BY description ASC;\nThis query sorts the filtered courses by their description in alphabetical order.\n\n\n\nCOURSE_NO\nDESCRIPTION\nPREREQUISITE\n\n\n\n\n124\nAdvanced Java Programming\n122\n\n\n134\nAdvanced Unix Admin\n132\n\n\n132\nBasics of Unix Admin\n130\n\n\n100\nHands-On Windows\n20\n\n\n122\nIntermediate Java Programming\n120\n\n\n120\nIntro to Java Programming\n80\n\n\n130\nIntro to Unix\n310\n\n\n125\nJava Developer I\n122\n\n\n140\nSystems Analysis\n20\n\n\n135\nUnix Tips and Techniques\n134\n\n\n\n\n\nAliases\nAliases allow you to rename columns in your result set for clarity or convenience.\nSELECT column_name [AS] alias_name\nFROM table_name;\n\nThe AS keyword is technically optional. We recommend you include it for clarity.\n\nSELECT course_no AS \"Course Number\",\n       description AS \"Description\",\n       prerequisite AS \"Prerequisites\"\n  FROM course\n WHERE course_no BETWEEN 100 AND 130\n ORDER BY description ASC;\nThis query creates more readable column headers using aliases.\n\n\n\nCourse Number\nDescription\nPrerequisites\n\n\n\n\n124\nAdvanced Java Programming\n122\n\n\n100\nHands-On Windows\n20\n\n\n122\nIntermediate Java Programming\n120\n\n\n120\nIntro to Java Programming\n80\n\n\n130\nIntro to Unix\n310\n\n\n125\nJava Developer I\n122\n\n\n\nTable aliases provide shorthand references to tables. These can be useful for your own understanding, but they can also be necessary when you are working with multiple tables. We’ll discuss working with multiple tables in later modules.\nSELECT a.column_name, b.column_name\nFROM table1 AS a, table2 AS b\nWHERE a.common_field = b.common_field;\nThe query below will fetch the same data as the previous query, but the table has been renamed to course_list.\nSELECT course_list.course_no AS \"Course Number\",\n       course_list.description AS \"Description\",\n       course_list.prerequisite AS \"Prerequisites\"\n  FROM course course_list\n WHERE course_no BETWEEN 100 AND 130\n ORDER BY description ASC;\nThis query demonstrates table aliasing for clarity, even though it’s not necessary with a single table.\n\n\n\n3.2.4 Missing Values\nIn Oracle SQL, an empty value in the table is called a NULL value. It means that there is no information for that record.\nSome programming languages treat certain values like NULL values. For example, a value of 0 is treated like it’s false in languages like Python and JavaScript. The table below shows how 0’s and empty strings differ from NULL values.\n\n\n\n\n\n\n\n\n\nAspect\nNull Values\n0 (Zero)\nEmpty Strings\n\n\n\n\nMeaning\nAbsence of a value or unknown data\nNumeric value of zero\nTreated as null\n\n\nBehavior\nNot equal to anything, including other nulls\nTreated as a number, used in arithmetic operations\nStored as null\n\n\nUsage\nUsed when the actual value is not known or not applicable\nUsed to represent a numeric value that is explicitly zero\nUsed when no data is provided",
     "crumbs": [
       "Fundamentals",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Working with Single Tables</span>"
@@ -371,11 +360,22 @@
     ]
   },
   {
+    "objectID": "Modules/Single_Row_Functions.html#module-introduction",
+    "href": "Modules/Single_Row_Functions.html#module-introduction",
+    "title": "7  Single-Row Built-In Functions",
+    "section": "",
+    "text": "Tip\n\n\n\nThis chapter provides an overview of the key concepts. See the reference chapter on built-in functions for a convenient index of important functions.",
+    "crumbs": [
+      "Data Transformations",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Single-Row Built-In Functions</span>"
+    ]
+  },
+  {
     "objectID": "Modules/Single_Row_Functions.html#explanation",
     "href": "Modules/Single_Row_Functions.html#explanation",
     "title": "7  Single-Row Built-In Functions",
     "section": "7.2 Explanation",
-    "text": "7.2 Explanation\n\n7.2.1 Character Functions\nCharacter functions allow manipulation and evaluation of string values.\nExamples:\nSELECT student_id, \n       UPPER(first_name) AS upper_name, \n       LENGTH(last_name) AS name_length\nFROM student;\nThis query demonstrates converting names to uppercase and calculating the length of last names.\nCommon functions: UPPER, LOWER, INITCAP, SUBSTR, INSTR, TRIM, LPAD, RPAD, LENGTH\nRefer to Table 4.2, Which Character Function Should You Use? in Lab 4.1 for a full list and description of character functions.\n\n\n7.2.2 Number Functions\nNumber functions perform arithmetic or rounding operations.\nExample:\nSELECT course_no, \n       ROUND(cost, -2) AS rounded_cost\nFROM course;\nThis query rounds course costs to the nearest hundred dollars.\nCommon functions: ROUND, TRUNC, MOD, FLOOR, CEIL, ABS, SIGN, POWER, SQRT, EXP, LOG\nRefer to Table 4.3, Which Number Function Should You Use? in Lab 4.2 for a full list and description of number functions.\n\n\n7.2.3 Conversion Functions\nUsed to convert data types between strings, numbers, and dates.\nExample:\nSELECT TO_CHAR(registration_date, 'YYYY-MM-DD') AS reg_date_str\nFROM student;\nThis query converts registration dates to a standardized string format.\nCommon functions: TO_CHAR, TO_DATE, CAST, TO_NUMBER\n\n\n7.2.4 Oracle’s Automatic Data Conversion\nOracle automatically converts between data types when comparing different types in WHERE clauses.\nExample:\nThe ZIP column in the ZIPCODE table is stored as VARCHAR2(5), but you can search using numeric values:\n-- This works even though ZIP is stored as text\nSELECT zip, city\nFROM zipcode\nWHERE zip = 10025;\nOracle automatically converts the numeric literal 10025 to '10025' to match the VARCHAR2 column.\nPerformance Note: Avoid applying conversion functions to columns in WHERE clauses as this can disable index usage:\n-- Avoid: can disable indexes\nSELECT zip, city\nFROM zipcode\nWHERE TO_NUMBER(zip) = 10025\n-- Prefer: maintains performance\nSELECT zip, city\nFROM zipcode\nWHERE zip = TO_CHAR(10025)\nReadability Note: While automatic conversion is convenient, explicit conversion functions like TO_CHAR() and TO_NUMBER() can make queries clearer and more predictable.\n\n\n7.2.5 Null Handling\nThese functions help manage NULL values effectively.\nExample:\nSELECT NVL(phone,'No phone') AS contact_number\n  FROM student\n ORDER BY student_id;\nThis query replaces NULL phone numbers with a default message.\nCommon functions: NVL, NVL2, COALESCE, NULLIF, LNNVL\n\n\n7.2.6 Conditional Logic\nSQL offers conditional functions like CASE and DECODE for inline logic.\nExample:\nSELECT student_id,\n       zip,\n       CASE WHEN zip &lt;= '10025' THEN 'Downtown'\n            WHEN zip &gt;= '11216' THEN 'Northside'\n            ELSE 'Other'\n       END AS region\nFROM student;\nThis query assigns region names based on ZIP codes using CASE logic.\nAlternative using DECODE:\nSELECT DECODE(zip, '30303', 'Downtown', '30342', 'Northside', 'Other') AS region\nFROM student;\nThis query achieves the same result using Oracle’s DECODE function.\nRefer to Table 4.4, Which Functions and CASE Expressions Should You Use? in Lab 4.3 for a full list and description of conditional functions.\n\n\n7.2.7 String Manipulation Functions\nThis category includes concatenation, replacement, and regex-based transformations.\nConcatenation:\nSELECT student_id, \n       first_name || ' ' || last_name AS full_name\nFROM student;\nThis query combines first and last names with a space separator.\nREPLACE:\nSELECT student_id, \n       REPLACE(phone, '-', '') AS phone_cleaned\nFROM student;\nThis query removes dashes from phone numbers.\nREGEXP_REPLACE:\nSELECT student_id, \n       REGEXP_REPLACE(phone, '[^0-9]', '') AS phone_digits_only\nFROM student;\nThis query extracts only numeric digits from phone numbers using regular expressions.\nOther regex functions: REGEXP_LIKE, REGEXP_INSTR, REGEXP_SUBSTR\nRefer to Lab 16.1, Regular Expressions for a detailed guide to using regular expressions.\n\n\n7.2.8 Regular Expressions\nRegular expressions provide powerful pattern matching capabilities for complex string operations.\nSELECT zip\nFROM zipcode\nWHERE REGEXP_LIKE(zip, '[^0-9]');\nThis query finds ZIP codes that contain non-numeric characters.\n\nRegular expressions can get very complicated, but they are essentially a form a pattern matching in text. See Stanford’s CS103 Notes for a high-level overview.",
+    "text": "7.2 Explanation\n\n7.2.1 Character Functions\nCharacter functions allow manipulation and evaluation of string values.\nExamples:\nSELECT student_id, \n       UPPER(first_name) AS upper_name, \n       LENGTH(last_name) AS name_length\nFROM student;\nThis query demonstrates converting names to uppercase and calculating the length of last names.\nCommon functions: UPPER, LOWER, INITCAP, SUBSTR, INSTR, TRIM, LPAD, RPAD, LENGTH\nRefer to Table 4.2, Which Character Function Should You Use? in Lab 4.1 for a full list and description of character functions.\n\n\n7.2.2 Number Functions\nNumber functions perform arithmetic or rounding operations.\nExample:\nSELECT course_no, \n       ROUND(cost, -2) AS rounded_cost\nFROM course;\nThis query rounds course costs to the nearest hundred dollars.\nCommon functions: ROUND, TRUNC, MOD, FLOOR, CEIL, ABS, SIGN, POWER, SQRT, EXP, LOG\nRefer to Table 4.3, Which Number Function Should You Use? in Lab 4.2 for a full list and description of number functions.\n\n\n7.2.3 Conversion Functions\nUsed to convert data types between strings, numbers, and dates.\nExample:\nSELECT TO_CHAR(registration_date, 'YYYY-MM-DD') AS reg_date_str\nFROM student;\nThis query converts registration dates to a standardized string format.\nCommon functions: TO_CHAR, TO_DATE, CAST, TO_NUMBER\n\n\n\n\n\n\nNoteOracle’s Automatic Data Conversion\n\n\n\n\n\nOracle automatically converts between data types when comparing different types in WHERE clauses.\nExample:\nThe ZIP column in the ZIPCODE table is stored as VARCHAR2(5), but you can search using numeric values:\n-- This works even though ZIP is stored as text\nSELECT zip, city\nFROM zipcode\nWHERE zip = 10025;\nOracle automatically converts the numeric literal 10025 to '10025' to match the VARCHAR2 column.\nPerformance Note: Avoid applying conversion functions to columns in WHERE clauses as this can disable index usage:\n-- Avoid: can disable indexes\nSELECT zip, city\nFROM zipcode\nWHERE TO_NUMBER(zip) = 10025\n-- Prefer: maintains performance\nSELECT zip, city\nFROM zipcode\nWHERE zip = TO_CHAR(10025)\nReadability Note: While automatic conversion is convenient, explicit conversion functions like TO_CHAR() and TO_NUMBER() can make queries clearer and more predictable.\n\n\n\n\n\n7.2.4 Null Handling\nThese functions help manage NULL values effectively.\nExample:\nSELECT NVL(phone,'No phone') AS contact_number\n  FROM student\n ORDER BY student_id;\nThis query replaces NULL phone numbers with a default message.\nCommon functions: NVL, NVL2, COALESCE, NULLIF, LNNVL\n\n\n7.2.5 Conditional Logic\nSQL offers conditional functions like CASE and DECODE for inline logic.\nFor simple mappings, use DECODE:\nSELECT DECODE(zip,\n              '30303', 'Downtown',\n              '30342', 'Northside',\n              'Other') AS region\nFROM student;\nIf you have a more complex transformation, use CASE WHEN:\nSELECT student_id,\n       zip,\n       CASE WHEN zip &lt;= '10025' THEN 'Downtown'\n            WHEN zip &gt;= '11216' THEN 'Northside'\n            ELSE 'Other'\n       END AS region\nFROM student;\nRefer to Table 4.4, Which Functions and CASE Expressions Should You Use? in Lab 4.3 for a full list and description of conditional functions.\n\n\n7.2.6 String Manipulation Functions\nThis category includes concatenation, replacement, and regex-based transformations.\nConcatenation:\nSELECT student_id, \n       first_name || ' ' || last_name AS full_name\nFROM student;\nThis query combines first and last names with a space separator.\nREPLACE:\nSELECT student_id, \n       REPLACE(phone, '-', '') AS phone_cleaned\nFROM student;\nThis query removes dashes from phone numbers.\nREGEXP_REPLACE:\nSELECT student_id, \n       REGEXP_REPLACE(phone, '[^0-9]', '') AS phone_digits_only\nFROM student;\nThis query extracts only numeric digits from phone numbers using regular expressions.\nOther regex functions: REGEXP_LIKE, REGEXP_INSTR, REGEXP_SUBSTR\nRefer to Lab 16.1, Regular Expressions for a detailed guide to using regular expressions.\n\n\n7.2.7 Regular Expressions\nRegular expressions provide powerful pattern matching capabilities for complex string operations.\nSELECT zip\nFROM zipcode\nWHERE REGEXP_LIKE(zip, '[^0-9]');\nThis query finds ZIP codes that contain non-numeric characters.\n\nRegular expressions can get very complicated, but they are essentially a form a pattern matching in text. See Stanford’s CS103 Notes for a high-level overview.",
     "crumbs": [
       "Data Transformations",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Single-Row Built-In Functions</span>"
@@ -452,7 +452,7 @@
     "href": "Modules/Aggregate_Queries_Basics.html#exercises",
     "title": "8  Basic Aggregations",
     "section": "8.3 Exercises",
-    "text": "8.3 Exercises\n1. Total Number of Courses Use the COURSE table to find the total number of courses offered.\n2. Average Course Cost Find the average cost of courses in the COURSE table, rounding to the nearest dollar.\n3. Student Count by ZIP Code List each ZIP code from the STUDENT table and count how many students live in each ZIP. Sort by descending count.\n4. Students with More Than One Grade From the GRADE table, find student IDs that have more than one recorded grade.\n5. Average Grade by Section and Grade Type Use GRADE to find the average numeric grade for each section and grade type combination.\nSELECT *\nFROM (\n  SELECT z.state, s.student_id\n  FROM student s\n  JOIN zipcode z ON s.zip = z.zip\n)\n--- Complete the PIVOT operation here",
+    "text": "8.3 Exercises\n1. Total Number of Courses Use the COURSE table to find the total number of courses offered.\n2. Average Course Cost Find the average cost of courses in the COURSE table, rounding to the nearest dollar.\n3. Student Count by ZIP Code List each ZIP code from the STUDENT table and count how many students live in each ZIP. Sort by descending count.\n4. Students with More Than One Grade From the GRADE table, find student IDs that have more than one recorded grade.\n5. Average Grade by Section and Grade Type Use GRADE to find the average numeric grade for each section and grade type combination.",
     "crumbs": [
       "Data Transformations",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Basic Aggregations</span>"
@@ -474,7 +474,7 @@
     "href": "Modules/Aggregate_Queries_Basics.html#additional-resources",
     "title": "8  Basic Aggregations",
     "section": "8.5 Additional Resources",
-    "text": "8.5 Additional Resources\n\nOracle SQL by Example, Chapter 6, Labs 6.1 and 6.2\nOracle 19c SQL Language Reference: Aggregate and Group Functions\nSample queries using ROLLUP, CUBE, and GROUPING SETS",
+    "text": "8.5 Additional Resources\n\nOracle SQL by Example, Chapter 6, Labs 6.1 and 6.2\nOracle 19c SQL Language Reference: Aggregate and Group Functions",
     "crumbs": [
       "Data Transformations",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Basic Aggregations</span>"
@@ -496,7 +496,7 @@
     "href": "Modules/Aggregate_Queries_Advanced.html",
     "title": "9  Advanced Aggregations",
     "section": "",
-    "text": "9.1 Module Introduction\nGROUP BY gets you a single level of summary — one row per group. But reporting often calls for subtotals and grand totals alongside the detail, the way a spreadsheet pivot table shows a total at the bottom of each group and a grand total at the very end.\nYou could get there by writing several separate queries and UNION ALL-ing them together, but Oracle gives you three extensions to GROUP BY that do this in a single query: ROLLUP, CUBE, and the GROUPING function. We’ll also talk about using PIVOT to reshape your output.\nReference: Oracle SQL by Example, Chapter 6 · Oracle SQL Language Reference, Aggregate and Group Functions",
+    "text": "9.1 Module Introduction\nIn this module, we will discuss some powerful ways to calculate aggregates across groups. You will do this by using ROLLUP, CUBE, and the GROUPING function.\nReference: Oracle SQL by Example, Chapter 6 · Oracle SQL Language Reference, Aggregate and Group Functions",
     "crumbs": [
       "Data Transformations",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Advanced Aggregations</span>"
@@ -507,7 +507,7 @@
     "href": "Modules/Aggregate_Queries_Advanced.html#explanation",
     "title": "9  Advanced Aggregations",
     "section": "9.2 Explanation",
-    "text": "9.2 Explanation\n\n9.2.1 Queries with Subtotals\n\nROLLUP: Subtotals Up a Hierarchy\nROLLUP produces subtotal rows as it “rolls up” through the columns you list, in order, finishing with a grand total row. Think of it as: totals per innermost group, then totals per next group up, then one overall total.\nSELECT section_id, grade_type_code, AVG(numeric_grade) AS avg_grade\nFROM grade\nGROUP BY ROLLUP(section_id, grade_type_code)\nORDER BY section_id, grade_type_code;\nThis returns one row per (section_id, grade_type_code) combination, plus a subtotal row per section_id (with grade_type_code as NULL), plus a single grand-total row (with both columns NULL). The column order inside ROLLUP() matters — it defines the hierarchy being subtotaled, from left to right.\n\n\nCUBE: Every Combination of Subtotals\nROLLUP only rolls up one direction, following the order you gave it. CUBE goes further: it produces subtotals for every possible combination of the grouping columns, not just a strict hierarchy.\nSELECT section_id, grade_type_code, AVG(numeric_grade) AS avg_grade\nFROM grade\nGROUP BY CUBE(section_id, grade_type_code)\nORDER BY section_id, grade_type_code;\nWith two columns, CUBE gives you: detail rows, subtotals by section_id alone, subtotals by grade_type_code alone, and the grand total — four levels of summary instead of ROLLUP’s three. As you add more columns, CUBE grows quickly (2ⁿ combinations for n columns), so it’s best reserved for a handful of grouping columns at a time.\n\n\nTelling Subtotal Rows Apart with GROUPING\nBoth ROLLUP and CUBE mark subtotal rows by putting NULL in the columns that were “rolled up.” That’s a problem the moment one of your columns can legitimately contain NULL on its own — how do you tell a real NULL apart from a subtotal row?\nThe GROUPING() function solves this. For a given column, it returns 1 on subtotal/grand-total rows (where that column was aggregated away) and 0 on normal detail rows.\nSELECT section_id,\n       grade_type_code,\n       AVG(numeric_grade) AS avg_grade,\n       GROUPING(section_id) AS is_section_subtotal,\n       GROUPING(grade_type_code) AS is_type_subtotal\nFROM grade\nGROUP BY ROLLUP(section_id, grade_type_code);\nThis is especially handy paired with DECODE or CASE to relabel subtotal rows with something more readable than NULL, e.g. DECODE(GROUPING(grade_type_code), 1, 'All Types', grade_type_code).\nBoth ROLLUP and CUBE mark subtotal rows by putting NULL in the columns that were “rolled up.” That’s a problem the moment one of your columns can legitimately contain NULL on its own — how do you tell a real NULL apart from a subtotal row?\nThe GROUPING() function solves this. For a given column, it returns 1 on subtotal/grand-total rows (where that column was aggregated away) and 0 on normal detail rows.\nSELECT c.description,\n       s.section_id,\n       COUNT(e.student_id) AS num_enrolled,\n       GROUPING(c.description) AS is_course_subtotal,\n       GROUPING(s.section_id) AS is_section_subtotal\nFROM course c\nJOIN section s ON c.course_no = s.course_no\nJOIN enrollment e ON s.section_id = e.section_id\nGROUP BY ROLLUP(c.description, s.section_id);\nThis is especially handy paired with DECODE or CASE to relabel subtotal rows with something more readable than NULL, e.g. DECODE(GROUPING(s.section_id), 1, 'All Sections', s.section_id).\n\n\nChoosing Between Them\n\nNeed a running set of subtotals building toward one grand total, in a natural hierarchy (e.g., course → section)? Use ROLLUP.\nNeed subtotals sliced every possible way across a small number of columns (e.g., by course and separately by term)? Use CUBE.\nNeed to identify which rows are subtotals — especially to relabel them or filter them out? Use GROUPING.\n\n\n\n\n9.2.2 PIVOT and UNPIVOT\nPIVOT converts rows to columns and UNPIVOT converts columns back to rows. These operations are useful for creating cross-tabular reports and reshaping data for analysis.\nBasic PIVOT Example:\nFirst, let’s see the data we want to pivot:\nSELECT TO_CHAR(start_date_time, 'DY') AS day,\n       COUNT(*) AS num_of_sections\nFROM section\nGROUP BY TO_CHAR(start_date_time, 'DY')\nORDER BY 2;\n\n\n\nDAY\nNUM_OF_SECTIONS\n\n\n\n\nFRI\n4\n\n\nTHU\n5\n\n\nWED\n7\n\n\nSUN\n13\n\n\nMON\n15\n\n\nSAT\n17\n\n\nTUE\n17\n\n\n\nNow let’s pivot this data to show days as columns:\nSELECT *\nFROM (\n  SELECT TO_CHAR(start_date_time, 'DY') day,\n         COUNT(*) num_of_sections\n  FROM section\n  GROUP BY TO_CHAR(start_date_time, 'DY')\n)\nPIVOT (\n  SUM(num_of_sections)\n  FOR day IN ('MON','TUE', 'WED','THU', 'FRI','SAT','SUN')\n);\n\n\n\n‘MON’\n‘TUE’\n‘WED’\n‘THU’\n‘FRI’\n‘SAT’\n‘SUN’\n\n\n\n\n15\n17\n7\n5\n4\n17\n13\n\n\n\nPIVOT with Multiple Grouping Columns:\nSELECT *\nFROM (\n  SELECT TO_CHAR(start_date_time, 'DY') day,\n         location,\n         COUNT(*) num_of_classes\n  FROM section\n  GROUP BY TO_CHAR(start_date_time, 'DY'), location\n)\nPIVOT (\n  SUM(num_of_classes) \n  FOR day IN ('MON' AS MON, 'TUE' AS TUE, 'WED' AS WED, 'THU' AS THU,\n              'FRI' AS FRI, 'SAT' AS SAT, 'SUN' AS SUN)\n);\nUNPIVOT Example:\nUsing a simple example with student grade types:\nSELECT *\nFROM (\n  SELECT student_id, \n         MAX(CASE WHEN grade_type_code = 'HM' THEN numeric_grade END) AS homework,\n         MAX(CASE WHEN grade_type_code = 'QZ' THEN numeric_grade END) AS quiz\n  FROM grade\n  WHERE student_id = 123\n  GROUP BY student_id\n)\nUNPIVOT (\n  grade FOR grade_type IN (homework AS 'HM', quiz AS 'QZ')\n);",
+    "text": "9.2 Explanation\n\n9.2.1 Motivation: Queries with Subtotals\nGROUP BY gets you a single level of summary — one row per group. But reporting often calls for subtotals and grand totals alongside the detail, the way a spreadsheet pivot table shows a total at the bottom of each group and a grand total at the very end.\nYou could get there by writing several separate queries and UNION ALL-ing them together, but Oracle gives you three extensions to GROUP BY that do this in a single query:\n\nROLLUP\nCUBE\nThe GROUPING function\n\n\n\n9.2.2 ROLLUP: Subtotals Up a Hierarchy\nROLLUP produces subtotal rows as it “rolls up” through the columns you list, in order, finishing with a grand total row.\n\nThink of it as, “totals per innermost group, then totals per next group up, then one overall total.”\n\nSELECT\n  section_id,\n  grade_type_code,\n  AVG(numeric_grade) AS avg_grade\nFROM grade\nGROUP BY\n    ROLLUP(section_id, grade_type_code)\nORDER BY\n    section_id,\n    grade_type_code;\nThis returns:\n\nOne row per (section_id, grade_type_code) combination\nA subtotal row per section_id (with grade_type_code as NULL)\nA single grand-total row (with both columns NULL)\n\nThe column order inside ROLLUP() matters! It defines the hierarchy being subtotaled, from left to right.\n\n\n\n\n\n\nTipOnly “Rolling Up” Some Totals\n\n\n\n\n\nYou can also do partial ROLLUP’s. In the example below, we only roll up the instructor ID and the section ID. There won’t be a grand total for capacity across all courses.\nSELECT\n    COURSE_NO,\n    INSTRUCTOR_ID,\n    SECTION_ID,\n    SUM(CAPACITY)\nFROM\n    SECTION\nGROUP BY\n    COURSE_NO,\n    ROLLUP(\n        INSTRUCTOR_ID,\n        SECTION_ID\n    )\nORDER BY\n    COURSE_NO,\n    INSTRUCTOR_ID,\n    SECTION_ID\n\n\n\n\n\n9.2.3 CUBE: Every Combination of Subtotals\nCUBE goes further: it produces subtotals for every possible combination of the grouping columns, not just a strict hierarchy.\nSELECT\n  section_id,\n  grade_type_code,\n  AVG(numeric_grade) AS avg_grade\nFROM grade\nGROUP BY\n  CUBE(section_id, grade_type_code)\nORDER BY\n  section_id,\n  grade_type_code;\nWith two columns, CUBE gives you:\n\nDetail rows (subtotals for specific values across all groups)\nSubtotals by section_id alone\nSubtotals by grade_type_code alone\nThe grand total\n\nYou get four levels of summary instead of ROLLUP’s three.\n\nAs you add more columns, CUBE grows quickly (\\(2^n\\) combinations for \\(n\\) columns), so it’s best reserved for a handful of grouping columns at a time.\n\n\n\n9.2.4 Telling Subtotal Rows Apart with GROUPING\nBoth ROLLUP and CUBE mark subtotal rows by putting NULL in the columns that were “rolled up.” But what if your data might actually contain NULL values?\n\nIn other words, how do you tell a real NULL apart from a subtotal row?\n\nThe GROUPING() function solves this. For a given column, it returns:\n\n1 on subtotal/grand-total rows (where that column was aggregated away)\n0 on normal detail rows.\n\nSELECT section_id,\n       grade_type_code,\n       AVG(numeric_grade) AS avg_grade,\n       GROUPING(section_id) AS is_section_subtotal,\n       GROUPING(grade_type_code) AS is_type_subtotal\nFROM grade\nGROUP BY\n  ROLLUP(section_id, grade_type_code);\nThis is especially handy paired with DECODE or CASE. Use it to relabel subtotal rows with something more readable than NULL. For example:\nSELECT \n  DECODE(GROUPING(grade_type_code), 1, 'All Types', grade_type_code)\n  ...",
     "crumbs": [
       "Data Transformations",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Advanced Aggregations</span>"
@@ -518,7 +518,7 @@
     "href": "Modules/Aggregate_Queries_Advanced.html#exercises",
     "title": "9  Advanced Aggregations",
     "section": "9.3 Exercises",
-    "text": "9.3 Exercises\nUsing ENROLLMENT, SECTION, and COURSE:\n\nWrite a query that shows the number of enrollments per section_id within each course_no, with a subtotal per course and a grand total. Which clause do you need?\nModify your query to replace the NULL placeholders in subtotal rows with the label 'Course Total' and 'Grand Total', using GROUPING.\nSuppose a manager wants enrollment counts broken out by course_no alone, by section_id alone, and by both together — all in one result set. Which clause fits best, and why wouldn’t ROLLUP be sufficient here?\nPivot the student count by STATE (from ZIPCODE) into separate columns for GA and AL.",
+    "text": "9.3 Exercises\nUsing ENROLLMENT, SECTION, and COURSE:\n\nWrite a query that shows the number of enrollments per section_id within each course_no, with a subtotal per course and a grand total. Which clause do you need?\nModify your query to replace the NULL placeholders in subtotal rows with the label 'Course Total' and 'Grand Total', using GROUPING.\nSuppose a manager wants enrollment counts broken out by course_no alone, by section_id alone, and by both together — all in one result set. Which clause fits best, and why wouldn’t ROLLUP be sufficient here?\nPivot the student count by STATE (from ZIPCODE) into separate columns for GA and AL.\n\nSELECT *\nFROM (\n  SELECT z.state, s.student_id\n  FROM student s\n  JOIN zipcode z ON s.zip = z.zip\n)\n--- Complete the PIVOT operation here",
     "crumbs": [
       "Data Transformations",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Advanced Aggregations</span>"
@@ -943,146 +943,190 @@
     ]
   },
   {
+    "objectID": "Modules/Pivots.html",
+    "href": "Modules/Pivots.html",
+    "title": "16  Reshaping With Pivots",
+    "section": "",
+    "text": "16.1 Module Introduction\nThis module illustrates how to pivot and un-pivot data within SQL. Students will learn how to expand their data across several columns, and how to stack existing columns into a narrow, tidy structure.\nReference: Oracle Database documentation, Pivot and Unpivot",
+    "crumbs": [
+      "Complex Querying",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Reshaping With Pivots</span>"
+    ]
+  },
+  {
+    "objectID": "Modules/Pivots.html#module-introduction",
+    "href": "Modules/Pivots.html#module-introduction",
+    "title": "16  Reshaping With Pivots",
+    "section": "",
+    "text": "CautionPivots Can Be A Pain\n\n\n\n\n\nPivots are a messy inclusion in Oracle.\n\nThey aren’t standard SQL syntax (e.g. MySQL and PostgreSQL don’t support it)\nThere are some surprising “gotchas” that can pop up in PIVOT clauses (e.g. there are limitations on using subqueries in PIVOT clauses)\nThey require a lot of explicit typing—for example, you often have to specify each column name yourself\n\nWe point it out here because it can be useful, but it proceed with caution.\n\nIf you are going to pivot a table, it should probably the final step in your query.\nYou may find that it is actually easier to join several queries together, or to self-join a table’s columns onto itself.\nAlso, consider whether you actually need to pivot your table. It may be better to export your data and pivot the result with a tool like Excel.",
+    "crumbs": [
+      "Complex Querying",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Reshaping With Pivots</span>"
+    ]
+  },
+  {
+    "objectID": "Modules/Pivots.html#explanation",
+    "href": "Modules/Pivots.html#explanation",
+    "title": "16  Reshaping With Pivots",
+    "section": "16.2 Explanation",
+    "text": "16.2 Explanation\n\n16.2.1 PIVOT\nPIVOT converts rows to columns and UNPIVOT converts columns back to rows. These operations are useful for creating cross-tabular reports and reshaping data for analysis.\nBasic PIVOT Example:\nFirst, let’s see the data we want to pivot:\nSELECT TO_CHAR(start_date_time, 'DY') AS day,\n       COUNT(*) AS num_of_sections\nFROM section\nGROUP BY TO_CHAR(start_date_time, 'DY')\nORDER BY 2;\n\n\n\nDAY\nNUM_OF_SECTIONS\n\n\n\n\nFRI\n4\n\n\nTHU\n5\n\n\nWED\n7\n\n\nSUN\n13\n\n\nMON\n15\n\n\nSAT\n17\n\n\nTUE\n17\n\n\n\nNow let’s pivot this data to show days as columns:\nSELECT *\nFROM (\n  SELECT TO_CHAR(start_date_time, 'DY') day,\n         COUNT(*) num_of_sections\n  FROM section\n  GROUP BY TO_CHAR(start_date_time, 'DY')\n)\nPIVOT (\n  SUM(num_of_sections)\n  FOR day IN ('MON','TUE', 'WED','THU', 'FRI','SAT','SUN')\n);\n\n\n\nMON\nTUE\nWED\nTHU\nFRI\nSAT\nSUN\n\n\n\n\n15\n17\n7\n5\n4\n17\n13\n\n\n\nThis is a simple example, but it conveys the idea. See Oracle’s Documentation for more details on pivoting.\n\n\n16.2.2 UNPIVOT\nUn-pivoting does the opposite of a pivot: it narrows your table and stacks records on top of each other, consolidating several fields into two (a key and a value).\nUNPIVOT Example:\nUsing a simple example with student grade types:\nSELECT *\nFROM (\n  SELECT student_id, \n         MAX(CASE WHEN grade_type_code = 'HM' THEN numeric_grade END) AS homework,\n         MAX(CASE WHEN grade_type_code = 'QZ' THEN numeric_grade END) AS quiz\n  FROM grade\n  WHERE student_id = 123\n  GROUP BY student_id\n)\nUNPIVOT (\n  grade FOR grade_type IN (homework AS 'HM', quiz AS 'QZ')\n);",
+    "crumbs": [
+      "Complex Querying",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Reshaping With Pivots</span>"
+    ]
+  },
+  {
+    "objectID": "Modules/Pivots.html#qa",
+    "href": "Modules/Pivots.html#qa",
+    "title": "16  Reshaping With Pivots",
+    "section": "16.3 Q&A",
+    "text": "16.3 Q&A\nUse the following questions to guide class discussion or individual reflection after completing the exercises:\n\nWhy might it be better to use joins than pivots?\nWhy might it be better to use pivots than joins?\nHow could you use UNIONS to reproduce pivot results? Why might you not want to?",
+    "crumbs": [
+      "Complex Querying",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Reshaping With Pivots</span>"
+    ]
+  },
+  {
     "objectID": "Modules/Date_and_Time_Logic.html",
     "href": "Modules/Date_and_Time_Logic.html",
-    "title": "16  Date and Time Logic",
+    "title": "17  Date and Time Logic",
     "section": "",
-    "text": "16.1 Module Introduction\nThis module explores date and time functions in Oracle SQL. Learners will practice extracting, formatting, converting, and comparing date values using the STUDENT schema. Mastery of these functions is essential for time-based reporting and analytics.",
+    "text": "17.1 Module Introduction\nThis module explores date and time functions in Oracle SQL. Learners will practice extracting, formatting, converting, and comparing date values using the STUDENT schema. Mastery of these functions is essential for time-based reporting and analytics.",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Date and Time Logic</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Date and Time Logic</span>"
     ]
   },
   {
     "objectID": "Modules/Date_and_Time_Logic.html#explanation",
     "href": "Modules/Date_and_Time_Logic.html#explanation",
-    "title": "16  Date and Time Logic",
-    "section": "16.2 Explanation",
-    "text": "16.2 Explanation\n\n16.2.1 SYSDATE, TRUNC, EXTRACT\n\nSYSDATE returns the current date and time from the database server.\nTRUNC(date) removes the time portion of a date, useful for daily comparisons.\nEXTRACT retrieves a specific component (e.g., YEAR, MONTH) from a date.\n\nExample 1: Current date and time\nSELECT SYSDATE FROM dual;\nThis query returns the current date and time from the database server.\nExample 2: Strip time from a section start date\nSELECT TRUNC(start_date_time) FROM section;\nThis query removes the time component from section start dates, leaving only the date portion.\nExample 3: Extract year from section start date\nSELECT EXTRACT(YEAR FROM start_date_time) FROM section;\nThis query extracts only the year component from section start dates.\nReference: Lab 5.1–5.2\n\n\n16.2.2 TO_DATE, TO_CHAR, Time Zones\n\nTO_DATE converts a string to a date using a format mask.\nTO_CHAR(date, format) converts a date to a formatted string.\nOracle supports multiple timestamp types including those with time zones.\n\nExample 4: Parse date string\nSELECT TO_DATE('01-JAN-2015', 'DD-MON-YYYY') FROM dual;\nThis query converts a string literal into a proper date value using a format mask.\nExample 5: Format a student registration date\nSELECT TO_CHAR(registration_date, 'MM/DD/YYYY') FROM student;\nThis query formats registration dates as MM/DD/YYYY strings for display.\nExample 6: Display session and database time zones\nSELECT SESSIONTIMEZONE, DBTIMEZONE FROM dual;\nThis query shows the current session and database timezone settings.\nReference: Lab 5.2–5.3",
+    "title": "17  Date and Time Logic",
+    "section": "17.2 Explanation",
+    "text": "17.2 Explanation\n\n17.2.1 SYSDATE, TRUNC, EXTRACT\n\nSYSDATE returns the current date and time from the database server.\nTRUNC(date) removes the time portion of a date, useful for daily comparisons.\nEXTRACT retrieves a specific component (e.g., YEAR, MONTH) from a date.\n\nExample 1: Current date and time\nSELECT SYSDATE FROM dual;\nThis query returns the current date and time from the database server.\nExample 2: Strip time from a section start date\nSELECT TRUNC(start_date_time) FROM section;\nThis query removes the time component from section start dates, leaving only the date portion.\nExample 3: Extract year from section start date\nSELECT EXTRACT(YEAR FROM start_date_time) FROM section;\nThis query extracts only the year component from section start dates.\nReference: Lab 5.1–5.2\n\n\n17.2.2 TO_DATE, TO_CHAR, Time Zones\n\nTO_DATE converts a string to a date using a format mask.\nTO_CHAR(date, format) converts a date to a formatted string.\nOracle supports multiple timestamp types including those with time zones.\n\nExample 4: Parse date string\nSELECT TO_DATE('01-JAN-2015', 'DD-MON-YYYY') FROM dual;\nThis query converts a string literal into a proper date value using a format mask.\nExample 5: Format a student registration date\nSELECT TO_CHAR(registration_date, 'MM/DD/YYYY') FROM student;\nThis query formats registration dates as MM/DD/YYYY strings for display.\nExample 6: Display session and database time zones\nSELECT SESSIONTIMEZONE, DBTIMEZONE FROM dual;\nThis query shows the current session and database timezone settings.\nReference: Lab 5.2–5.3",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Date and Time Logic</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Date and Time Logic</span>"
     ]
   },
   {
     "objectID": "Modules/Date_and_Time_Logic.html#exercises",
     "href": "Modules/Date_and_Time_Logic.html#exercises",
-    "title": "16  Date and Time Logic",
-    "section": "16.3 Exercises",
-    "text": "16.3 Exercises\n\nCurrent Date Test Write a query to return the current date and time using SYSDATE. Use the dual table.\nDate Without Time From the SECTION table, return section_id, start_date_time, and the truncated version of start_date_time with no time.\nExtract Year and Month From the SECTION table, display section_id, and extract the YEAR and MONTH from start_date_time.\nFilter Students by Registration Year List all students from the STUDENT table who registered in 2012. Use EXTRACT.\nFormatted Dates Display each STUDENT_ID and the registration date formatted as Month DD, YYYY.\nCompare Dates Show all sections from the SECTION table that started before January 1, 2015. Use TO_DATE for comparison.",
+    "title": "17  Date and Time Logic",
+    "section": "17.3 Exercises",
+    "text": "17.3 Exercises\n\nCurrent Date Test Write a query to return the current date and time using SYSDATE. Use the dual table.\nDate Without Time From the SECTION table, return section_id, start_date_time, and the truncated version of start_date_time with no time.\nExtract Year and Month From the SECTION table, display section_id, and extract the YEAR and MONTH from start_date_time.\nFilter Students by Registration Year List all students from the STUDENT table who registered in 2012. Use EXTRACT.\nFormatted Dates Display each STUDENT_ID and the registration date formatted as Month DD, YYYY.\nCompare Dates Show all sections from the SECTION table that started before January 1, 2015. Use TO_DATE for comparison.",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Date and Time Logic</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Date and Time Logic</span>"
     ]
   },
   {
     "objectID": "Modules/Date_and_Time_Logic.html#qa",
     "href": "Modules/Date_and_Time_Logic.html#qa",
-    "title": "16  Date and Time Logic",
-    "section": "16.4 Q&A",
-    "text": "16.4 Q&A\n\nWhen should you use TRUNC vs. TO_CHAR for removing the time portion of a date?\nWhat are the differences between SYSDATE, CURRENT_DATE, and SYSTIMESTAMP?\nWhy is explicit date conversion with TO_DATE preferred over implicit conversions?\nIn what types of queries would EXTRACT be preferred over formatting functions?\nHow does timezone affect date values in distributed systems?\nWhat are common pitfalls when working with date ranges in WHERE clauses?\nHow do you handle date arithmetic for business days vs calendar days?",
+    "title": "17  Date and Time Logic",
+    "section": "17.4 Q&A",
+    "text": "17.4 Q&A\n\nWhen should you use TRUNC vs. TO_CHAR for removing the time portion of a date?\nWhat are the differences between SYSDATE, CURRENT_DATE, and SYSTIMESTAMP?\nWhy is explicit date conversion with TO_DATE preferred over implicit conversions?\nIn what types of queries would EXTRACT be preferred over formatting functions?\nHow does timezone affect date values in distributed systems?\nWhat are common pitfalls when working with date ranges in WHERE clauses?\nHow do you handle date arithmetic for business days vs calendar days?",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Date and Time Logic</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Date and Time Logic</span>"
     ]
   },
   {
     "objectID": "Modules/Date_and_Time_Logic.html#additional-resources",
     "href": "Modules/Date_and_Time_Logic.html#additional-resources",
-    "title": "16  Date and Time Logic",
-    "section": "16.5 Additional Resources",
-    "text": "16.5 Additional Resources\n\nOracle SQL by Example, Chapter 5: Labs 5.1–5.3\nOracle Documentation: Date and Time Functions\nOracle Database Globalization Support Guide",
+    "title": "17  Date and Time Logic",
+    "section": "17.5 Additional Resources",
+    "text": "17.5 Additional Resources\n\nOracle SQL by Example, Chapter 5: Labs 5.1–5.3\nOracle Documentation: Date and Time Functions\nOracle Database Globalization Support Guide",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Date and Time Logic</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Date and Time Logic</span>"
     ]
   },
   {
     "objectID": "Modules/Date_and_Time_Logic.html#answers",
     "href": "Modules/Date_and_Time_Logic.html#answers",
-    "title": "16  Date and Time Logic",
-    "section": "16.6 Answers",
-    "text": "16.6 Answers\n1.\nSELECT SYSDATE FROM dual;\n2.\nSELECT section_id, start_date_time, TRUNC(start_date_time) AS start_date\nFROM section;\n3.\nSELECT section_id,\n       EXTRACT(YEAR FROM start_date_time) AS year,\n       EXTRACT(MONTH FROM start_date_time) AS month\nFROM section;\n4.\nSELECT student_id, registration_date\nFROM student\nWHERE EXTRACT(YEAR FROM registration_date) = 2012;\n5.\nSELECT student_id,\n       TO_CHAR(registration_date, 'Month DD, YYYY') AS formatted_date\nFROM student;\n6.\nSELECT section_id, start_date_time\nFROM section\nWHERE start_date_time &lt; TO_DATE('01-JAN-2015', 'DD-MON-YYYY');",
+    "title": "17  Date and Time Logic",
+    "section": "17.6 Answers",
+    "text": "17.6 Answers\n1.\nSELECT SYSDATE FROM dual;\n2.\nSELECT section_id, start_date_time, TRUNC(start_date_time) AS start_date\nFROM section;\n3.\nSELECT section_id,\n       EXTRACT(YEAR FROM start_date_time) AS year,\n       EXTRACT(MONTH FROM start_date_time) AS month\nFROM section;\n4.\nSELECT student_id, registration_date\nFROM student\nWHERE EXTRACT(YEAR FROM registration_date) = 2012;\n5.\nSELECT student_id,\n       TO_CHAR(registration_date, 'Month DD, YYYY') AS formatted_date\nFROM student;\n6.\nSELECT section_id, start_date_time\nFROM section\nWHERE start_date_time &lt; TO_DATE('01-JAN-2015', 'DD-MON-YYYY');",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Date and Time Logic</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Date and Time Logic</span>"
     ]
   },
   {
     "objectID": "Modules/Custom_Functions.html",
     "href": "Modules/Custom_Functions.html",
-    "title": "17  Custom Functions",
+    "title": "18  Custom Functions",
     "section": "",
-    "text": "17.1 Module Introduction\nThis module introduces custom PL/SQL functions in Oracle SQL. You’ll learn how to write, understand, and use reusable logic encapsulated in user-defined functions. These functions simplify SQL statements and are especially useful in reporting tasks that involve business rules.",
+    "text": "18.1 Module Introduction\nThis module introduces custom PL/SQL functions in Oracle SQL. You’ll learn how to write, understand, and use reusable logic encapsulated in user-defined functions. These functions simplify SQL statements and are especially useful in reporting tasks that involve business rules.",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Custom Functions</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Custom Functions</span>"
     ]
   },
   {
     "objectID": "Modules/Custom_Functions.html#module-introduction",
     "href": "Modules/Custom_Functions.html#module-introduction",
-    "title": "17  Custom Functions",
+    "title": "18  Custom Functions",
     "section": "",
     "text": "Important\n\n\n\nCreating custom functions requires certain schema permissions which you may not have. Most of this book has assumed that you only have the ability to read from a database; creating custom functions requires you to write to it.\nIf you cannot create functions, you will need to contact your system administrator and discuss what your options are for gaining permission to create them.",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Custom Functions</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Custom Functions</span>"
     ]
   },
   {
     "objectID": "Modules/Custom_Functions.html#explanation",
     "href": "Modules/Custom_Functions.html#explanation",
-    "title": "17  Custom Functions",
-    "section": "17.2 Explanation",
-    "text": "17.2 Explanation\n\n17.2.1 Custom Function Conceptual Overview\nCustom functions in Oracle are reusable blocks of PL/SQL logic that return a single value. They’re used in SELECT, WHERE, and ORDER BY clauses just like built-in functions.\nBenefits:\n\nReuse across queries and reports\nClean, readable SQL\nEasier updates to business logic\n\nExample Use Case: Calculate the next business day based on a given date and skip holidays stored in the HOLIDAY table.\nReference: Chapter 17\n\n\n17.2.2 Custom Function Metadata\nFunctions have:\n\nInput Parameters: Data sent to the function.\nReturn Value: A single result.\nLocal Variables: Temporary values used in the function.\nBody: The logic executed when the function is called.\n\nExample: Define a custom function next_business_day:\nCREATE OR REPLACE FUNCTION next_business_day(i_date DATE)\nRETURN DATE IS\n  v_date DATE;\nBEGIN\n  v_date := i_date;\n  SELECT NVL(MAX(holiday_end_date)+1, v_date)\n  INTO v_date\n  FROM holiday\n  WHERE v_date BETWEEN holiday_start_date AND holiday_end_date;\n  RETURN v_date;\nEND;\nThis function returns the next business day, skipping holidays found in the holiday table.\n\n\n17.2.3 Usage\nCustom functions are called like any other function:\nSELECT student_id, next_business_day(ENROLL_DATE) AS next_day\nFROM enrollment;\nThis query applies the custom function to each enrollment date to find the next business day.\nOutput:\nSTUDENT_ID   NEXT_DAY\n-----------  ---------\n        102  09-AUG-10\nYou can also use them in WHERE, ORDER BY, and even JOIN conditions.",
+    "title": "18  Custom Functions",
+    "section": "18.2 Explanation",
+    "text": "18.2 Explanation\n\n18.2.1 Custom Function Conceptual Overview\nCustom functions in Oracle are reusable blocks of PL/SQL logic that return a single value. They’re used in SELECT, WHERE, and ORDER BY clauses just like built-in functions.\nBenefits:\n\nReuse across queries and reports\nClean, readable SQL\nEasier updates to business logic\n\nExample Use Case: Calculate the next business day based on a given date and skip holidays stored in the HOLIDAY table.\nReference: Chapter 17\n\n\n18.2.2 Custom Function Metadata\nFunctions have:\n\nInput Parameters: Data sent to the function.\nReturn Value: A single result.\nLocal Variables: Temporary values used in the function.\nBody: The logic executed when the function is called.\n\nExample: Define a custom function next_business_day:\nCREATE OR REPLACE FUNCTION next_business_day(i_date DATE)\nRETURN DATE IS\n  v_date DATE;\nBEGIN\n  v_date := i_date;\n  SELECT NVL(MAX(holiday_end_date)+1, v_date)\n  INTO v_date\n  FROM holiday\n  WHERE v_date BETWEEN holiday_start_date AND holiday_end_date;\n  RETURN v_date;\nEND;\nThis function returns the next business day, skipping holidays found in the holiday table.\n\n\n18.2.3 Usage\nCustom functions are called like any other function:\nSELECT student_id, next_business_day(ENROLL_DATE) AS next_day\nFROM enrollment;\nThis query applies the custom function to each enrollment date to find the next business day.\nOutput:\nSTUDENT_ID   NEXT_DAY\n-----------  ---------\n        102  09-AUG-10\nYou can also use them in WHERE, ORDER BY, and even JOIN conditions.",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Custom Functions</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Custom Functions</span>"
     ]
   },
   {
     "objectID": "Modules/Custom_Functions.html#exercises",
     "href": "Modules/Custom_Functions.html#exercises",
-    "title": "17  Custom Functions",
-    "section": "17.3 Exercises",
-    "text": "17.3 Exercises\n\nCall a Custom Function Use the function next_business_day to find the next business day after each enrollment in the ENROLLMENT table. Show STUDENT_ID, SECTION_ID, ENROLL_DATE, and the next business day.\nFilter with a Custom Function Select rows from ENROLLMENT where the next business day is more than two days after ENROLL_DATE.\nCustom Function with TO_CHAR Return the weekday of the next_business_day for each ENROLL_DATE using TO_CHAR.\nJoin with a Custom Function Join ENROLLMENT and SECTION on SECTION_ID, and use next_business_day(ENROLL_DATE) to show when each student is expected to start.\nUse in Subquery Select students whose ENROLL_DATE is not on a business day by comparing it to next_business_day(ENROLL_DATE).\nAggregate with Custom Function Count how many enrollments fall on holidays by checking where ENROLL_DATE != next_business_day(ENROLL_DATE).",
+    "title": "18  Custom Functions",
+    "section": "18.3 Exercises",
+    "text": "18.3 Exercises\n\nCall a Custom Function Use the function next_business_day to find the next business day after each enrollment in the ENROLLMENT table. Show STUDENT_ID, SECTION_ID, ENROLL_DATE, and the next business day.\nFilter with a Custom Function Select rows from ENROLLMENT where the next business day is more than two days after ENROLL_DATE.\nCustom Function with TO_CHAR Return the weekday of the next_business_day for each ENROLL_DATE using TO_CHAR.\nJoin with a Custom Function Join ENROLLMENT and SECTION on SECTION_ID, and use next_business_day(ENROLL_DATE) to show when each student is expected to start.\nUse in Subquery Select students whose ENROLL_DATE is not on a business day by comparing it to next_business_day(ENROLL_DATE).\nAggregate with Custom Function Count how many enrollments fall on holidays by checking where ENROLL_DATE != next_business_day(ENROLL_DATE).",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Custom Functions</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Custom Functions</span>"
     ]
   },
   {
     "objectID": "Modules/Custom_Functions.html#qa",
     "href": "Modules/Custom_Functions.html#qa",
-    "title": "17  Custom Functions",
-    "section": "17.4 Q&A",
-    "text": "17.4 Q&A\n\nWhy are custom functions useful for reporting?\nWhat kind of logic should be placed in a custom function vs a view?\nHow does using a custom function affect query performance?\nWhat are some limitations of using custom functions in WHERE clauses?\nWhen should you create a custom function versus using existing Oracle functions?\nHow do you handle error conditions within custom functions?\nWhat are the security considerations when creating custom functions?",
+    "title": "18  Custom Functions",
+    "section": "18.4 Q&A",
+    "text": "18.4 Q&A\n\nWhy are custom functions useful for reporting?\nWhat kind of logic should be placed in a custom function vs a view?\nHow does using a custom function affect query performance?\nWhat are some limitations of using custom functions in WHERE clauses?\nWhen should you create a custom function versus using existing Oracle functions?\nHow do you handle error conditions within custom functions?\nWhat are the security considerations when creating custom functions?",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Custom Functions</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Custom Functions</span>"
     ]
   },
   {
     "objectID": "Modules/Custom_Functions.html#additional-resources",
     "href": "Modules/Custom_Functions.html#additional-resources",
-    "title": "17  Custom Functions",
-    "section": "17.5 Additional Resources",
-    "text": "17.5 Additional Resources\n\nOracle SQL by Example, Chapter 17 – “Creating Your Own Custom Function”\nOracle SQL Language Reference: PL/SQL Function Syntax\nView metadata: USER_OBJECTS, USER_SOURCE",
+    "title": "18  Custom Functions",
+    "section": "18.5 Additional Resources",
+    "text": "18.5 Additional Resources\n\nOracle SQL by Example, Chapter 17 – “Creating Your Own Custom Function”\nOracle SQL Language Reference: PL/SQL Function Syntax\nView metadata: USER_OBJECTS, USER_SOURCE",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Custom Functions</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Custom Functions</span>"
     ]
   },
   {
     "objectID": "Modules/Custom_Functions.html#answers",
     "href": "Modules/Custom_Functions.html#answers",
-    "title": "17  Custom Functions",
-    "section": "17.6 Answers",
-    "text": "17.6 Answers\n1.\nSELECT student_id, section_id, enroll_date, next_business_day(enroll_date) AS next_day\nFROM enrollment;\n2.\nSELECT student_id, section_id, enroll_date\nFROM enrollment\nWHERE next_business_day(enroll_date) &gt; enroll_date + 2;\n3.\nSELECT student_id, TO_CHAR(next_business_day(enroll_date), 'Day') AS business_day\nFROM enrollment;\n4.\nSELECT e.student_id, s.section_id, s.start_date_time, next_business_day(e.enroll_date) AS start_expected\nFROM enrollment e\nJOIN section s ON e.section_id = s.section_id;\n5.\nSELECT student_id\nFROM enrollment\nWHERE enroll_date != next_business_day(enroll_date);\n6.\nSELECT COUNT(*) AS holiday_enrollments\nFROM enrollment\nWHERE enroll_date != next_business_day(enroll_date);",
+    "title": "18  Custom Functions",
+    "section": "18.6 Answers",
+    "text": "18.6 Answers\n1.\nSELECT student_id, section_id, enroll_date, next_business_day(enroll_date) AS next_day\nFROM enrollment;\n2.\nSELECT student_id, section_id, enroll_date\nFROM enrollment\nWHERE next_business_day(enroll_date) &gt; enroll_date + 2;\n3.\nSELECT student_id, TO_CHAR(next_business_day(enroll_date), 'Day') AS business_day\nFROM enrollment;\n4.\nSELECT e.student_id, s.section_id, s.start_date_time, next_business_day(e.enroll_date) AS start_expected\nFROM enrollment e\nJOIN section s ON e.section_id = s.section_id;\n5.\nSELECT student_id\nFROM enrollment\nWHERE enroll_date != next_business_day(enroll_date);\n6.\nSELECT COUNT(*) AS holiday_enrollments\nFROM enrollment\nWHERE enroll_date != next_business_day(enroll_date);",
     "crumbs": [
       "Specialized Functionality",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Custom Functions</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Custom Functions</span>"
     ]
   },
   {
@@ -1264,46 +1308,72 @@
   {
     "objectID": "Modules/Student_Database_Schema.html",
     "href": "Modules/Student_Database_Schema.html",
-    "title": "Reference: The Student Database Schema",
+    "title": "The Student Database Schema",
     "section": "",
     "text": "View the STUDENT Schema Tables\nOnce connected, you can explore the schema using the GUI or SQL query.\nThis will return all tables and column-level documentation available in the STUDENT schema.\nFor more details, consult Labs 1.3 and 2.1 in Oracle SQL by Example (4th Edition).",
     "crumbs": [
-      "Reference: The Student Database Schema"
+      "References",
+      "The Student Database Schema"
     ]
   },
   {
     "objectID": "Modules/Student_Database_Schema.html#view-the-student-schema-tables",
     "href": "Modules/Student_Database_Schema.html#view-the-student-schema-tables",
-    "title": "Reference: The Student Database Schema",
+    "title": "The Student Database Schema",
     "section": "",
     "text": "-- View Tables with Comments (recommended query)\nSELECT * \nFROM all_col_comments \nWHERE owner = 'STUDENT' \n  AND table_name NOT LIKE 'BIN%';\n\n\nTables beginning with the word BIN reference recently deleted items. We have written the query above to exclude them from your results.",
     "crumbs": [
-      "Reference: The Student Database Schema"
+      "References",
+      "The Student Database Schema"
     ]
   },
   {
     "objectID": "Modules/Student_Database_Schema.html#database-map",
     "href": "Modules/Student_Database_Schema.html#database-map",
-    "title": "Reference: The Student Database Schema",
+    "title": "The Student Database Schema",
     "section": "Database Map",
     "text": "Database Map\nRefer to Appendix D of Oracle SQL by Example (4th Edition) for a detailed schema diagram or download a PDF version of the schema diagram here: STUDENT Database Schema PDF.\n\n\n\nSTUDENT Database Schema",
     "crumbs": [
-      "Reference: The Student Database Schema"
+      "References",
+      "The Student Database Schema"
     ]
   },
   {
     "objectID": "Modules/Student_Database_Schema.html#data-dictionary",
     "href": "Modules/Student_Database_Schema.html#data-dictionary",
-    "title": "Reference: The Student Database Schema",
+    "title": "The Student Database Schema",
     "section": "Data Dictionary",
     "text": "Data Dictionary\nThis schema is used throughout the course to support querying, aggregating, and manipulating real-world academic data.\nThe STUDENT schema includes the following core tables:\n\nStudent Schema Key Tables\n\n\n\n\n\n\nTable Name\nDescription\n\n\n\n\nSTUDENT\nStores personal and contact information for each student.\n\n\nCOURSE\nLists available courses including descriptions and prerequisites.\n\n\nSECTION\nRepresents specific course sections offered at particular times and locations.\n\n\nENROLLMENT\nRecords which students are enrolled in which sections, including final grades.\n\n\nINSTRUCTOR\nContains contact and profile information for instructors.\n\n\nGRADE\nRecords student grades for individual assignments or exams.\n\n\nGRADE_TYPE\nDefines grade categories such as homework or midterm.\n\n\nGRADE_TYPE_WEIGHT\nSpecifies how grade types contribute to final grades for a section.\n\n\nGRADE_CONVERSION\nMaps numeric grades to letter grades and grade points.\n\n\nZIPCODE\nMaps ZIP codes to city and state names for address normalization.",
     "crumbs": [
-      "Reference: The Student Database Schema"
+      "References",
+      "The Student Database Schema"
     ]
   },
   {
-    "objectID": "Modules/summary.html",
-    "href": "Modules/summary.html",
+    "objectID": "Modules/Function_Reference.html",
+    "href": "Modules/Function_Reference.html",
+    "title": "Single-Row Functions",
+    "section": "",
+    "text": "Single-Row Functions\nOracle SQL provides numerous built-in functions to manipulate data, perform calculations, and format results.\nBelow are some of the most commonly used functions, categorized by type.",
+    "crumbs": [
+      "References",
+      "Single-Row Functions"
+    ]
+  },
+  {
+    "objectID": "Modules/Function_Reference.html#single-row-functions",
+    "href": "Modules/Function_Reference.html#single-row-functions",
+    "title": "Single-Row Functions",
+    "section": "",
+    "text": "Note\n\n\n\nThese functions do not aggregate data. They operate element-wise on your inputs.\n\n\n\nString Functions\nString functions make it easy to manipulate textual data. Here are some common useful string functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nLOWER(str)\nConverts string to lowercase\nLOWER('HELLO')\n‘hello’\n\n\nUPPER(str)\nConverts string to uppercase\nUPPER('hello')\n‘HELLO’\n\n\nINITCAP(str)\nCapitalizes first letter of each word\nINITCAP('hello world')\n‘Hello World’\n\n\nSUBSTR(str, start, [length])\nExtracts substring\nSUBSTR('HELLO', 2, 3)\n‘ELL’\n\n\nLENGTH(str)\nReturns length of string\nLENGTH('HELLO')\n5\n\n\nCONCAT(str1, str2)\nConcatenates two strings (You can also use the || operator)\nCONCAT('Hello', ' World')\n‘Hello World’\n\n\nREPLACE(str, search, replace)\nReplaces all occurrences\nREPLACE('JACK AND JUE','J','BL')\n‘BLACK AND BLUE’\n\n\nTRIM([chars FROM] str)\nRemoves specified characters\nTRIM(' hello ')\n‘hello’\n\n\nLPAD(str, length, [pad_str])\nLeft-pad string\nLPAD('123', 5, '0')\n‘00123’\n\n\nRPAD(str, length, [pad_str])\nRight-pad string\nRPAD('ABC', 5, 'XY')\n‘ABCXY’\n\n\n\n\n\nNumeric Functions\nNumeric functions make it easy to manipulate numerical data. Here are some common useful numerical functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nROUND(n, [decimal])\nRounds number to specified decimal places\nROUND(125.315, 2)\n125.32\n\n\nTRUNC(n, [decimal])\nTruncates number to specified decimal places\nTRUNC(125.315, 2)\n125.31\n\n\nCEIL(n)\nReturns smallest integer greater than or equal to n\nCEIL(125.3)\n126\n\n\nFLOOR(n)\nReturns largest integer less than or equal to n\nFLOOR(125.3)\n125\n\n\nMOD(m, n)\nReturns remainder when m is divided by n\nMOD(11, 4)\n3\n\n\nABS(n)\nReturns absolute value\nABS(-15)\n15\n\n\nPOWER(n, m)\nReturns n raised to the power of m\nPOWER(3, 2)\n9\n\n\nSQRT(n)\nReturns square root\nSQRT(25)\n5\n\n\n\n\n\nConversion Functions\nConversion functions make it easy to transform data into different types. Here are some common useful conversion functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nTO_CHAR(value, [format])\nConverts number or date to string\nTO_CHAR(1234.56, '$9,999.99')\n‘$1,234.56’\n\n\nTO_NUMBER(str, [format])\nConverts string to number\nTO_NUMBER('$1,234.56', '$9,999.99')\n1234.56\n\n\nCAST(expr AS type)\nConverts expression to specified datatype\nCAST('123' AS NUMBER)\n123\n\n\nNVL(expr1, expr2)\nReturns expr2 if expr1 is NULL\nNVL(NULL, 0)\n0\n\n\nNVL2(expr1, expr2, expr3)\nReturns expr2 if expr1 is NOT NULL, else expr3\nNVL2(NULL, 'A', 'B')\n‘B’\n\n\nCOALESCE(expr1, expr2, ...)\nReturns first non-NULL expression\nCOALESCE(NULL, NULL, 'A', 'B')\n‘A’",
+    "crumbs": [
+      "References",
+      "Single-Row Functions"
+    ]
+  },
+  {
+    "objectID": "Modules/Summary.html",
+    "href": "Modules/Summary.html",
     "title": "Summary",
     "section": "",
     "text": "We hope that the time you have spent with this material will empower you to excel at your work as an analyst.\nWriting SQL is a skill which takes time to master. We encourage you to periodically revisit the exercises in this resource to make sure you have retained what you learned. With practice, your proficiency will unquestionably improve.\nWe thank you for your desire to grow as a professional, and hope to have been good guides through some of the more complicated ways in which you can utilize SQL. So, for now, so long, and thanks for all the queries.",
@@ -1312,13 +1382,13 @@
     ]
   },
   {
-    "objectID": "Modules/references.html",
-    "href": "Modules/references.html",
-    "title": "References",
+    "objectID": "Modules/Attributions.html",
+    "href": "Modules/Attributions.html",
+    "title": "Attributions",
     "section": "",
     "text": "Maddala, Deepa. 2022. Quick Start Guide to SQL. LinkedIn;\nLinkedIn Learning. https://www.linkedin.com/learning/quick-start-guide-to-sql/filtering-group-results?autoSkip=true&resume=false&u=76216298.\n\n\nRischert, Alice. 2009. Oracle SQL by Example. 4th ed. Prentice\nHall Professional Oracle Series. Prentice Hall. https://learning.oreilly.com/library/view/oracle-sql-by/9780137047345/.",
     "crumbs": [
-      "References"
+      "Attributions"
     ]
   }
 ]

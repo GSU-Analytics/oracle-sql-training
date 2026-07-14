@@ -482,6 +482,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Analytical Functions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Modules/Pivots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reshaping With Pivots</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -496,13 +502,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Date_and_Time_Logic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Custom_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
   </div>
 </li>
       </ul>
@@ -530,22 +536,39 @@ div.csl-indent {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">References</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Student_Database_Schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reference: The Student Database Schema</span></a>
+ <span class="menu-text">The Student Database Schema</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Modules/Function_Reference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Single-Row Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/summary.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="../Modules/Attributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attributions</span></a>
   </div>
 </li>
     </ul>
@@ -564,8 +587,7 @@ div.csl-indent {
   <li><a href="#an-introduction-to-sql-clauses" id="toc-an-introduction-to-sql-clauses" class="nav-link" data-scroll-target="#an-introduction-to-sql-clauses"><span class="header-section-number">3.2.1</span> An Introduction to SQL Clauses</a></li>
   <li><a href="#basic-select-statements" id="toc-basic-select-statements" class="nav-link" data-scroll-target="#basic-select-statements"><span class="header-section-number">3.2.2</span> Basic SELECT Statements</a></li>
   <li><a href="#filtering-sorting-and-aliasing" id="toc-filtering-sorting-and-aliasing" class="nav-link" data-scroll-target="#filtering-sorting-and-aliasing"><span class="header-section-number">3.2.3</span> Filtering, Sorting, and Aliasing</a></li>
-  <li><a href="#built-in-functions" id="toc-built-in-functions" class="nav-link" data-scroll-target="#built-in-functions"><span class="header-section-number">3.2.4</span> Built-In Functions</a></li>
-  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values"><span class="header-section-number">3.2.5</span> Missing Values</a></li>
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values"><span class="header-section-number">3.2.4</span> Missing Values</a></li>
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.3</span> Exercises</a>
   <ul class="collapse">
@@ -612,7 +634,7 @@ div.csl-indent {
 <h2 data-number="3.1" class="anchored" data-anchor-id="module-introduction"><span class="header-section-number">3.1</span> Module Introduction</h2>
 <p>Before proceeding with the rest of the course, it is our hope that you have at least a passing familiarity with basic SQL. In particular, you should be moderately comfortable with writing single-table queries.</p>
 <blockquote class="blockquote">
-<p>If you need a more detailed introduction to SQL, see <span class="citation" data-cites="maddala22">Maddala (<a href="references.html#ref-maddala22" role="doc-biblioref">2022</a>)</span> for a refresher.</p>
+<p>If you need a more detailed introduction to SQL, see <span class="citation" data-cites="maddala22">Maddala (<a href="Attributions.html#ref-maddala22" role="doc-biblioref">2022</a>)</span> for a refresher.</p>
 </blockquote>
 <p>This module will serve as a review of foundational ideas from introductory courses, with an emphasis on simple, single-table operations. These include:</p>
 <ul>
@@ -936,229 +958,8 @@ div.csl-indent {
 <p>This query demonstrates table aliasing for clarity, even though it’s not necessary with a single table.</p>
 </section>
 </section>
-<section id="built-in-functions" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="built-in-functions"><span class="header-section-number">3.2.4</span> Built-In Functions</h3>
-<p>Oracle SQL provides numerous built-in functions to manipulate data, perform calculations, and format results.</p>
-<blockquote class="blockquote">
-<ul>
-<li>These functions do <strong>not</strong> aggregate data. They operate element-wise on your inputs. We will discuss aggregating functions later.</li>
-<li>Don’t worry about memorizing these functions. Use this as a reference when you need it.</li>
-</ul>
-</blockquote>
-<p>Below are some of the most commonly used functions, categorized by type.</p>
-<section id="string-functions" class="level4">
-<h4 class="anchored" data-anchor-id="string-functions">String Functions</h4>
-<p>String functions make it easy to manipulate textual data. Here are some common useful string functions.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Description</th>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>LOWER(str)</code></td>
-<td>Converts string to lowercase</td>
-<td><code>LOWER('HELLO')</code></td>
-<td>‘hello’</td>
-</tr>
-<tr class="even">
-<td><code>UPPER(str)</code></td>
-<td>Converts string to uppercase</td>
-<td><code>UPPER('hello')</code></td>
-<td>‘HELLO’</td>
-</tr>
-<tr class="odd">
-<td><code>INITCAP(str)</code></td>
-<td>Capitalizes first letter of each word</td>
-<td><code>INITCAP('hello world')</code></td>
-<td>‘Hello World’</td>
-</tr>
-<tr class="even">
-<td><code>SUBSTR(str, start, [length])</code></td>
-<td>Extracts substring</td>
-<td><code>SUBSTR('HELLO', 2, 3)</code></td>
-<td>‘ELL’</td>
-</tr>
-<tr class="odd">
-<td><code>LENGTH(str)</code></td>
-<td>Returns length of string</td>
-<td><code>LENGTH('HELLO')</code></td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td><code>CONCAT(str1, str2)</code></td>
-<td>Concatenates two strings (You can also use the <code>||</code> operator)</td>
-<td><code>CONCAT('Hello', ' World')</code></td>
-<td>‘Hello World’</td>
-</tr>
-<tr class="odd">
-<td><code>REPLACE(str, search, replace)</code></td>
-<td>Replaces all occurrences</td>
-<td><code>REPLACE('JACK AND JUE','J','BL')</code></td>
-<td>‘BLACK AND BLUE’</td>
-</tr>
-<tr class="even">
-<td><code>TRIM([chars FROM] str)</code></td>
-<td>Removes specified characters</td>
-<td><code>TRIM(' hello ')</code></td>
-<td>‘hello’</td>
-</tr>
-<tr class="odd">
-<td><code>LPAD(str, length, [pad_str])</code></td>
-<td>Left-pad string</td>
-<td><code>LPAD('123', 5, '0')</code></td>
-<td>‘00123’</td>
-</tr>
-<tr class="even">
-<td><code>RPAD(str, length, [pad_str])</code></td>
-<td>Right-pad string</td>
-<td><code>RPAD('ABC', 5, 'XY')</code></td>
-<td>‘ABCXY’</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="numeric-functions" class="level4">
-<h4 class="anchored" data-anchor-id="numeric-functions">Numeric Functions</h4>
-<p>Numeric functions make it easy to manipulate numerical data. Here are some common useful numerical functions.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Description</th>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>ROUND(n, [decimal])</code></td>
-<td>Rounds number to specified decimal places</td>
-<td><code>ROUND(125.315, 2)</code></td>
-<td>125.32</td>
-</tr>
-<tr class="even">
-<td><code>TRUNC(n, [decimal])</code></td>
-<td>Truncates number to specified decimal places</td>
-<td><code>TRUNC(125.315, 2)</code></td>
-<td>125.31</td>
-</tr>
-<tr class="odd">
-<td><code>CEIL(n)</code></td>
-<td>Returns smallest integer greater than or equal to n</td>
-<td><code>CEIL(125.3)</code></td>
-<td>126</td>
-</tr>
-<tr class="even">
-<td><code>FLOOR(n)</code></td>
-<td>Returns largest integer less than or equal to n</td>
-<td><code>FLOOR(125.3)</code></td>
-<td>125</td>
-</tr>
-<tr class="odd">
-<td><code>MOD(m, n)</code></td>
-<td>Returns remainder when m is divided by n</td>
-<td><code>MOD(11, 4)</code></td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td><code>ABS(n)</code></td>
-<td>Returns absolute value</td>
-<td><code>ABS(-15)</code></td>
-<td>15</td>
-</tr>
-<tr class="odd">
-<td><code>POWER(n, m)</code></td>
-<td>Returns n raised to the power of m</td>
-<td><code>POWER(3, 2)</code></td>
-<td>9</td>
-</tr>
-<tr class="even">
-<td><code>SQRT(n)</code></td>
-<td>Returns square root</td>
-<td><code>SQRT(25)</code></td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="conversion-functions" class="level4">
-<h4 class="anchored" data-anchor-id="conversion-functions">Conversion Functions</h4>
-<p>Conversion functions make it easy to transform data into different types. Here are some common useful conversion functions.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Description</th>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>TO_CHAR(value, [format])</code></td>
-<td>Converts number or date to string</td>
-<td><code>TO_CHAR(1234.56, '$9,999.99')</code></td>
-<td>‘$1,234.56’</td>
-</tr>
-<tr class="even">
-<td><code>TO_NUMBER(str, [format])</code></td>
-<td>Converts string to number</td>
-<td><code>TO_NUMBER('$1,234.56', '$9,999.99')</code></td>
-<td>1234.56</td>
-</tr>
-<tr class="odd">
-<td><code>CAST(expr AS type)</code></td>
-<td>Converts expression to specified datatype</td>
-<td><code>CAST('123' AS NUMBER)</code></td>
-<td>123</td>
-</tr>
-<tr class="even">
-<td><code>NVL(expr1, expr2)</code></td>
-<td>Returns expr2 if expr1 is NULL</td>
-<td><code>NVL(NULL, 0)</code></td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td><code>NVL2(expr1, expr2, expr3)</code></td>
-<td>Returns expr2 if expr1 is NOT NULL, else expr3</td>
-<td><code>NVL2(NULL, 'A', 'B')</code></td>
-<td>‘B’</td>
-</tr>
-<tr class="even">
-<td><code>COALESCE(expr1, expr2, ...)</code></td>
-<td>Returns first non-NULL expression</td>
-<td><code>COALESCE(NULL, NULL, 'A', 'B')</code></td>
-<td>‘A’</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="missing-values" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="missing-values"><span class="header-section-number">3.2.5</span> Missing Values</h3>
+<section id="missing-values" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="missing-values"><span class="header-section-number">3.2.4</span> Missing Values</h3>
 <p>In Oracle SQL, an empty value in the table is called a <code>NULL</code> value. It means that there is no information for that record.</p>
 <p>Some programming languages treat certain values like <code>NULL</code> values. For example, a value of 0 is treated like it’s false in languages like Python and JavaScript. The table below shows how 0’s and empty strings differ from <code>NULL</code> values.</p>
 <table class="caption-top table">
@@ -1204,16 +1005,16 @@ div.csl-indent {
 <section id="simple-problems" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="simple-problems"><span class="header-section-number">3.3.1</span> Simple problems</h3>
 <ol type="1">
-<li><p>Write a SELECT statement that lists the first and last names of all students.</p></li>
-<li><p>Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.</p></li>
-<li><p>Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists the first and last names of all students.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists all cities, states, and zip codes. Order them alphabetically by state.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</p></li>
 </ol>
 </section>
 <section id="complex-problems" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="complex-problems"><span class="header-section-number">3.3.2</span> Complex problems</h3>
 <ol type="1">
-<li><p>Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</p></li>
-<li><p>Write a SELECT statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</p></li>
+<li><p>Write a <code>SELECT</code> statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</p></li>
 </ol>
 </section>
 </section>
@@ -1232,8 +1033,8 @@ div.csl-indent {
 <section id="further-reading" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">3.5.1</span> Further Reading</h3>
 <ul>
-<li>Quickstart Guide to SQL <span class="citation" data-cites="maddala22">(<a href="references.html#ref-maddala22" role="doc-biblioref">Maddala 2022</a>)</span></li>
-<li>Oracle SQL by Example <span class="citation" data-cites="rischert09">(<a href="references.html#ref-rischert09" role="doc-biblioref">Rischert 2009</a>, Ch. 2-4)</span></li>
+<li>Quickstart Guide to SQL <span class="citation" data-cites="maddala22">(<a href="Attributions.html#ref-maddala22" role="doc-biblioref">Maddala 2022</a>)</span></li>
+<li>Oracle SQL by Example <span class="citation" data-cites="rischert09">(<a href="Attributions.html#ref-rischert09" role="doc-biblioref">Rischert 2009</a>, Ch. 2-4)</span></li>
 </ul>
 </section>
 </section>
@@ -1242,13 +1043,13 @@ div.csl-indent {
 <section id="simple-problems-1" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="simple-problems-1"><span class="header-section-number">3.6.1</span> Simple problems</h3>
 <ol type="1">
-<li>Write a SELECT statement that lists the first and last names of all students.</li>
+<li>Write a <code>SELECT</code> statement that lists the first and last names of all students.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name,</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       last_name</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.</li>
+<li>Write a <code>SELECT</code> statement that lists all cities, states, and zip codes. Order them alphabetically by state.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> city,</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>       state,</span>
@@ -1256,7 +1057,7 @@ div.csl-indent {
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> zipcode</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> state;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
-<li>Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</li>
+<li>Write a <code>SELECT</code> statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> city,</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       zip</span>
@@ -1268,7 +1069,7 @@ div.csl-indent {
 <section id="complex-problems-1" class="level3" data-number="3.6.2">
 <h3 data-number="3.6.2" class="anchored" data-anchor-id="complex-problems-1"><span class="header-section-number">3.6.2</span> Complex problems</h3>
 <ol type="1">
-<li>Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</li>
+<li>Write a <code>SELECT</code> statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name,</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       last_name</span>
@@ -1277,7 +1078,7 @@ div.csl-indent {
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">OR</span> last_name <span class="kw">LIKE</span> <span class="st">'%I%'</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> zip <span class="op">=</span> <span class="st">'10025'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Write a SELECT statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</li>
+<li>Write a <code>SELECT</code> statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">CONCAT</span>(<span class="fu">CONCAT</span>(last_name, <span class="st">', '</span>), first_name) <span class="kw">AS</span> <span class="ot">"Full Name"</span></span>

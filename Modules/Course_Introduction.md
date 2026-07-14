@@ -2,28 +2,20 @@
 
 ## Introduction
 
-### Overview
+This course is designed for analysts and professionals who use Oracle SQL Developer for querying databases in support of data analysis and reporting.
 
-This course is designed for analysts and professionals who are already familiar with basic SQL syntax and who use Oracle SQL Developer for querying databases in support of data analysis and reporting. Students will build skills in writing efficient, professional-grade SQL with a focus on multi-table queries, set operations, analytical functions, and common reporting tasks.
+Students will build skills in writing efficient, professional-grade SQL with a focus on multi-table queries, set operations, analytical functions, and common reporting tasks.
 
+:::{.callout-note}
 ### Prerequisites
 
 To participate in this course, students should:
 
-* Have completed the [LinkedIn Learning Quick Start Guide to SQL](https://www.linkedin.com/learning/quick-start-guide-to-sql)
-* Be familiar with running basic `SELECT`, `WHERE`, `ORDER BY`, and `JOIN` queries
+* Have completed the [LinkedIn Learning Quick Start Guide to SQL](https://www.linkedin.com/learning/quick-start-guide-to-sql).
+* Be familiar with running basic `SELECT`, `WHERE`, and `ORDER BY` queries.
 
-> SQL Developer and database setup instructions are covered in the next module. We will not troubleshoot installation issues here.
-
-
-### Module Objectives
-
-By the end of this module, students will be able to:
-
-* Understand the structure and expectations of the course
-* Identify the major types of SQL operations that will be covered
-* Confirm they meet the technical setup requirements and prerequisites
-* Locate the primary textbook and reference materials for the course
+We expect you to have had some prior exposure to SQL, but we do not expect you to be an expert. Passing familiarity with SQL as a tool is sufficient.
+:::
 
 ## What is Oracle SQL? Why Use It?
 
@@ -75,16 +67,6 @@ All of this can be accomplished with SQL. However, we can generally treat these 
 
 These topics fall outside the scope of this course, which is predominantly focused on querying data and generating reports. However, the primary textbook for this course, [Oracle SQL by Example, 4th Edition](https://learning.oreilly.com/library/view/oracle-sql-by/9780137047345/), contains additional information for those of you who wish to explore these topics.
 
-## Module Structure
-
-This course follows a modular structure. Each module includes:
-
-* **Lesson Overview**: Short introduction to the topic
-* **Guided Examples**: Hands-on walkthroughs using the STUDENT schema
-* **Practice Exercises**: Independent SQL challenges
-* **Review Quiz**: Multiple choice or short answer checks for understanding
-
-Each lesson builds upon previous concepts. The course progresses from intermediate to advanced topics, ending with data transformation and performance optimization patterns.
 
 ## Materials and Advice
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; Date and Time Logic – SQL Intermediate Training</title>
+<title>17&nbsp; Date and Time Logic – SQL Intermediate Training</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../Modules/Custom_Functions.html" rel="next">
-<link href="../Modules/Analytical_Functions.html" rel="prev">
+<link href="../Modules/Pivots.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html">Specialized Functionality</a></li><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html">Specialized Functionality</a></li><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -463,6 +463,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Analytical Functions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Modules/Pivots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reshaping With Pivots</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -477,13 +483,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Date_and_Time_Logic.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Custom_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
   </div>
 </li>
       </ul>
@@ -511,22 +517,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">References</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Modules/Student_Database_Schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reference: The Student Database Schema</span></a>
+ <span class="menu-text">The Student Database Schema</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Modules/Function_Reference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Single-Row Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/summary.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Modules/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="../Modules/Attributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attributions</span></a>
   </div>
 </li>
     </ul>
@@ -539,16 +562,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#module-introduction" id="toc-module-introduction" class="nav-link active" data-scroll-target="#module-introduction"><span class="header-section-number">16.1</span> Module Introduction</a></li>
-  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation"><span class="header-section-number">16.2</span> Explanation</a>
+  <li><a href="#module-introduction" id="toc-module-introduction" class="nav-link active" data-scroll-target="#module-introduction"><span class="header-section-number">17.1</span> Module Introduction</a></li>
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation"><span class="header-section-number">17.2</span> Explanation</a>
   <ul class="collapse">
-  <li><a href="#sysdate-trunc-extract" id="toc-sysdate-trunc-extract" class="nav-link" data-scroll-target="#sysdate-trunc-extract"><span class="header-section-number">16.2.1</span> SYSDATE, TRUNC, EXTRACT</a></li>
-  <li><a href="#to_date-to_char-time-zones" id="toc-to_date-to_char-time-zones" class="nav-link" data-scroll-target="#to_date-to_char-time-zones"><span class="header-section-number">16.2.2</span> TO_DATE, TO_CHAR, Time Zones</a></li>
+  <li><a href="#sysdate-trunc-extract" id="toc-sysdate-trunc-extract" class="nav-link" data-scroll-target="#sysdate-trunc-extract"><span class="header-section-number">17.2.1</span> SYSDATE, TRUNC, EXTRACT</a></li>
+  <li><a href="#to_date-to_char-time-zones" id="toc-to_date-to_char-time-zones" class="nav-link" data-scroll-target="#to_date-to_char-time-zones"><span class="header-section-number">17.2.2</span> TO_DATE, TO_CHAR, Time Zones</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">16.3</span> Exercises</a></li>
-  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa"><span class="header-section-number">16.4</span> Q&amp;A</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">16.5</span> Additional Resources</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers"><span class="header-section-number">16.6</span> Answers</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">17.3</span> Exercises</a></li>
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa"><span class="header-section-number">17.4</span> Q&amp;A</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">17.5</span> Additional Resources</a></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers"><span class="header-section-number">17.6</span> Answers</a></li>
   </ul>
 </nav>
     </div>
@@ -556,9 +579,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html">Specialized Functionality</a></li><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html">Specialized Functionality</a></li><li class="breadcrumb-item"><a href="../Modules/Date_and_Time_Logic.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></h1>
 </div>
 
 
@@ -575,14 +598,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="module-introduction" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="module-introduction"><span class="header-section-number">16.1</span> Module Introduction</h2>
+<section id="module-introduction" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="module-introduction"><span class="header-section-number">17.1</span> Module Introduction</h2>
 <p>This module explores date and time functions in Oracle SQL. Learners will practice extracting, formatting, converting, and comparing date values using the <code>STUDENT</code> schema. Mastery of these functions is essential for time-based reporting and analytics.</p>
 </section>
-<section id="explanation" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="explanation"><span class="header-section-number">16.2</span> Explanation</h2>
-<section id="sysdate-trunc-extract" class="level3" data-number="16.2.1">
-<h3 data-number="16.2.1" class="anchored" data-anchor-id="sysdate-trunc-extract"><span class="header-section-number">16.2.1</span> SYSDATE, TRUNC, EXTRACT</h3>
+<section id="explanation" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="explanation"><span class="header-section-number">17.2</span> Explanation</h2>
+<section id="sysdate-trunc-extract" class="level3" data-number="17.2.1">
+<h3 data-number="17.2.1" class="anchored" data-anchor-id="sysdate-trunc-extract"><span class="header-section-number">17.2.1</span> SYSDATE, TRUNC, EXTRACT</h3>
 <ul>
 <li><code>SYSDATE</code> returns the current date and time from the database server.</li>
 <li><code>TRUNC(date)</code> removes the time portion of a date, useful for daily comparisons.</li>
@@ -599,8 +622,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This query extracts only the year component from section start dates.</p>
 <p><strong>Reference</strong>: Lab 5.1–5.2</p>
 </section>
-<section id="to_date-to_char-time-zones" class="level3" data-number="16.2.2">
-<h3 data-number="16.2.2" class="anchored" data-anchor-id="to_date-to_char-time-zones"><span class="header-section-number">16.2.2</span> TO_DATE, TO_CHAR, Time Zones</h3>
+<section id="to_date-to_char-time-zones" class="level3" data-number="17.2.2">
+<h3 data-number="17.2.2" class="anchored" data-anchor-id="to_date-to_char-time-zones"><span class="header-section-number">17.2.2</span> TO_DATE, TO_CHAR, Time Zones</h3>
 <ul>
 <li><code>TO_DATE</code> converts a string to a date using a format mask.</li>
 <li><code>TO_CHAR(date, format)</code> converts a date to a formatted string.</li>
@@ -618,8 +641,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Reference</strong>: Lab 5.2–5.3</p>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">16.3</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">17.3</span> Exercises</h2>
 <ol type="1">
 <li><p><strong>Current Date Test</strong> Write a query to return the current date and time using <code>SYSDATE</code>. Use the <code>dual</code> table.</p></li>
 <li><p><strong>Date Without Time</strong> From the <code>SECTION</code> table, return <code>section_id</code>, <code>start_date_time</code>, and the truncated version of <code>start_date_time</code> with no time.</p></li>
@@ -629,8 +652,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Compare Dates</strong> Show all sections from the <code>SECTION</code> table that started before January 1, 2015. Use <code>TO_DATE</code> for comparison.</p></li>
 </ol>
 </section>
-<section id="qa" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="qa"><span class="header-section-number">16.4</span> Q&amp;A</h2>
+<section id="qa" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="qa"><span class="header-section-number">17.4</span> Q&amp;A</h2>
 <ul>
 <li>When should you use <code>TRUNC</code> vs.&nbsp;<code>TO_CHAR</code> for removing the time portion of a date?</li>
 <li>What are the differences between <code>SYSDATE</code>, <code>CURRENT_DATE</code>, and <code>SYSTIMESTAMP</code>?</li>
@@ -641,16 +664,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>How do you handle date arithmetic for business days vs calendar days?</li>
 </ul>
 </section>
-<section id="additional-resources" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">16.5</span> Additional Resources</h2>
+<section id="additional-resources" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">17.5</span> Additional Resources</h2>
 <ul>
 <li>Oracle SQL by Example, Chapter 5: Labs 5.1–5.3</li>
 <li>Oracle Documentation: Date and Time Functions</li>
 <li>Oracle Database Globalization Support Guide</li>
 </ul>
 </section>
-<section id="answers" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="answers"><span class="header-section-number">16.6</span> Answers</h2>
+<section id="answers" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="answers"><span class="header-section-number">17.6</span> Answers</h2>
 <p><strong>1.</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SYSDATE</span> <span class="kw">FROM</span> dual;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>2.</strong></p>
@@ -1093,13 +1116,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Modules/Analytical_Functions.html" class="pagination-link" aria-label="Analytical Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Analytical Functions</span></span>
+      <a href="../Modules/Pivots.html" class="pagination-link" aria-label="Reshaping With Pivots">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reshaping With Pivots</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../Modules/Custom_Functions.html" class="pagination-link" aria-label="Custom Functions">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Custom Functions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Custom Functions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The LISTAGG Function – SQL Intermediate Training</title>
+<title>Single-Row Functions – SQL Intermediate Training</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,67 +23,32 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../Modules/student_resources/Additional_Practice.html" rel="next">
-<link href="../../Modules/Custom_Functions.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Modules/Summary.html" rel="next">
+<link href="../Modules/Student_Database_Schema.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -286,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">Additional Content</a></li><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">The LISTAGG Function</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Student_Database_Schema.html">References</a></li><li class="breadcrumb-item"><a href="../Modules/Function_Reference.html">Single-Row Functions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -301,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">SQL Intermediate Training</a> 
+      <a href="../">SQL Intermediate Training</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -316,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -331,13 +296,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Course_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Course_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Course Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Course_Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Course_Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Course Setup</span></span></a>
   </div>
 </li>
@@ -354,13 +319,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Single_Table_Review.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Single_Table_Review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with Single Tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Database_Schemas_and_Normalization.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Database_Schemas_and_Normalization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Database Schemas and Organization</span></span></a>
   </div>
 </li>
@@ -377,13 +342,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/SQL_Developer_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/SQL_Developer_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">SQL Developer Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Oracle_Errors.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Oracle_Errors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Troubleshooting Oracle Errors</span></span></a>
   </div>
 </li>
@@ -400,31 +365,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Single_Row_Functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Single_Row_Functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Single-Row Built-In Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Aggregate_Queries_Basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Aggregate_Queries_Basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Basic Aggregations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Aggregate_Queries_Advanced.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Aggregate_Queries_Advanced.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced Aggregations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Basic_Joins.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Basic_Joins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Advanced_Joins.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Advanced_Joins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Advanced Joins</span></span></a>
   </div>
 </li>
@@ -441,31 +406,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Subqueries.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Subqueries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Subqueries</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Readability_and_Optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Readability_and_Optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Query Readability and Optimization Techniques</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Refactoring_With_CTEs.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Refactoring_With_CTEs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Refactoring Queries with Common Table Expressions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Analytical_Functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Analytical_Functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Analytical Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Pivots.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Pivots.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reshaping With Pivots</span></span></a>
   </div>
 </li>
@@ -482,13 +447,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Date_and_Time_Logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Date_and_Time_Logic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Date and Time Logic</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Custom_Functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Custom_Functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Custom Functions</span></span></a>
   </div>
 </li>
@@ -505,13 +470,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/student_resources/LISTAGG.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Modules/student_resources/LISTAGG.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The LISTAGG Function</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/student_resources/Additional_Practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/student_resources/Additional_Practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extra Practice Exercises</span></a>
   </div>
 </li>
@@ -528,13 +493,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Student_Database_Schema.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Student_Database_Schema.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Student Database Schema</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Function_Reference.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Function_Reference.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Single-Row Functions</span></a>
   </div>
 </li>
@@ -542,13 +507,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Summary.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Modules/Attributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../Modules/Attributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Attributions</span></a>
   </div>
 </li>
@@ -562,16 +527,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#module-introduction" id="toc-module-introduction" class="nav-link active" data-scroll-target="#module-introduction">Module Introduction</a></li>
-  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a>
+  <li><a href="#single-row-functions" id="toc-single-row-functions" class="nav-link active" data-scroll-target="#single-row-functions">Single-Row Functions</a>
   <ul class="collapse">
-  <li><a href="#what-is-listagg" id="toc-what-is-listagg" class="nav-link" data-scroll-target="#what-is-listagg">What is LISTAGG?</a></li>
-  <li><a href="#listagg-with-different-delimiters" id="toc-listagg-with-different-delimiters" class="nav-link" data-scroll-target="#listagg-with-different-delimiters">LISTAGG with Different Delimiters</a></li>
+  <li><a href="#string-functions" id="toc-string-functions" class="nav-link" data-scroll-target="#string-functions">String Functions</a></li>
+  <li><a href="#numeric-functions" id="toc-numeric-functions" class="nav-link" data-scroll-target="#numeric-functions">Numeric Functions</a></li>
+  <li><a href="#conversion-functions" id="toc-conversion-functions" class="nav-link" data-scroll-target="#conversion-functions">Conversion Functions</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">Answers</a></li>
   </ul>
 </nav>
     </div>
@@ -579,9 +540,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">Additional Content</a></li><li class="breadcrumb-item"><a href="../../Modules/student_resources/LISTAGG.html">The LISTAGG Function</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Modules/Student_Database_Schema.html">References</a></li><li class="breadcrumb-item"><a href="../Modules/Function_Reference.html">Single-Row Functions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">The LISTAGG Function</h1>
+<h1 class="title">Single-Row Functions</h1>
 </div>
 
 
@@ -598,132 +559,248 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="module-introduction" class="level2">
-<h2 class="anchored" data-anchor-id="module-introduction">Module Introduction</h2>
-<p>This mini-module introduces the LISTAGG function, an aggregate function that concatenates values from multiple rows into a single comma-separated string. This function is particularly useful for creating readable summaries when you need to combine related text values from grouped data. Students will practice using LISTAGG with the STUDENT schema tables to create meaningful concatenated results.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t worry about memorizing these functions. Use this as a reference when you need it.</p>
+</div>
+</div>
+<p>Oracle SQL provides numerous built-in functions to manipulate data, perform calculations, and format results.</p>
+<p>Below are some of the most commonly used functions, categorized by type.</p>
+<section id="single-row-functions" class="level2">
+<h2 class="anchored" data-anchor-id="single-row-functions">Single-Row Functions</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These functions do <strong>not</strong> aggregate data. They operate element-wise on your inputs.</p>
+</div>
+</div>
+<section id="string-functions" class="level3">
+<h3 class="anchored" data-anchor-id="string-functions">String Functions</h3>
+<p>String functions make it easy to manipulate textual data. Here are some common useful string functions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>LOWER(str)</code></td>
+<td>Converts string to lowercase</td>
+<td><code>LOWER('HELLO')</code></td>
+<td>‘hello’</td>
+</tr>
+<tr class="even">
+<td><code>UPPER(str)</code></td>
+<td>Converts string to uppercase</td>
+<td><code>UPPER('hello')</code></td>
+<td>‘HELLO’</td>
+</tr>
+<tr class="odd">
+<td><code>INITCAP(str)</code></td>
+<td>Capitalizes first letter of each word</td>
+<td><code>INITCAP('hello world')</code></td>
+<td>‘Hello World’</td>
+</tr>
+<tr class="even">
+<td><code>SUBSTR(str, start, [length])</code></td>
+<td>Extracts substring</td>
+<td><code>SUBSTR('HELLO', 2, 3)</code></td>
+<td>‘ELL’</td>
+</tr>
+<tr class="odd">
+<td><code>LENGTH(str)</code></td>
+<td>Returns length of string</td>
+<td><code>LENGTH('HELLO')</code></td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><code>CONCAT(str1, str2)</code></td>
+<td>Concatenates two strings (You can also use the <code>||</code> operator)</td>
+<td><code>CONCAT('Hello', ' World')</code></td>
+<td>‘Hello World’</td>
+</tr>
+<tr class="odd">
+<td><code>REPLACE(str, search, replace)</code></td>
+<td>Replaces all occurrences</td>
+<td><code>REPLACE('JACK AND JUE','J','BL')</code></td>
+<td>‘BLACK AND BLUE’</td>
+</tr>
+<tr class="even">
+<td><code>TRIM([chars FROM] str)</code></td>
+<td>Removes specified characters</td>
+<td><code>TRIM(' hello ')</code></td>
+<td>‘hello’</td>
+</tr>
+<tr class="odd">
+<td><code>LPAD(str, length, [pad_str])</code></td>
+<td>Left-pad string</td>
+<td><code>LPAD('123', 5, '0')</code></td>
+<td>‘00123’</td>
+</tr>
+<tr class="even">
+<td><code>RPAD(str, length, [pad_str])</code></td>
+<td>Right-pad string</td>
+<td><code>RPAD('ABC', 5, 'XY')</code></td>
+<td>‘ABCXY’</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="explanation" class="level2">
-<h2 class="anchored" data-anchor-id="explanation">Explanation</h2>
-<section id="what-is-listagg" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-listagg">What is LISTAGG?</h3>
-<p>LISTAGG is an aggregate function that concatenates values from multiple rows into a single string, with a specified delimiter separating each value. Unlike other aggregate functions that return numeric summaries, LISTAGG returns a text result containing all the grouped values.</p>
-<p><strong>Basic Syntax:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>LISTAGG(<span class="kw">column</span>, <span class="st">'delimiter'</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">column</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Example 1: Basic LISTAGG usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> instructor_id,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(section_id, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> section_id) <span class="kw">AS</span> sections_taught</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> section</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> instructor_id;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This query groups sections by instructor and creates a comma-separated list of all section IDs each instructor teaches.</p>
-<p><strong>Example 2: LISTAGG with meaningful data</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> c.description <span class="kw">AS</span> course_name,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(s.section_id, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> s.section_id) <span class="kw">AS</span> available_sections</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course c</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section s <span class="kw">ON</span> c.course_no <span class="op">=</span> s.course_no</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> c.description;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This query shows course names with a list of all available section IDs for each course.</p>
+<section id="numeric-functions" class="level3">
+<h3 class="anchored" data-anchor-id="numeric-functions">Numeric Functions</h3>
+<p>Numeric functions make it easy to manipulate numerical data. Here are some common useful numerical functions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ROUND(n, [decimal])</code></td>
+<td>Rounds number to specified decimal places</td>
+<td><code>ROUND(125.315, 2)</code></td>
+<td>125.32</td>
+</tr>
+<tr class="even">
+<td><code>TRUNC(n, [decimal])</code></td>
+<td>Truncates number to specified decimal places</td>
+<td><code>TRUNC(125.315, 2)</code></td>
+<td>125.31</td>
+</tr>
+<tr class="odd">
+<td><code>CEIL(n)</code></td>
+<td>Returns smallest integer greater than or equal to n</td>
+<td><code>CEIL(125.3)</code></td>
+<td>126</td>
+</tr>
+<tr class="even">
+<td><code>FLOOR(n)</code></td>
+<td>Returns largest integer less than or equal to n</td>
+<td><code>FLOOR(125.3)</code></td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td><code>MOD(m, n)</code></td>
+<td>Returns remainder when m is divided by n</td>
+<td><code>MOD(11, 4)</code></td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><code>ABS(n)</code></td>
+<td>Returns absolute value</td>
+<td><code>ABS(-15)</code></td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td><code>POWER(n, m)</code></td>
+<td>Returns n raised to the power of m</td>
+<td><code>POWER(3, 2)</code></td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><code>SQRT(n)</code></td>
+<td>Returns square root</td>
+<td><code>SQRT(25)</code></td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="listagg-with-different-delimiters" class="level3">
-<h3 class="anchored" data-anchor-id="listagg-with-different-delimiters">LISTAGG with Different Delimiters</h3>
-<p>You can use any delimiter, not just commas. This allows for flexible formatting of the concatenated results.</p>
-<p><strong>Example 3: Using different delimiters</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> location,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(section_id, <span class="st">' | '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> section_id) <span class="kw">AS</span> sections</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> section</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> location;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This query uses the pipe symbol (|) as a delimiter to separate section IDs by location.</p>
-<p><strong>Example 4: LISTAGG with student enrollment information</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.first_name <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> s.last_name <span class="kw">AS</span> student_name,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(c.description, <span class="st">'; '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> c.description) <span class="kw">AS</span> enrolled_courses</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> enrollment e <span class="kw">ON</span> s.student_id <span class="op">=</span> e.student_id</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section sec <span class="kw">ON</span> e.section_id <span class="op">=</span> sec.section_id  </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> course c <span class="kw">ON</span> sec.course_no <span class="op">=</span> c.course_no</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> s.student_id, s.first_name, s.last_name;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This query shows each student with a semicolon-separated list of all courses they’re enrolled in.</p>
-</section>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<ol type="1">
-<li><p>Write a query using LISTAGG to show each location with a comma-separated list of all instructor IDs who teach in that location.</p></li>
-<li><p>Create a query that displays each course number with a pipe-separated (|) list of all students enrolled in any section of that course. Include both first and last names and use ON OVERFLOW TRUNCATE to handle potential length issues.</p></li>
-<li><p>Use LISTAGG to show each instructor ID with a semicolon-separated list of all course descriptions they teach.</p></li>
-<li><p>Write a query that groups students by their last name initial (first letter) and shows a comma-separated list of their full names.</p></li>
-<li><p>Create a query using LISTAGG to show each grade type with a list of all students who received that grade type, formatted as “Last, First”. Important: Use ON OVERFLOW TRUNCATE clause to handle cases where there are many students with the same grade type.</p></li>
-<li><p>Use LISTAGG to display each zip code with a comma-separated list of all cities in that zip code area from the zipcode table.</p></li>
-</ol>
-</section>
-<section id="qa" class="level2">
-<h2 class="anchored" data-anchor-id="qa">Q&amp;A</h2>
-<p>Some conversation starters for the Q&amp;A session:</p>
-<ul>
-<li>When would LISTAGG be more appropriate than using traditional concatenation with the <code>||</code> operator?</li>
-<li>How does LISTAGG handle NULL values in the data being concatenated?</li>
-<li>What are the performance considerations when using LISTAGG with large datasets?</li>
-<li>How does the WITHIN GROUP (ORDER BY) clause affect the final result of LISTAGG?</li>
-<li>What happens if the concatenated result exceeds Oracle’s string length limits?</li>
-<li>Can you use LISTAGG with DISTINCT to remove duplicate values before concatenation?</li>
-<li>How would you handle cases where the delimiter character appears within the data being concatenated?</li>
-<li>What are some real-world business scenarios where LISTAGG would be particularly useful?</li>
-</ul>
-</section>
-<section id="additional-resources" class="level2">
-<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
-<ul>
-<li>Oracle SQL by Example, Chapter 6: Lab 6.1-6.2 (Aggregate Functions and GROUP BY)</li>
-<li>Oracle SQL by Example, Chapter 17: Lab 17.1 (Advanced SQL Concepts and Analytical Functions)</li>
-<li>Oracle SQL by Example, Table 6.1 (Commonly Used Aggregate Functions)</li>
-<li>Oracle SQL by Example, Chapter 4: Lab 4.1 (Character Functions and Concatenation)</li>
-<li>Oracle Documentation: SQL Language Reference - Aggregate Functions</li>
-</ul>
-</section>
-<section id="answers" class="level2">
-<h2 class="anchored" data-anchor-id="answers">Answers</h2>
-<p><strong>1.</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> location,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(instructor_id, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> instructor_id) <span class="kw">AS</span> instructors</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> section</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> location;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>2.</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> c.course_no,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(s.first_name <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> s.last_name, <span class="st">' | '</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>               <span class="kw">ON</span> <span class="kw">OVERFLOW</span> <span class="kw">TRUNCATE</span> <span class="st">'...'</span> <span class="kw">WITH</span> <span class="fu">COUNT</span>) </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> s.last_name, s.first_name) <span class="kw">AS</span> enrolled_students</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> course c</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section sec <span class="kw">ON</span> c.course_no <span class="op">=</span> sec.course_no</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> enrollment e <span class="kw">ON</span> sec.section_id <span class="op">=</span> e.section_id</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> student s <span class="kw">ON</span> e.student_id <span class="op">=</span> s.student_id</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> c.course_no;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>3.</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> i.instructor_id,</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(c.description, <span class="st">'; '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> c.description) <span class="kw">AS</span> courses_taught</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> instructor i</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> section s <span class="kw">ON</span> i.instructor_id <span class="op">=</span> s.instructor_id</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> course c <span class="kw">ON</span> s.course_no <span class="op">=</span> c.course_no</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> i.instructor_id;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>4.</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUBSTR</span>(last_name, <span class="dv">1</span>, <span class="dv">1</span>) <span class="kw">AS</span> last_name_initial,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(first_name <span class="op">||</span> <span class="st">' '</span> <span class="op">||</span> last_name, <span class="st">', '</span>) </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> last_name, first_name) <span class="kw">AS</span> students</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="fu">SUBSTR</span>(last_name, <span class="dv">1</span>, <span class="dv">1</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>5.</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> g.grade_type_code,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(s.last_name <span class="op">||</span> <span class="st">', '</span> <span class="op">||</span> s.first_name, <span class="st">', '</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>               <span class="kw">ON</span> <span class="kw">OVERFLOW</span> <span class="kw">TRUNCATE</span> <span class="st">'...'</span> <span class="kw">WITH</span> <span class="fu">COUNT</span>) </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> s.last_name, s.first_name) <span class="kw">AS</span> students_with_grade</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> grade g</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> enrollment e <span class="kw">ON</span> g.section_id <span class="op">=</span> e.section_id <span class="kw">AND</span> g.student_id <span class="op">=</span> e.student_id</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> student s <span class="kw">ON</span> e.student_id <span class="op">=</span> s.student_id</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> g.grade_type_code;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>6.</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> zip,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       LISTAGG(city, <span class="st">', '</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> city) <span class="kw">AS</span> cities</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> zipcode</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> zip;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="conversion-functions" class="level3">
+<h3 class="anchored" data-anchor-id="conversion-functions">Conversion Functions</h3>
+<p>Conversion functions make it easy to transform data into different types. Here are some common useful conversion functions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>TO_CHAR(value, [format])</code></td>
+<td>Converts number or date to string</td>
+<td><code>TO_CHAR(1234.56, '$9,999.99')</code></td>
+<td>‘$1,234.56’</td>
+</tr>
+<tr class="even">
+<td><code>TO_NUMBER(str, [format])</code></td>
+<td>Converts string to number</td>
+<td><code>TO_NUMBER('$1,234.56', '$9,999.99')</code></td>
+<td>1234.56</td>
+</tr>
+<tr class="odd">
+<td><code>CAST(expr AS type)</code></td>
+<td>Converts expression to specified datatype</td>
+<td><code>CAST('123' AS NUMBER)</code></td>
+<td>123</td>
+</tr>
+<tr class="even">
+<td><code>NVL(expr1, expr2)</code></td>
+<td>Returns expr2 if expr1 is NULL</td>
+<td><code>NVL(NULL, 0)</code></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td><code>NVL2(expr1, expr2, expr3)</code></td>
+<td>Returns expr2 if expr1 is NOT NULL, else expr3</td>
+<td><code>NVL2(NULL, 'A', 'B')</code></td>
+<td>‘B’</td>
+</tr>
+<tr class="even">
+<td><code>COALESCE(expr1, expr2, ...)</code></td>
+<td>Returns first non-NULL expression</td>
+<td><code>COALESCE(NULL, NULL, 'A', 'B')</code></td>
+<td>‘A’</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1142,13 +1219,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Modules/Custom_Functions.html" class="pagination-link" aria-label="Custom Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Custom Functions</span></span>
+      <a href="../Modules/Student_Database_Schema.html" class="pagination-link" aria-label="The Student Database Schema">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The Student Database Schema</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Modules/student_resources/Additional_Practice.html" class="pagination-link" aria-label="Extra Practice Exercises">
-        <span class="nav-page-text">Extra Practice Exercises</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Modules/Summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text">Summary</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
