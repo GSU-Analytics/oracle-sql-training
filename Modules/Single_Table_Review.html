@@ -1005,16 +1005,16 @@ div.csl-indent {
 <section id="simple-problems" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="simple-problems"><span class="header-section-number">3.3.1</span> Simple problems</h3>
 <ol type="1">
-<li><p>Write a SELECT statement that lists the first and last names of all students.</p></li>
-<li><p>Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.</p></li>
-<li><p>Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists the first and last names of all students.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists all cities, states, and zip codes. Order them alphabetically by state.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</p></li>
 </ol>
 </section>
 <section id="complex-problems" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="complex-problems"><span class="header-section-number">3.3.2</span> Complex problems</h3>
 <ol type="1">
-<li><p>Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</p></li>
-<li><p>Write a SELECT statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</p></li>
+<li><p>Write a <code>SELECT</code> statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</p></li>
+<li><p>Write a <code>SELECT</code> statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</p></li>
 </ol>
 </section>
 </section>
@@ -1043,13 +1043,13 @@ div.csl-indent {
 <section id="simple-problems-1" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="simple-problems-1"><span class="header-section-number">3.6.1</span> Simple problems</h3>
 <ol type="1">
-<li>Write a SELECT statement that lists the first and last names of all students.</li>
+<li>Write a <code>SELECT</code> statement that lists the first and last names of all students.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name,</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       last_name</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> student;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Write a SELECT statement that lists all cities, states, and zip codes. Order them alphabetically by state.</li>
+<li>Write a <code>SELECT</code> statement that lists all cities, states, and zip codes. Order them alphabetically by state.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> city,</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>       state,</span>
@@ -1057,7 +1057,7 @@ div.csl-indent {
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> zipcode</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">ORDER</span> <span class="kw">BY</span> state;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
-<li>Write a SELECT statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</li>
+<li>Write a <code>SELECT</code> statement that lists each city and zip code in New York or Connecticut. Sort the results in ascending order by zip code.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> city,</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       zip</span>
@@ -1069,7 +1069,7 @@ div.csl-indent {
 <section id="complex-problems-1" class="level3" data-number="3.6.2">
 <h3 data-number="3.6.2" class="anchored" data-anchor-id="complex-problems-1"><span class="header-section-number">3.6.2</span> Complex problems</h3>
 <ol type="1">
-<li>Write a SELECT statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</li>
+<li>Write a <code>SELECT</code> statement that lists the first and last names of instructors with the letter i (either uppercase or lowercase) in their last name, living in zip code 10025.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> first_name,</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       last_name</span>
@@ -1078,7 +1078,7 @@ div.csl-indent {
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">OR</span> last_name <span class="kw">LIKE</span> <span class="st">'%I%'</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> zip <span class="op">=</span> <span class="st">'10025'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Write a SELECT statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</li>
+<li>Write a <code>SELECT</code> statement that returns a student’s ID, and their name in the format of “Last, First” for each student. Alias the name column to <code>Full Name</code>. Sort the results by their <em>first</em> name.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">CONCAT</span>(<span class="fu">CONCAT</span>(last_name, <span class="st">', '</span>), first_name) <span class="kw">AS</span> <span class="ot">"Full Name"</span></span>

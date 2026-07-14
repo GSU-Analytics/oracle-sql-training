@@ -34,7 +34,7 @@
     "href": "Modules/Course_Introduction.html",
     "title": "1  Course Introduction",
     "section": "",
-    "text": "1.1 Introduction",
+    "text": "1.1 Introduction\nThis course is designed for analysts and professionals who use Oracle SQL Developer for querying databases in support of data analysis and reporting.\nStudents will build skills in writing efficient, professional-grade SQL with a focus on multi-table queries, set operations, analytical functions, and common reporting tasks.",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
@@ -45,7 +45,7 @@
     "href": "Modules/Course_Introduction.html#introduction",
     "title": "1  Course Introduction",
     "section": "",
-    "text": "1.1.1 Overview\nThis course is designed for analysts and professionals who are already familiar with basic SQL syntax and who use Oracle SQL Developer for querying databases in support of data analysis and reporting. Students will build skills in writing efficient, professional-grade SQL with a focus on multi-table queries, set operations, analytical functions, and common reporting tasks.\n\n\n1.1.2 Prerequisites\nTo participate in this course, students should:\n\nHave completed the LinkedIn Learning Quick Start Guide to SQL\nBe familiar with running basic SELECT, WHERE, ORDER BY, and JOIN queries\n\n\nSQL Developer and database setup instructions are covered in the next module. We will not troubleshoot installation issues here.\n\n\n\n1.1.3 Module Objectives\nBy the end of this module, students will be able to:\n\nUnderstand the structure and expectations of the course\nIdentify the major types of SQL operations that will be covered\nConfirm they meet the technical setup requirements and prerequisites\nLocate the primary textbook and reference materials for the course",
+    "text": "NotePrerequisites\n\n\n\nTo participate in this course, students should:\n\nHave completed the LinkedIn Learning Quick Start Guide to SQL.\nBe familiar with running basic SELECT, WHERE, and ORDER BY queries.\n\nWe expect you to have had some prior exposure to SQL, but we do not expect you to be an expert. Passing familiarity with SQL as a tool is sufficient.",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
@@ -63,22 +63,11 @@
     ]
   },
   {
-    "objectID": "Modules/Course_Introduction.html#module-structure",
-    "href": "Modules/Course_Introduction.html#module-structure",
-    "title": "1  Course Introduction",
-    "section": "1.3 Module Structure",
-    "text": "1.3 Module Structure\nThis course follows a modular structure. Each module includes:\n\nLesson Overview: Short introduction to the topic\nGuided Examples: Hands-on walkthroughs using the STUDENT schema\nPractice Exercises: Independent SQL challenges\nReview Quiz: Multiple choice or short answer checks for understanding\n\nEach lesson builds upon previous concepts. The course progresses from intermediate to advanced topics, ending with data transformation and performance optimization patterns.",
-    "crumbs": [
-      "Introduction",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
-    ]
-  },
-  {
     "objectID": "Modules/Course_Introduction.html#materials-and-advice",
     "href": "Modules/Course_Introduction.html#materials-and-advice",
     "title": "1  Course Introduction",
-    "section": "1.4 Materials and Advice",
-    "text": "1.4 Materials and Advice\n\n1.4.1 Course Textbook and Materials\nPrimary Textbook: Oracle SQL by Example, 4th Edition by Alice Rischert\nStudents can access the textbook for free through O’Reilly using GSU credentials. It will serve as the primary reference throughout the course.\n\nMost labs and practice exercises are drawn from the book\nAdditional scripts and documentation are included in the course repository\n\n\n\n1.4.2 How to Get the Most Out of This Course\n\nPractice! SQL is a skill best learned hands-on\nUse the textbook as both a reference and a source for deeper exploration\nAsk questions and share queries with classmates for feedback\nReview answers and explanations for exercises",
+    "section": "1.3 Materials and Advice",
+    "text": "1.3 Materials and Advice\n\n1.3.1 Course Textbook and Materials\nPrimary Textbook: Oracle SQL by Example, 4th Edition by Alice Rischert\nStudents can access the textbook for free through O’Reilly using GSU credentials. It will serve as the primary reference throughout the course.\n\nMost labs and practice exercises are drawn from the book\nAdditional scripts and documentation are included in the course repository\n\n\n\n1.3.2 How to Get the Most Out of This Course\n\nPractice! SQL is a skill best learned hands-on\nUse the textbook as both a reference and a source for deeper exploration\nAsk questions and share queries with classmates for feedback\nReview answers and explanations for exercises",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Introduction</span>"
