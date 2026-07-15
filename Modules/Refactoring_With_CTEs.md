@@ -39,10 +39,11 @@ SELECT * FROM grouped WHERE total_enrollments > 5;
 
 This query demonstrates chaining CTEs to break down complex logic into manageable steps.
 
-> N.B. We highly encourage using CTEs whenever you need to write queries with more than a couple of steps.
-> - Treat each CTE as a self-contained transformation of your data.
-> - This makes debugging much easier; you will have created several checkpoints for yourself, which makes it easier for you to check your logic.
-> - See the chapter on refactoring queries with CTEs for more advice on this topic.
+:::{.callout-tip title='Do this!'}
+We highly encourage using CTEs whenever you need to write queries with more than a couple of steps. Treat each CTE as a self-contained transformation of your data.
+
+This makes debugging much easier; you will have created several "checkpoints" for yourself, which makes it easier for you to check your logic.
+:::
 
 **Reference**: Lab 17.1
 

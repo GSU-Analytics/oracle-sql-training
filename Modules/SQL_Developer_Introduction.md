@@ -44,6 +44,10 @@ You can open a worksheet by:
 
 ![worksheet](./img/open_worksheet.jpg)
 
+:::{.callout-tip}
+SQL Developer has some built-in functionality to help you keep your code nicely formatted. See @tip-formatting for more details.
+:::
+
 #### Connections
 
 Each worksheet tab is tied to a specific database connection. You can:

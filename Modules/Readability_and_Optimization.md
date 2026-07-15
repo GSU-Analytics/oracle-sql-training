@@ -41,8 +41,12 @@ We recommend the following style:
 - Aliases to clarify table sources
 - Place each clause on a new line
 
-> - SQL Developer can do this for you automatically. Press `CTRL+F7` to automatically format your code.
-> - You can change your preferences by adjusting your formatting rules. Go to `Tools > Preferences > Code Editor > Format` and set things exactly how you want them.
+:::{#tip-formatting .callout-tip}
+#### Automatic Formatting
+- SQL Developer can do this for you automatically. Press <kbd>⌃ Control</kbd> + <kbd>F7</kbd> to automatically format your code.
+  - If you are using VSCode and the SQL Developer extension, the `Format Document` command will do the same thing. The default shortcut for this is typically something like: <kbd>⌥ Option</kbd> + <kbd>⇧ Shift</kbd> + <kbd>F</kbd>
+- You can change your preferences by adjusting your formatting rules. Go to `Tools > Preferences > Code Editor > Format` and set things exactly how you want them.
+:::
 
 **Example:**
 
@@ -56,9 +60,12 @@ ORDER BY s.student_id;
 
 This query demonstrates proper formatting with clear aliases, indentation, and logical clause separation.
 
-> This might seem pedantic.
->
-> Sometimes, it is. However, code readability matters when you have to verify whether your logic is correct (a common requirement when writing more complicated queries). You will save yourself time by making your query easier to read, because you will be able to read it more easily and make changes based on what you think should be modified.
+:::{.callout-important}
+#### "Who Cares?"
+This might seem pedantic.
+
+Sometimes, it is. However, code readability matters when you have to verify whether your logic is correct (a common requirement when writing more complicated queries). You will save yourself time by making your query easier to read, because you will be able to read it more easily and make changes based on what you think should be modified.
+:::
 
 **Reference**: *Oracle SQL by Example (4th Edition), Appendix B: SQL Formatting Guide*
 

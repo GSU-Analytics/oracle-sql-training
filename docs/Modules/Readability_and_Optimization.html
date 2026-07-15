@@ -633,12 +633,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Aliases to clarify table sources</li>
 <li>Place each clause on a new line</li>
 </ul>
-<blockquote class="blockquote">
+<div id="tip-formatting" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;13.1: Automatic Formatting
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>SQL Developer can do this for you automatically. Press <code>CTRL+F7</code> to automatically format your code.</li>
+<li>SQL Developer can do this for you automatically. Press <kbd>⌃ Control</kbd> + <kbd>F7</kbd> to automatically format your code.
+<ul>
+<li>If you are using VSCode and the SQL Developer extension, the <code>Format Document</code> command will do the same thing. The default shortcut for this is typically something like: <kbd>⌥ Option</kbd> + <kbd>⇧ Shift</kbd> + <kbd>F</kbd></li>
+</ul></li>
 <li>You can change your preferences by adjusting your formatting rules. Go to <code>Tools &gt; Preferences &gt; Code Editor &gt; Format</code> and set things exactly how you want them.</li>
 </ul>
-</blockquote>
+</div>
+</div>
 <p><strong>Example:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.student_id, s.first_name, z.city</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student s</span>
@@ -646,10 +659,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> z.state <span class="op">=</span> <span class="st">'GA'</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> s.student_id;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This query demonstrates proper formatting with clear aliases, indentation, and logical clause separation.</p>
-<blockquote class="blockquote">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>“Who Cares?”
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>This might seem pedantic.</p>
 <p>Sometimes, it is. However, code readability matters when you have to verify whether your logic is correct (a common requirement when writing more complicated queries). You will save yourself time by making your query easier to read, because you will be able to read it more easily and make changes based on what you think should be modified.</p>
-</blockquote>
+</div>
+</div>
 <p><strong>Reference</strong>: <em>Oracle SQL by Example (4th Edition), Appendix B: SQL Formatting Guide</em></p>
 </section>
 <section id="documenting-queries" class="level3" data-number="13.2.2">
