@@ -1306,6 +1306,61 @@
     ]
   },
   {
+    "objectID": "Modules/Syntax_Reference.html",
+    "href": "Modules/Syntax_Reference.html",
+    "title": "Structure of a SELECT Statement",
+    "section": "",
+    "text": "Overview\nDepending on how comfortable you are with SQL, the structure of a SELECT command can be hard to remember. However, you can get quite far when writing queries by knowing the order and significance of a few important clauses.\nThe overview shown by Figure 1 is a great reference for the most important components of a SELECT statement. It shows you:",
+    "crumbs": [
+      "References",
+      "Structure of a SELECT Statement"
+    ]
+  },
+  {
+    "objectID": "Modules/Syntax_Reference.html#overview",
+    "href": "Modules/Syntax_Reference.html#overview",
+    "title": "Structure of a SELECT Statement",
+    "section": "",
+    "text": "Figure 1: SQL SELECT reference, produced by KDnuggets, Guiding Tech Media\n\n\n\n\n\n\n\n\n\nWarningOracle SQL and the LIMIT clause\n\n\n\n\n\nThis diagram shows the use of the LIMIT clause. This keyword is standard in many SQL dialects, but is not used in Oracle SQL. To achieve the same thing, you would need to write something like:\nSELECT ...\n...\n-- We have to use \"FETCH\" instead of \"LIMIT\" here\nFETCH FIRST 5 ROWS ONLY\nWe’ve elected to include the diagram above because we think the main information it provides is so excellent. Just note that the final clause shown should be slightly different when you are working with Oracle SQL.\n\n\n\n\n\n\nA succinct reference for the order of the most important keyword clauses\n\nFor example, your FROM keyword should come before a GROUP BY keyword\n\nA visual reference that shows what each clause does to your table\nAn approximate reference for the order of operations that Oracle follows\n\nFor example, Oracle performs WHERE filtering before it does aggregations specified by your GROUP BY clause",
+    "crumbs": [
+      "References",
+      "Structure of a SELECT Statement"
+    ]
+  },
+  {
+    "objectID": "Modules/Syntax_Reference.html#the-official-comprehensive-structure",
+    "href": "Modules/Syntax_Reference.html#the-official-comprehensive-structure",
+    "title": "Structure of a SELECT Statement",
+    "section": "The Official, Comprehensive Structure",
+    "text": "The Official, Comprehensive Structure\n\n\n\nThe Official SELECT Structure, per Oracle’s Documentation\n\n\nIf you want to know the official, authoritative structure for a SELECT statement in Oracle SQL, you can find it in Oracle’s documentation.\nThis isn’t a great place for learning how to do things, but it can be useful for understanding the “structure” inherent in SQL. Consult it if you’re doing anything complex and you need to know whether something is possible at all.",
+    "crumbs": [
+      "References",
+      "Structure of a SELECT Statement"
+    ]
+  },
+  {
+    "objectID": "Modules/Function_Reference.html",
+    "href": "Modules/Function_Reference.html",
+    "title": "Single-Row Functions",
+    "section": "",
+    "text": "Single-Row Functions\nOracle SQL provides numerous built-in functions to manipulate data, perform calculations, and format results.\nBelow are some of the most commonly used functions, categorized by type.",
+    "crumbs": [
+      "References",
+      "Single-Row Functions"
+    ]
+  },
+  {
+    "objectID": "Modules/Function_Reference.html#single-row-functions",
+    "href": "Modules/Function_Reference.html#single-row-functions",
+    "title": "Single-Row Functions",
+    "section": "",
+    "text": "Note\n\n\n\nThese functions do not aggregate data. They operate element-wise on your inputs.\n\n\n\nString Functions\nString functions make it easy to manipulate textual data. Here are some common useful string functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nLOWER(str)\nConverts string to lowercase\nLOWER('HELLO')\n‘hello’\n\n\nUPPER(str)\nConverts string to uppercase\nUPPER('hello')\n‘HELLO’\n\n\nINITCAP(str)\nCapitalizes first letter of each word\nINITCAP('hello world')\n‘Hello World’\n\n\nSUBSTR(str, start, [length])\nExtracts substring\nSUBSTR('HELLO', 2, 3)\n‘ELL’\n\n\nLENGTH(str)\nReturns length of string\nLENGTH('HELLO')\n5\n\n\nCONCAT(str1, str2)\nConcatenates two strings (You can also use the || operator)\nCONCAT('Hello', ' World')\n‘Hello World’\n\n\nREPLACE(str, search, replace)\nReplaces all occurrences\nREPLACE('JACK AND JUE','J','BL')\n‘BLACK AND BLUE’\n\n\nTRIM([chars FROM] str)\nRemoves specified characters\nTRIM(' hello ')\n‘hello’\n\n\nLPAD(str, length, [pad_str])\nLeft-pad string\nLPAD('123', 5, '0')\n‘00123’\n\n\nRPAD(str, length, [pad_str])\nRight-pad string\nRPAD('ABC', 5, 'XY')\n‘ABCXY’\n\n\n\n\n\nNumeric Functions\nNumeric functions make it easy to manipulate numerical data. Here are some common useful numerical functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nROUND(n, [decimal])\nRounds number to specified decimal places\nROUND(125.315, 2)\n125.32\n\n\nTRUNC(n, [decimal])\nTruncates number to specified decimal places\nTRUNC(125.315, 2)\n125.31\n\n\nCEIL(n)\nReturns smallest integer greater than or equal to n\nCEIL(125.3)\n126\n\n\nFLOOR(n)\nReturns largest integer less than or equal to n\nFLOOR(125.3)\n125\n\n\nMOD(m, n)\nReturns remainder when m is divided by n\nMOD(11, 4)\n3\n\n\nABS(n)\nReturns absolute value\nABS(-15)\n15\n\n\nPOWER(n, m)\nReturns n raised to the power of m\nPOWER(3, 2)\n9\n\n\nSQRT(n)\nReturns square root\nSQRT(25)\n5\n\n\n\n\n\nConversion Functions\nConversion functions make it easy to transform data into different types. Here are some common useful conversion functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nTO_CHAR(value, [format])\nConverts number or date to string\nTO_CHAR(1234.56, '$9,999.99')\n‘$1,234.56’\n\n\nTO_NUMBER(str, [format])\nConverts string to number\nTO_NUMBER('$1,234.56', '$9,999.99')\n1234.56\n\n\nCAST(expr AS type)\nConverts expression to specified datatype\nCAST('123' AS NUMBER)\n123\n\n\nNVL(expr1, expr2)\nReturns expr2 if expr1 is NULL\nNVL(NULL, 0)\n0\n\n\nNVL2(expr1, expr2, expr3)\nReturns expr2 if expr1 is NOT NULL, else expr3\nNVL2(NULL, 'A', 'B')\n‘B’\n\n\nCOALESCE(expr1, expr2, ...)\nReturns first non-NULL expression\nCOALESCE(NULL, NULL, 'A', 'B')\n‘A’",
+    "crumbs": [
+      "References",
+      "Single-Row Functions"
+    ]
+  },
+  {
     "objectID": "Modules/Student_Database_Schema.html",
     "href": "Modules/Student_Database_Schema.html",
     "title": "The Student Database Schema",
@@ -1347,28 +1402,6 @@
     "crumbs": [
       "References",
       "The Student Database Schema"
-    ]
-  },
-  {
-    "objectID": "Modules/Function_Reference.html",
-    "href": "Modules/Function_Reference.html",
-    "title": "Single-Row Functions",
-    "section": "",
-    "text": "Single-Row Functions\nOracle SQL provides numerous built-in functions to manipulate data, perform calculations, and format results.\nBelow are some of the most commonly used functions, categorized by type.",
-    "crumbs": [
-      "References",
-      "Single-Row Functions"
-    ]
-  },
-  {
-    "objectID": "Modules/Function_Reference.html#single-row-functions",
-    "href": "Modules/Function_Reference.html#single-row-functions",
-    "title": "Single-Row Functions",
-    "section": "",
-    "text": "Note\n\n\n\nThese functions do not aggregate data. They operate element-wise on your inputs.\n\n\n\nString Functions\nString functions make it easy to manipulate textual data. Here are some common useful string functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nLOWER(str)\nConverts string to lowercase\nLOWER('HELLO')\n‘hello’\n\n\nUPPER(str)\nConverts string to uppercase\nUPPER('hello')\n‘HELLO’\n\n\nINITCAP(str)\nCapitalizes first letter of each word\nINITCAP('hello world')\n‘Hello World’\n\n\nSUBSTR(str, start, [length])\nExtracts substring\nSUBSTR('HELLO', 2, 3)\n‘ELL’\n\n\nLENGTH(str)\nReturns length of string\nLENGTH('HELLO')\n5\n\n\nCONCAT(str1, str2)\nConcatenates two strings (You can also use the || operator)\nCONCAT('Hello', ' World')\n‘Hello World’\n\n\nREPLACE(str, search, replace)\nReplaces all occurrences\nREPLACE('JACK AND JUE','J','BL')\n‘BLACK AND BLUE’\n\n\nTRIM([chars FROM] str)\nRemoves specified characters\nTRIM(' hello ')\n‘hello’\n\n\nLPAD(str, length, [pad_str])\nLeft-pad string\nLPAD('123', 5, '0')\n‘00123’\n\n\nRPAD(str, length, [pad_str])\nRight-pad string\nRPAD('ABC', 5, 'XY')\n‘ABCXY’\n\n\n\n\n\nNumeric Functions\nNumeric functions make it easy to manipulate numerical data. Here are some common useful numerical functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nROUND(n, [decimal])\nRounds number to specified decimal places\nROUND(125.315, 2)\n125.32\n\n\nTRUNC(n, [decimal])\nTruncates number to specified decimal places\nTRUNC(125.315, 2)\n125.31\n\n\nCEIL(n)\nReturns smallest integer greater than or equal to n\nCEIL(125.3)\n126\n\n\nFLOOR(n)\nReturns largest integer less than or equal to n\nFLOOR(125.3)\n125\n\n\nMOD(m, n)\nReturns remainder when m is divided by n\nMOD(11, 4)\n3\n\n\nABS(n)\nReturns absolute value\nABS(-15)\n15\n\n\nPOWER(n, m)\nReturns n raised to the power of m\nPOWER(3, 2)\n9\n\n\nSQRT(n)\nReturns square root\nSQRT(25)\n5\n\n\n\n\n\nConversion Functions\nConversion functions make it easy to transform data into different types. Here are some common useful conversion functions.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nResult\n\n\n\n\nTO_CHAR(value, [format])\nConverts number or date to string\nTO_CHAR(1234.56, '$9,999.99')\n‘$1,234.56’\n\n\nTO_NUMBER(str, [format])\nConverts string to number\nTO_NUMBER('$1,234.56', '$9,999.99')\n1234.56\n\n\nCAST(expr AS type)\nConverts expression to specified datatype\nCAST('123' AS NUMBER)\n123\n\n\nNVL(expr1, expr2)\nReturns expr2 if expr1 is NULL\nNVL(NULL, 0)\n0\n\n\nNVL2(expr1, expr2, expr3)\nReturns expr2 if expr1 is NOT NULL, else expr3\nNVL2(NULL, 'A', 'B')\n‘B’\n\n\nCOALESCE(expr1, expr2, ...)\nReturns first non-NULL expression\nCOALESCE(NULL, NULL, 'A', 'B')\n‘A’",
-    "crumbs": [
-      "References",
-      "Single-Row Functions"
     ]
   },
   {
