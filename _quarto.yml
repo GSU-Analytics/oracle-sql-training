@@ -46,8 +46,9 @@ book:
       - "Modules/student_resources/Additional_Practice.md"
     - part: "References"
       chapters:
-      - "Modules/Student_Database_Schema.md"
+      - "Modules/Syntax_Reference.md"
       - "Modules/Function_Reference.md"
+      - "Modules/Student_Database_Schema.md"
     - Modules/Summary.md
     - Modules/Attributions.md
   cover-image: Modules/site_assets/cover.png

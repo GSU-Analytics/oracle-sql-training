@@ -1390,5 +1390,49 @@
     "crumbs": [
       "Attributions"
     ]
+  },
+  {
+    "objectID": "Modules/Syntax_Reference.html",
+    "href": "Modules/Syntax_Reference.html",
+    "title": "Structure of a SELECT Statement",
+    "section": "",
+    "text": "Overview\nDepending on how comfortable you are with SQL, the structure of a SELECT command can be hard to remember. However, you can get quite far when writing queries by knowing the order and significance of a few important clauses.\nThe overview shown by Figure 1 is a great reference for the most important components of a SELECT statement. It shows you:",
+    "crumbs": [
+      "References",
+      "Structure of a SELECT Statement"
+    ]
+  },
+  {
+    "objectID": "Modules/Syntax_Reference.html#overview",
+    "href": "Modules/Syntax_Reference.html#overview",
+    "title": "Structure of a SELECT Statement",
+    "section": "",
+    "text": "Figure 1: SQL SELECT reference, produced by KDnuggets, Guiding Tech Media\n\n\n\n\n\n\n\n\n\nWarningOracle SQL and the LIMIT clause\n\n\n\n\n\nThis diagram shows the use of the LIMIT clause. This keyword is standard in many SQL dialects, but is not used in Oracle SQL. To achieve the same thing, you would need to write something like:\nSELECT ...\n...\n-- We have to use \"FETCH\" instead of \"LIMIT\" here\nFETCH FIRST 5 ROWS ONLY\nWe’ve elected to include the diagram above because we think the main information it provides is so excellent. Just note that the final clause shown should be slightly different when you are working with Oracle SQL.\n\n\n\n\n\n\nA succinct reference for the order of the most important keyword clauses\n\nFor example, your FROM keyword should come before a GROUP BY keyword\n\nA visual reference that shows what each clause does to your table\nAn approximate reference for the order of operations that Oracle follows\n\nFor example, Oracle performs WHERE filtering before it does aggregations specified by your GROUP BY clause",
+    "crumbs": [
+      "References",
+      "Structure of a SELECT Statement"
+    ]
+  },
+  {
+    "objectID": "Modules/Syntax_Reference.html#learning-more",
+    "href": "Modules/Syntax_Reference.html#learning-more",
+    "title": "Structure of a SELECT Statement",
+    "section": "Learning More",
+    "text": "Learning More\n\n\n\nOfficial SELECT Structure, per Oracle’s Documentation\n\n\nIf you want to know the official, authoritative structure for a SELECT statement in Oracle SQL, you can find it in Oracle’s documentation.\nThis isn’t a great place for learning how to do things, but it can be useful for understanding the “structure” inherent in SQL. Consult it if you’re doing anything complex and you need to know whether something is possible at all.",
+    "crumbs": [
+      "References",
+      "Structure of a SELECT Statement"
+    ]
+  },
+  {
+    "objectID": "Modules/Syntax_Reference.html#the-official-comprehensive-structure",
+    "href": "Modules/Syntax_Reference.html#the-official-comprehensive-structure",
+    "title": "Structure of a SELECT Statement",
+    "section": "The Official, Comprehensive Structure",
+    "text": "The Official, Comprehensive Structure\n\n\n\nThe Official SELECT Structure, per Oracle’s Documentation\n\n\nIf you want to know the official, authoritative structure for a SELECT statement in Oracle SQL, you can find it in Oracle’s documentation.\nThis isn’t a great place for learning how to do things, but it can be useful for understanding the “structure” inherent in SQL. Consult it if you’re doing anything complex and you need to know whether something is possible at all.",
+    "crumbs": [
+      "References",
+      "Structure of a SELECT Statement"
+    ]
   }
 ]
